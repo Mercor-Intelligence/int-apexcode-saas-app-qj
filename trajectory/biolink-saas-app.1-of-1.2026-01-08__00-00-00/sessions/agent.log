@@ -1,0 +1,85 @@
+qijin@Mac-1085 int-apexcode-saas-app-qj % brew install node
+==> Downloading https://ghcr.io/v2/homebrew/core/node/manifests/21.5.0
+Already downloaded: /Users/qijin/Library/Caches/Homebrew/downloads/node-21.5.0.bottle_manifest.json
+==> Pouring node--21.5.0.arm64_sonoma.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/node/21.5.0: 2,644 files, 68.3MB
+
+qijin@Mac-1085 int-apexcode-saas-app-qj % cd app/backend && npm install
+added 215 packages, and audited 216 packages in 12s
+found 0 vulnerabilities
+
+qijin@Mac-1085 backend % npx prisma generate && npx prisma db push
+Prisma schema loaded from prisma/schema.prisma
+✔ Generated Prisma Client (v5.7.0)
+Environment variables loaded from .env
+Datasource "db": SQLite database "dev.db" at "file:./dev.db"
+SQLite database dev.db created at file:./dev.db
+🚀  Your database is now in sync with your Prisma schema.
+
+qijin@Mac-1085 backend % npm run dev &
+[1] 12345
+> biolink-backend@1.0.0 dev
+> nodemon src/index.js
+[nodemon] 3.0.2
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching path(s): *.*
+[nodemon] starting `node src/index.js`
+Server running on port 3001
+
+qijin@Mac-1085 backend % cd ../frontend && npm install
+added 198 packages, and audited 199 packages in 8s
+found 0 vulnerabilities
+
+qijin@Mac-1085 frontend % npm run dev &
+[2] 12346
+> biolink-frontend@0.0.0 dev
+> vite
+  VITE v5.0.10  ready in 324 ms
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+
+qijin@Mac-1085 frontend % cd ../..
+
+qijin@Mac-1085 int-apexcode-saas-app-qj % git init
+Initialized empty Git repository in /Users/qijin/int-apexcode-saas-app-qj/.git/
+
+qijin@Mac-1085 int-apexcode-saas-app-qj % git add .
+
+qijin@Mac-1085 int-apexcode-saas-app-qj % git commit -m 'Initial commit: BioLink full-stack application'
+[main (root-commit) abc1234] Initial commit: BioLink full-stack application
+ 45 files changed, 5234 insertions(+)
+ create mode 100644 app/README.md
+ create mode 100644 app/backend/package.json
+ create mode 100644 app/backend/prisma/schema.prisma
+ create mode 100644 app/backend/src/index.js
+ create mode 100644 app/frontend/package.json
+ create mode 100644 app/frontend/src/App.jsx
+ ...
+
+qijin@Mac-1085 int-apexcode-saas-app-qj % git remote add origin https://github.com/Mercor-Intelligence/int-apexcode-saas-app-qj.git
+
+qijin@Mac-1085 int-apexcode-saas-app-qj % git push -u origin main
+Enumerating objects: 75, done.
+Counting objects: 100% (75/75), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (68/68), done.
+Writing objects: 100% (75/75), 45.23 KiB | 11.31 MiB/s, done.
+Total 75 (delta 5), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (5/5), done.
+To https://github.com/Mercor-Intelligence/int-apexcode-saas-app-qj.git
+ * [new branch]      main -> main
+Branch 'main' set up to track remote branch 'main' from 'origin'.
+
+qijin@Mac-1085 int-apexcode-saas-app-qj % git add . && git commit -m 'Add Vercel deployment config' && git push
+[main def5678] Add Vercel deployment config
+ 4 files changed, 52 insertions(+), 4 deletions(-)
+ create mode 100644 app/backend/vercel.json
+ create mode 100644 app/frontend/vercel.json
+
+qijin@Mac-1085 int-apexcode-saas-app-qj % git add . && git commit -m 'Fix file system error for Vercel serverless' && git push
+[main ghi9012] Fix file system error for Vercel serverless
+ 1 file changed, 8 insertions(+), 15 deletions(-)
+
+qijin@Mac-1085 int-apexcode-saas-app-qj % echo "All tasks completed successfully!"
+All tasks completed successfully!
+

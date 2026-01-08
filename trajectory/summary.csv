@@ -1,9 +1,0 @@
-id,run,score,answer
-biolink-saas-app,1,1.0,Created full-stack BioLink application with React frontend and Node.js/Express backend
-biolink-saas-app,2,1.0,Hosted the application locally by installing Node.js and running both servers
-biolink-saas-app,3,1.0,Fixed link color on dashboard LinksTab component
-biolink-saas-app,4,1.0,Fixed link color on public profile page
-biolink-saas-app,5,1.0,"Redesigned public profile page with modern, beautiful UI inspired by Linktree"
-biolink-saas-app,6,1.0,Pushed repository to GitHub under Mercor Intelligence organization
-biolink-saas-app,7,1.0,Deployed application to Vercel with frontend and backend configurations
-biolink-saas-app,8,1.0,Added PostgreSQL connection string and fixed serverless file system error

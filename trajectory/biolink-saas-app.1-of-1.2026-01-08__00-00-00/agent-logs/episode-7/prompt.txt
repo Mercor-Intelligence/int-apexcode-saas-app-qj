@@ -1,0 +1,32 @@
+## Your Task
+
+Fix the serverless deployment error and add the database connection string.
+
+---
+
+## User Request
+
+This is the connection string, add is as DATABASE_URL in vercel backend settings: psql 'postgresql://neondb_owner:npg_J6vYAziDb2OK@ep-young-glitter-aht8dnan-pooler.c-3.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require'
+
+---
+
+## Error Encountered
+
+FUNCTION_INVOCATION_FAILED: Error: ENOENT: no such file or directory, mkdir '/var/task/uploads'
+
+The backend is trying to create an uploads directory on Vercel's read-only serverless filesystem.
+
+---
+
+## Fix Required
+
+Change multer from diskStorage to memoryStorage to avoid writing to the filesystem.
+
+---
+
+## Success Criteria
+
+- Backend deployed and responding correctly
+- No file system errors
+- Database connected via Neon PostgreSQL
+

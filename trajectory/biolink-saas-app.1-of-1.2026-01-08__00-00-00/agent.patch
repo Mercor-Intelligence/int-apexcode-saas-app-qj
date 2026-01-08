@@ -1,0 +1,139 @@
+diff --git a/app/backend/package.json b/app/backend/package.json
+new file mode 100644
+index 0000000..1234567
+--- /dev/null
++++ b/app/backend/package.json
+@@ -0,0 +1,30 @@
++{
++  "name": "biolink-backend",
++  "version": "1.0.0",
++  "type": "module",
++  "scripts": {
++    "dev": "nodemon src/index.js",
++    "start": "node src/index.js"
++  },
++  "dependencies": {
++    "@prisma/client": "^5.7.0",
++    "bcryptjs": "^2.4.3",
++    "cors": "^2.8.5",
++    "dotenv": "^16.3.1",
++    "express": "^4.18.2",
++    "jsonwebtoken": "^9.0.2",
++    "multer": "^1.4.5-lts.1"
++  },
++  "devDependencies": {
++    "nodemon": "^3.0.2",
++    "prisma": "^5.7.0"
++  }
++}
+
+diff --git a/app/backend/prisma/schema.prisma b/app/backend/prisma/schema.prisma
+new file mode 100644
+index 0000000..2345678
+--- /dev/null
++++ b/app/backend/prisma/schema.prisma
+@@ -0,0 +1,80 @@
++datasource db {
++  provider = "postgresql"
++  url      = env("DATABASE_URL")
++}
++
++generator client {
++  provider = "prisma-client-js"
++}
++
++model User {
++  id          String   @id @default(cuid())
++  email       String   @unique
++  password    String?
++  handle      String   @unique
++  displayName String?
++  bio         String?
++  avatarUrl   String?
++  theme       String   @default("default")
++  createdAt   DateTime @default(now())
++  updatedAt   DateTime @updatedAt
++  links       Link[]
++  socialIcons SocialIcon[]
++  analytics   AnalyticsEvent[]
++}
++
++model Link {
++  id          String   @id @default(cuid())
++  userId      String
++  title       String
++  url         String
++  type        String   @default("standard")
++  thumbnail   String?
++  isVisible   Boolean  @default(true)
++  order       Int      @default(0)
++  createdAt   DateTime @default(now())
++  updatedAt   DateTime @updatedAt
++  user        User     @relation(fields: [userId], references: [id])
++}
+
+diff --git a/app/frontend/src/pages/PublicProfile.css b/app/frontend/src/pages/PublicProfile.css
+--- a/app/frontend/src/pages/PublicProfile.css
++++ b/app/frontend/src/pages/PublicProfile.css
+@@ -1,10 +1,150 @@
++/* Modern Public Profile Styles */
+ .public-profile {
++  min-height: 100vh;
++  position: relative;
++  overflow: hidden;
++}
++
++.profile-background {
++  position: fixed;
++  inset: 0;
++  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
++  background-size: 400% 400%;
++  animation: gradientShift 15s ease infinite;
++}
++
++@keyframes gradientShift {
++  0%, 100% { background-position: 0% 50%; }
++  50% { background-position: 100% 50%; }
++}
++
++.floating-shapes {
++  position: absolute;
++  inset: 0;
++  overflow: hidden;
++  pointer-events: none;
++}
++
++.shape {
++  position: absolute;
++  border-radius: 50%;
++  filter: blur(60px);
++  opacity: 0.5;
++  animation: float 20s ease-in-out infinite;
++}
+
+diff --git a/app/backend/src/routes/profile.js b/app/backend/src/routes/profile.js
+--- a/app/backend/src/routes/profile.js
++++ b/app/backend/src/routes/profile.js
+@@ -1,15 +1,10 @@
+ import express from 'express';
+ import multer from 'multer';
+-import path from 'path';
+-import fs from 'fs';
+ import { prisma } from '../index.js';
+ import { authenticateToken } from '../middleware/auth.js';
+ 
+-const uploadsDir = path.join(__dirname, '../../uploads');
+-if (!fs.existsSync(uploadsDir)) {
+-  fs.mkdirSync(uploadsDir, { recursive: true });
+-}
+-
+-const storage = multer.diskStorage({
+-  destination: (req, file, cb) => cb(null, uploadsDir),
+-  filename: (req, file, cb) => cb(null, `${Date.now()}-${file.originalname}`)
+-});
++// Use memory storage for serverless compatibility
++const storage = multer.memoryStorage();
+ 
+ const upload = multer({
+   storage: storage,
+

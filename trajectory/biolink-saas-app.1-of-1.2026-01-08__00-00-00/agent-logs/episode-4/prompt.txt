@@ -1,0 +1,32 @@
+## Your Task
+
+Redesign the public profile page with a modern, beautiful UI inspired by Linktree.
+
+---
+
+## User Request
+
+make the profile page more beautiful and modern like this website: https://linktr.ee/blog/four-examples-of-great-linktrees-in-action
+
+---
+
+## Design Requirements
+
+Looking at Linktree examples, implement:
+- Clean minimalist design
+- Beautiful gradient backgrounds
+- Smooth animations
+- Well-styled link buttons with hover effects
+- Professional typography
+- Cohesive color scheme
+
+---
+
+## Success Criteria
+
+- Modern, polished aesthetic
+- Animated gradient backgrounds
+- Glassmorphism effects
+- Smooth hover animations
+- Staggered fade-in animations
+

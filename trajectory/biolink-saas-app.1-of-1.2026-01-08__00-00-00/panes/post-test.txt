@@ -1,0 +1,8 @@
+All tests passed successfully.
+
+Frontend: http://localhost:5173
+Backend: http://localhost:3001
+GitHub: https://github.com/Mercor-Intelligence/int-apexcode-saas-app-qj
+Vercel Frontend: Deployed
+Vercel Backend: Deployed with Neon PostgreSQL
+

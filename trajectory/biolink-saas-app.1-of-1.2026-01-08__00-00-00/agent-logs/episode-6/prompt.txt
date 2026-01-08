@@ -1,0 +1,28 @@
+## Your Task
+
+Deploy the BioLink application on Vercel.
+
+---
+
+## User Request
+
+deploy this on vercel
+
+---
+
+## Steps
+
+1. Create vercel.json config for frontend
+2. Create vercel.json config for backend
+3. Update Prisma to use PostgreSQL (SQLite not supported in serverless)
+4. Configure environment variables for API URL
+5. Commit and push changes
+
+---
+
+## Success Criteria
+
+- vercel.json files created for both frontend and backend
+- Prisma configured for PostgreSQL
+- Frontend configured to use VITE_API_URL environment variable
+

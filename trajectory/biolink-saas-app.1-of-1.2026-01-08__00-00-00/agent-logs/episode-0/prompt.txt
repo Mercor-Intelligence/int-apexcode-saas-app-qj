@@ -1,0 +1,41 @@
+## Your Task
+
+You are a software engineer building a full-stack web application. Create a complete BioLink application (Linktree clone) based on the provided product requirements document.
+
+**Your workflow:**
+1. Read and understand the product requirements document
+2. Create the backend API with Node.js/Express and Prisma
+3. Create the frontend with React and Vite
+4. Ensure all components are properly connected
+
+---
+
+## Product Requirements
+
+Using @product_requirements_doc.md create the app described, including both frontend and backend with a UI, save everything in a folder called app
+
+## Requirements Summary
+
+1. Authentication system with email/password, Google OAuth, Apple Sign-in, and handle reservation
+2. Link management with CRUD operations, drag & drop reordering, visibility toggling
+3. Profile customization with avatar, bio, themes, backgrounds, button styles, fonts
+4. Analytics tracking for views, clicks, CTR, referrers, locations, device types
+5. Public profile page accessible at /@username
+
+## Codebase
+
+- **Location:** `/Users/qijin/int-apexcode-saas-app-qj`
+- **Output:** `/Users/qijin/int-apexcode-saas-app-qj/app`
+- **Backend:** Node.js, Express, Prisma, SQLite
+- **Frontend:** React, Vite, React Router
+
+---
+
+## Success Criteria
+
+To complete this task:
+- Create a fully functional full-stack BioLink application
+- Implement all features from the product requirements document
+- Ensure proper file structure and code organization
+- Create a README with setup instructions
+

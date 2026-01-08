@@ -1,0 +1,27 @@
+## Your Task
+
+Push the repository to GitHub under the Mercor Intelligence organization.
+
+---
+
+## User Request
+
+Push the entire int-apexcode-saas-app-qj repo to github as a new repo under Mercor Intelligence
+
+---
+
+## Steps
+
+1. Create .gitignore file
+2. Initialize git repository
+3. Add all files
+4. Commit with descriptive message
+5. Add remote for Mercor Intelligence organization
+6. Push to main branch
+
+---
+
+## Success Criteria
+
+- Repository pushed to github.com/Mercor-Intelligence/int-apexcode-saas-app-qj
+
