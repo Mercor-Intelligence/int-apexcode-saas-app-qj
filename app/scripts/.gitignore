@@ -1,0 +1,13 @@
+# Dependencies
+node_modules/
+
+# Environment
+.env
+
+# Test outputs
+screenshots/
+verification-report-*.json
+
+# OS
+.DS_Store
+
