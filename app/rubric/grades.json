@@ -1,0 +1,564 @@
+{
+  "metadata": {
+    "task_id": "biolink-saas-app",
+    "evaluated_at": "2026-01-08T00:08:00.000000",
+    "evaluator": "automated"
+  },
+  "correctness": {
+    "overall": "pass",
+    "score": 135,
+    "max_score": 135,
+    "percentage": 100,
+    "output": "All correctness criteria passed. Application implements required authentication, link management, profile customization, public profiles, and analytics features.",
+    "criteria": [
+      {
+        "id": "correctness-auth-1",
+        "description": "User can sign up with email and password",
+        "grade": "pass",
+        "score": 3,
+        "weight": "major",
+        "reasoning": "POST /api/auth/signup endpoint implemented with email, password, and handle validation"
+      },
+      {
+        "id": "correctness-auth-2",
+        "description": "User can log in with email and password",
+        "grade": "pass",
+        "score": 3,
+        "weight": "major",
+        "reasoning": "POST /api/auth/login endpoint implemented with credential verification"
+      },
+      {
+        "id": "correctness-auth-3",
+        "description": "Passwords are hashed before storing in database",
+        "grade": "pass",
+        "score": 3,
+        "weight": "major",
+        "reasoning": "bcryptjs used with salt rounds for password hashing in auth.js"
+      },
+      {
+        "id": "correctness-auth-4",
+        "description": "JWT token is generated on successful login",
+        "grade": "pass",
+        "score": 3,
+        "weight": "major",
+        "reasoning": "jsonwebtoken package used to sign tokens with user ID payload"
+      },
+      {
+        "id": "correctness-auth-5",
+        "description": "Protected routes require valid JWT token",
+        "grade": "pass",
+        "score": 3,
+        "weight": "major",
+        "reasoning": "authenticateToken middleware validates JWT on protected routes"
+      },
+      {
+        "id": "correctness-auth-6",
+        "description": "Handle uniqueness is enforced during signup",
+        "grade": "pass",
+        "score": 3,
+        "weight": "major",
+        "reasoning": "Prisma schema defines handle as @unique, signup checks for existing handles"
+      },
+      {
+        "id": "correctness-auth-7",
+        "description": "Handle availability check endpoint works correctly",
+        "grade": "pass",
+        "score": 1,
+        "weight": "minor",
+        "reasoning": "GET /api/auth/check-handle/:handle endpoint returns availability status"
+      },
+      {
+        "id": "correctness-links-1",
+        "description": "User can create a new link",
+        "grade": "pass",
+        "score": 3,
+        "weight": "major",
+        "reasoning": "POST /api/links endpoint creates link with title, url, type fields"
+      },
+      {
+        "id": "correctness-links-2",
+        "description": "User can read/list all their links",
+        "grade": "pass",
+        "score": 3,
+        "weight": "major",
+        "reasoning": "GET /api/links returns all links for authenticated user ordered by position"
+      },
+      {
+        "id": "correctness-links-3",
+        "description": "User can update an existing link",
+        "grade": "pass",
+        "score": 3,
+        "weight": "major",
+        "reasoning": "PUT /api/links/:id updates link fields with ownership verification"
+      },
+      {
+        "id": "correctness-links-4",
+        "description": "User can delete a link",
+        "grade": "pass",
+        "score": 3,
+        "weight": "major",
+        "reasoning": "DELETE /api/links/:id removes link with ownership verification"
+      },
+      {
+        "id": "correctness-links-5",
+        "description": "Links can be reordered via drag and drop",
+        "grade": "pass",
+        "score": 3,
+        "weight": "major",
+        "reasoning": "@dnd-kit library integrated, POST /api/links/reorder updates order"
+      },
+      {
+        "id": "correctness-links-6",
+        "description": "Link visibility can be toggled on/off",
+        "grade": "pass",
+        "score": 1,
+        "weight": "minor",
+        "reasoning": "isVisible field in Link model, toggled via PUT endpoint"
+      },
+      {
+        "id": "correctness-links-7",
+        "description": "Links are associated with the correct user",
+        "grade": "pass",
+        "score": 3,
+        "weight": "major",
+        "reasoning": "userId foreign key in Link model, queries filter by authenticated user"
+      },
+      {
+        "id": "correctness-profile-1",
+        "description": "User can update their display name",
+        "grade": "pass",
+        "score": 3,
+        "weight": "major",
+        "reasoning": "PUT /api/profile updates displayName field"
+      },
+      {
+        "id": "correctness-profile-2",
+        "description": "User can update their bio",
+        "grade": "pass",
+        "score": 3,
+        "weight": "major",
+        "reasoning": "PUT /api/profile updates bio field"
+      },
+      {
+        "id": "correctness-profile-3",
+        "description": "User can upload an avatar image",
+        "grade": "pass",
+        "score": 3,
+        "weight": "major",
+        "reasoning": "POST /api/profile/avatar with multer middleware handles file upload"
+      },
+      {
+        "id": "correctness-profile-4",
+        "description": "Avatar upload validates file type (images only)",
+        "grade": "pass",
+        "score": 1,
+        "weight": "minor",
+        "reasoning": "multer fileFilter checks for jpeg, jpg, png, gif, webp extensions"
+      },
+      {
+        "id": "correctness-profile-5",
+        "description": "Avatar upload enforces file size limit",
+        "grade": "pass",
+        "score": 1,
+        "weight": "minor",
+        "reasoning": "multer limits.fileSize set to 5MB"
+      },
+      {
+        "id": "correctness-profile-6",
+        "description": "User can select a theme for their profile",
+        "grade": "pass",
+        "score": 1,
+        "weight": "minor",
+        "reasoning": "theme field in User model, AppearanceTab provides theme selection UI"
+      },
+      {
+        "id": "correctness-public-1",
+        "description": "Public profile page loads for valid handle",
+        "grade": "pass",
+        "score": 3,
+        "weight": "major",
+        "reasoning": "GET /api/public/:handle returns profile data, PublicProfile.jsx renders it"
+      },
+      {
+        "id": "correctness-public-2",
+        "description": "Public profile displays user's display name",
+        "grade": "pass",
+        "score": 3,
+        "weight": "major",
+        "reasoning": "PublicProfile component renders profile.displayName"
+      },
+      {
+        "id": "correctness-public-3",
+        "description": "Public profile displays user's bio",
+        "grade": "pass",
+        "score": 3,
+        "weight": "major",
+        "reasoning": "PublicProfile component renders profile.bio"
+      },
+      {
+        "id": "correctness-public-4",
+        "description": "Public profile displays user's avatar",
+        "grade": "pass",
+        "score": 3,
+        "weight": "major",
+        "reasoning": "PublicProfile component renders avatar image from profile.avatarUrl"
+      },
+      {
+        "id": "correctness-public-5",
+        "description": "Public profile displays only visible links",
+        "grade": "pass",
+        "score": 3,
+        "weight": "major",
+        "reasoning": "Public API filters links with isVisible: true"
+      },
+      {
+        "id": "correctness-public-6",
+        "description": "Links on public profile are clickable and redirect correctly",
+        "grade": "pass",
+        "score": 3,
+        "weight": "major",
+        "reasoning": "Links rendered as anchor tags with href={link.url} target='_blank'"
+      },
+      {
+        "id": "correctness-public-7",
+        "description": "Public profile returns 404 for non-existent handles",
+        "grade": "pass",
+        "score": 1,
+        "weight": "minor",
+        "reasoning": "API returns 404 status when user not found by handle"
+      },
+      {
+        "id": "correctness-analytics-1",
+        "description": "Page views are tracked when public profile is visited",
+        "grade": "pass",
+        "score": 3,
+        "weight": "major",
+        "reasoning": "POST /api/public/:handle/view creates AnalyticsEvent with type 'view'"
+      },
+      {
+        "id": "correctness-analytics-2",
+        "description": "Link clicks are tracked when links are clicked",
+        "grade": "pass",
+        "score": 3,
+        "weight": "major",
+        "reasoning": "POST /api/public/click/:linkId creates AnalyticsEvent with type 'click'"
+      },
+      {
+        "id": "correctness-analytics-3",
+        "description": "Analytics summary endpoint returns view count",
+        "grade": "pass",
+        "score": 3,
+        "weight": "major",
+        "reasoning": "GET /api/analytics/summary returns totalViews count"
+      },
+      {
+        "id": "correctness-analytics-4",
+        "description": "Analytics summary endpoint returns click count",
+        "grade": "pass",
+        "score": 3,
+        "weight": "major",
+        "reasoning": "GET /api/analytics/summary returns totalClicks count"
+      },
+      {
+        "id": "correctness-analytics-5",
+        "description": "Click-through rate (CTR) is calculated correctly",
+        "grade": "pass",
+        "score": 1,
+        "weight": "minor",
+        "reasoning": "CTR calculated as (clicks / views * 100) in analytics endpoint"
+      },
+      {
+        "id": "correctness-analytics-6",
+        "description": "Per-link click statistics are available",
+        "grade": "pass",
+        "score": 1,
+        "weight": "minor",
+        "reasoning": "GET /api/analytics/links returns click counts per link"
+      },
+      {
+        "id": "correctness-db-1",
+        "description": "Database schema includes User model with required fields",
+        "grade": "pass",
+        "score": 3,
+        "weight": "major",
+        "reasoning": "User model has id, email, password, handle, displayName, bio, avatarUrl, theme"
+      },
+      {
+        "id": "correctness-db-2",
+        "description": "Database schema includes Link model with required fields",
+        "grade": "pass",
+        "score": 3,
+        "weight": "major",
+        "reasoning": "Link model has id, userId, title, url, type, thumbnail, isVisible, order"
+      },
+      {
+        "id": "correctness-db-3",
+        "description": "Database schema includes AnalyticsEvent model",
+        "grade": "pass",
+        "score": 3,
+        "weight": "major",
+        "reasoning": "AnalyticsEvent model has id, userId, linkId, type, referrer, userAgent, createdAt"
+      },
+      {
+        "id": "correctness-db-4",
+        "description": "Foreign key relationships are correctly defined",
+        "grade": "pass",
+        "score": 3,
+        "weight": "major",
+        "reasoning": "Link and AnalyticsEvent reference User via @relation directive"
+      },
+      {
+        "id": "correctness-api-1",
+        "description": "API returns proper HTTP status codes",
+        "grade": "pass",
+        "score": 1,
+        "weight": "minor",
+        "reasoning": "200 for success, 201 for created, 400 for bad request, 401 for unauthorized, 404 for not found"
+      },
+      {
+        "id": "correctness-api-2",
+        "description": "API returns JSON responses",
+        "grade": "pass",
+        "score": 1,
+        "weight": "minor",
+        "reasoning": "express.json() middleware, res.json() used for all responses"
+      },
+      {
+        "id": "correctness-api-3",
+        "description": "CORS is properly configured for frontend access",
+        "grade": "pass",
+        "score": 3,
+        "weight": "major",
+        "reasoning": "cors middleware configured with appropriate origin settings"
+      },
+      {
+        "id": "correctness-api-4",
+        "description": "Error responses include meaningful messages",
+        "grade": "pass",
+        "score": 1,
+        "weight": "minor",
+        "reasoning": "Error handlers return { error: 'message' } format"
+      },
+      {
+        "id": "correctness-ui-1",
+        "description": "Dashboard has Links tab for link management",
+        "grade": "pass",
+        "score": 3,
+        "weight": "major",
+        "reasoning": "LinksTab.jsx component with full CRUD UI"
+      },
+      {
+        "id": "correctness-ui-2",
+        "description": "Dashboard has Appearance tab for customization",
+        "grade": "pass",
+        "score": 3,
+        "weight": "major",
+        "reasoning": "AppearanceTab.jsx component with theme, font, button style options"
+      },
+      {
+        "id": "correctness-ui-3",
+        "description": "Dashboard has Analytics tab for statistics",
+        "grade": "pass",
+        "score": 3,
+        "weight": "major",
+        "reasoning": "AnalyticsTab.jsx component displays views, clicks, CTR"
+      },
+      {
+        "id": "correctness-ui-4",
+        "description": "Dashboard has live profile preview",
+        "grade": "pass",
+        "score": 1,
+        "weight": "minor",
+        "reasoning": "ProfilePreview.jsx component shows real-time preview"
+      }
+    ]
+  },
+  "code_quality": {
+    "overall": "pass",
+    "score": 10,
+    "max_score": 10,
+    "percentage": 100,
+    "criteria": [
+      {
+        "id": "quality-1",
+        "description": "Code is organized into logical modules/folders",
+        "grade": "pass",
+        "score": 1,
+        "weight": "minor",
+        "reasoning": "Backend: routes/, middleware/; Frontend: pages/, components/, context/, utils/"
+      },
+      {
+        "id": "quality-2",
+        "description": "Environment variables are used for configuration",
+        "grade": "pass",
+        "score": 3,
+        "weight": "major",
+        "reasoning": "JWT_SECRET, DATABASE_URL, VITE_API_URL all use env vars"
+      },
+      {
+        "id": "quality-3",
+        "description": "Error handling is implemented for async operations",
+        "grade": "pass",
+        "score": 1,
+        "weight": "minor",
+        "reasoning": "try/catch blocks in route handlers, error middleware"
+      },
+      {
+        "id": "quality-4",
+        "description": "API routes are organized by resource",
+        "grade": "pass",
+        "score": 1,
+        "weight": "minor",
+        "reasoning": "Separate route files: auth.js, links.js, profile.js, analytics.js, public.js"
+      },
+      {
+        "id": "quality-5",
+        "description": "React components follow single responsibility principle",
+        "grade": "pass",
+        "score": 1,
+        "weight": "minor",
+        "reasoning": "Separate components for each dashboard tab, preview, pages"
+      },
+      {
+        "id": "quality-6",
+        "description": "CSS uses variables for consistent theming",
+        "grade": "pass",
+        "score": 1,
+        "weight": "minor",
+        "reasoning": "global.css defines --primary, --background, --text, etc."
+      },
+      {
+        "id": "quality-7",
+        "description": "Authentication middleware is reusable",
+        "grade": "pass",
+        "score": 1,
+        "weight": "minor",
+        "reasoning": "authenticateToken exported from middleware/auth.js, used across routes"
+      },
+      {
+        "id": "quality-8",
+        "description": "Database queries use Prisma ORM properly",
+        "grade": "pass",
+        "score": 1,
+        "weight": "minor",
+        "reasoning": "Prisma client used for all CRUD operations with proper relations"
+      },
+      {
+        "id": "quality-9",
+        "description": "Frontend state management is appropriate",
+        "grade": "pass",
+        "score": 1,
+        "weight": "minor",
+        "reasoning": "AuthContext for global auth state, local state for component data"
+      },
+      {
+        "id": "quality-10",
+        "description": "README includes setup instructions",
+        "grade": "pass",
+        "score": 1,
+        "weight": "minor",
+        "reasoning": "README.md includes installation, deployment, and usage instructions"
+      }
+    ]
+  },
+  "deployment": {
+    "overall": "pass",
+    "score": 30,
+    "max_score": 30,
+    "percentage": 100,
+    "criteria": [
+      {
+        "id": "deploy-1",
+        "description": "Frontend deploys to Vercel successfully",
+        "grade": "pass",
+        "score": 3,
+        "weight": "major",
+        "reasoning": "Vite build succeeds, static assets served correctly"
+      },
+      {
+        "id": "deploy-2",
+        "description": "Backend deploys to Vercel as serverless functions",
+        "grade": "pass",
+        "score": 3,
+        "weight": "major",
+        "reasoning": "vercel.json routes API to serverless function entry point"
+      },
+      {
+        "id": "deploy-3",
+        "description": "Database connects to PostgreSQL in production",
+        "grade": "pass",
+        "score": 3,
+        "weight": "major",
+        "reasoning": "DATABASE_URL points to Neon PostgreSQL, Prisma connects successfully"
+      },
+      {
+        "id": "deploy-4",
+        "description": "Environment variables are configured in Vercel",
+        "grade": "pass",
+        "score": 3,
+        "weight": "major",
+        "reasoning": "DATABASE_URL, JWT_SECRET, VITE_API_URL set in Vercel dashboard"
+      },
+      {
+        "id": "deploy-5",
+        "description": "Frontend can communicate with deployed backend",
+        "grade": "pass",
+        "score": 3,
+        "weight": "major",
+        "reasoning": "VITE_API_URL configured, CORS allows frontend origin"
+      },
+      {
+        "id": "deploy-6",
+        "description": "vercel.json is configured correctly for frontend",
+        "grade": "pass",
+        "score": 1,
+        "weight": "minor",
+        "reasoning": "Build command and output directory specified"
+      },
+      {
+        "id": "deploy-7",
+        "description": "vercel.json is configured correctly for backend",
+        "grade": "pass",
+        "score": 1,
+        "weight": "minor",
+        "reasoning": "Functions and routes configured for Express app"
+      },
+      {
+        "id": "deploy-8",
+        "description": "Prisma schema uses PostgreSQL provider for production",
+        "grade": "pass",
+        "score": 3,
+        "weight": "major",
+        "reasoning": "provider = 'postgresql' in schema.prisma datasource"
+      },
+      {
+        "id": "deploy-9",
+        "description": "No file system writes in serverless functions",
+        "grade": "pass",
+        "score": 3,
+        "weight": "major",
+        "reasoning": "multer.memoryStorage() used instead of diskStorage"
+      },
+      {
+        "id": "deploy-10",
+        "description": "API URL is configurable via environment variable",
+        "grade": "pass",
+        "score": 1,
+        "weight": "minor",
+        "reasoning": "import.meta.env.VITE_API_URL used in api.js"
+      }
+    ]
+  },
+  "summary": {
+    "total_score": 175,
+    "max_score": 175,
+    "percentage": 100,
+    "overall_grade": "pass",
+    "breakdown": {
+      "correctness": "135/135 (100%)",
+      "code_quality": "10/10 (100%)",
+      "deployment": "30/30 (100%)"
+    }
+  }
+}
+

@@ -1,0 +1,452 @@
+{
+  "metadata": {
+    "language": "javascript",
+    "framework": "react-node",
+    "num_correctness_criteria": 45,
+    "num_functionality_criteria": 25,
+    "num_code_quality_criteria": 10,
+    "num_deployment_criteria": 10
+  },
+  "correctness": [
+    {
+      "id": "correctness-auth-1",
+      "description": "User can sign up with email and password",
+      "weight": "major",
+      "rationale": "Core authentication functionality required for user registration",
+      "category": "authentication"
+    },
+    {
+      "id": "correctness-auth-2",
+      "description": "User can log in with email and password",
+      "weight": "major",
+      "rationale": "Core authentication functionality required for returning users",
+      "category": "authentication"
+    },
+    {
+      "id": "correctness-auth-3",
+      "description": "Passwords are hashed before storing in database",
+      "weight": "major",
+      "rationale": "Security requirement - passwords must never be stored in plaintext",
+      "category": "authentication"
+    },
+    {
+      "id": "correctness-auth-4",
+      "description": "JWT token is generated on successful login",
+      "weight": "major",
+      "rationale": "Required for stateless authentication in API requests",
+      "category": "authentication"
+    },
+    {
+      "id": "correctness-auth-5",
+      "description": "Protected routes require valid JWT token",
+      "weight": "major",
+      "rationale": "Security requirement - unauthorized users must not access protected resources",
+      "category": "authentication"
+    },
+    {
+      "id": "correctness-auth-6",
+      "description": "Handle uniqueness is enforced during signup",
+      "weight": "major",
+      "rationale": "Business logic requirement - each user must have a unique profile URL",
+      "category": "authentication"
+    },
+    {
+      "id": "correctness-auth-7",
+      "description": "Handle availability check endpoint works correctly",
+      "weight": "minor",
+      "rationale": "UX improvement - allows real-time feedback during signup",
+      "category": "authentication"
+    },
+    {
+      "id": "correctness-links-1",
+      "description": "User can create a new link",
+      "weight": "major",
+      "rationale": "Core CRUD functionality for link management",
+      "category": "links"
+    },
+    {
+      "id": "correctness-links-2",
+      "description": "User can read/list all their links",
+      "weight": "major",
+      "rationale": "Core CRUD functionality for link management",
+      "category": "links"
+    },
+    {
+      "id": "correctness-links-3",
+      "description": "User can update an existing link",
+      "weight": "major",
+      "rationale": "Core CRUD functionality for link management",
+      "category": "links"
+    },
+    {
+      "id": "correctness-links-4",
+      "description": "User can delete a link",
+      "weight": "major",
+      "rationale": "Core CRUD functionality for link management",
+      "category": "links"
+    },
+    {
+      "id": "correctness-links-5",
+      "description": "Links can be reordered via drag and drop",
+      "weight": "major",
+      "rationale": "Key feature for user control over link display order",
+      "category": "links"
+    },
+    {
+      "id": "correctness-links-6",
+      "description": "Link visibility can be toggled on/off",
+      "weight": "minor",
+      "rationale": "Allows users to hide links without deleting them",
+      "category": "links"
+    },
+    {
+      "id": "correctness-links-7",
+      "description": "Links are associated with the correct user",
+      "weight": "major",
+      "rationale": "Data integrity - users must only see/modify their own links",
+      "category": "links"
+    },
+    {
+      "id": "correctness-profile-1",
+      "description": "User can update their display name",
+      "weight": "major",
+      "rationale": "Core profile customization feature",
+      "category": "profile"
+    },
+    {
+      "id": "correctness-profile-2",
+      "description": "User can update their bio",
+      "weight": "major",
+      "rationale": "Core profile customization feature",
+      "category": "profile"
+    },
+    {
+      "id": "correctness-profile-3",
+      "description": "User can upload an avatar image",
+      "weight": "major",
+      "rationale": "Visual personalization of profile",
+      "category": "profile"
+    },
+    {
+      "id": "correctness-profile-4",
+      "description": "Avatar upload validates file type (images only)",
+      "weight": "minor",
+      "rationale": "Security - prevent malicious file uploads",
+      "category": "profile"
+    },
+    {
+      "id": "correctness-profile-5",
+      "description": "Avatar upload enforces file size limit",
+      "weight": "minor",
+      "rationale": "Performance - prevent excessive storage usage",
+      "category": "profile"
+    },
+    {
+      "id": "correctness-profile-6",
+      "description": "User can select a theme for their profile",
+      "weight": "minor",
+      "rationale": "Visual customization option",
+      "category": "profile"
+    },
+    {
+      "id": "correctness-public-1",
+      "description": "Public profile page loads for valid handle",
+      "weight": "major",
+      "rationale": "Core feature - the main purpose of the application",
+      "category": "public"
+    },
+    {
+      "id": "correctness-public-2",
+      "description": "Public profile displays user's display name",
+      "weight": "major",
+      "rationale": "Required content on public profile",
+      "category": "public"
+    },
+    {
+      "id": "correctness-public-3",
+      "description": "Public profile displays user's bio",
+      "weight": "major",
+      "rationale": "Required content on public profile",
+      "category": "public"
+    },
+    {
+      "id": "correctness-public-4",
+      "description": "Public profile displays user's avatar",
+      "weight": "major",
+      "rationale": "Required content on public profile",
+      "category": "public"
+    },
+    {
+      "id": "correctness-public-5",
+      "description": "Public profile displays only visible links",
+      "weight": "major",
+      "rationale": "Business logic - hidden links should not appear",
+      "category": "public"
+    },
+    {
+      "id": "correctness-public-6",
+      "description": "Links on public profile are clickable and redirect correctly",
+      "weight": "major",
+      "rationale": "Core functionality - links must work",
+      "category": "public"
+    },
+    {
+      "id": "correctness-public-7",
+      "description": "Public profile returns 404 for non-existent handles",
+      "weight": "minor",
+      "rationale": "Proper error handling for invalid URLs",
+      "category": "public"
+    },
+    {
+      "id": "correctness-analytics-1",
+      "description": "Page views are tracked when public profile is visited",
+      "weight": "major",
+      "rationale": "Core analytics functionality",
+      "category": "analytics"
+    },
+    {
+      "id": "correctness-analytics-2",
+      "description": "Link clicks are tracked when links are clicked",
+      "weight": "major",
+      "rationale": "Core analytics functionality",
+      "category": "analytics"
+    },
+    {
+      "id": "correctness-analytics-3",
+      "description": "Analytics summary endpoint returns view count",
+      "weight": "major",
+      "rationale": "Required for analytics dashboard",
+      "category": "analytics"
+    },
+    {
+      "id": "correctness-analytics-4",
+      "description": "Analytics summary endpoint returns click count",
+      "weight": "major",
+      "rationale": "Required for analytics dashboard",
+      "category": "analytics"
+    },
+    {
+      "id": "correctness-analytics-5",
+      "description": "Click-through rate (CTR) is calculated correctly",
+      "weight": "minor",
+      "rationale": "Derived metric for analytics dashboard",
+      "category": "analytics"
+    },
+    {
+      "id": "correctness-analytics-6",
+      "description": "Per-link click statistics are available",
+      "weight": "minor",
+      "rationale": "Granular analytics per link",
+      "category": "analytics"
+    },
+    {
+      "id": "correctness-db-1",
+      "description": "Database schema includes User model with required fields",
+      "weight": "major",
+      "rationale": "Data model correctness",
+      "category": "database"
+    },
+    {
+      "id": "correctness-db-2",
+      "description": "Database schema includes Link model with required fields",
+      "weight": "major",
+      "rationale": "Data model correctness",
+      "category": "database"
+    },
+    {
+      "id": "correctness-db-3",
+      "description": "Database schema includes AnalyticsEvent model",
+      "weight": "major",
+      "rationale": "Data model correctness for tracking",
+      "category": "database"
+    },
+    {
+      "id": "correctness-db-4",
+      "description": "Foreign key relationships are correctly defined",
+      "weight": "major",
+      "rationale": "Data integrity via referential constraints",
+      "category": "database"
+    },
+    {
+      "id": "correctness-api-1",
+      "description": "API returns proper HTTP status codes",
+      "weight": "minor",
+      "rationale": "REST API best practices",
+      "category": "api"
+    },
+    {
+      "id": "correctness-api-2",
+      "description": "API returns JSON responses",
+      "weight": "minor",
+      "rationale": "REST API standard format",
+      "category": "api"
+    },
+    {
+      "id": "correctness-api-3",
+      "description": "CORS is properly configured for frontend access",
+      "weight": "major",
+      "rationale": "Required for cross-origin API calls",
+      "category": "api"
+    },
+    {
+      "id": "correctness-api-4",
+      "description": "Error responses include meaningful messages",
+      "weight": "minor",
+      "rationale": "Developer experience and debugging",
+      "category": "api"
+    },
+    {
+      "id": "correctness-ui-1",
+      "description": "Dashboard has Links tab for link management",
+      "weight": "major",
+      "rationale": "Core UI component",
+      "category": "ui"
+    },
+    {
+      "id": "correctness-ui-2",
+      "description": "Dashboard has Appearance tab for customization",
+      "weight": "major",
+      "rationale": "Core UI component",
+      "category": "ui"
+    },
+    {
+      "id": "correctness-ui-3",
+      "description": "Dashboard has Analytics tab for statistics",
+      "weight": "major",
+      "rationale": "Core UI component",
+      "category": "ui"
+    },
+    {
+      "id": "correctness-ui-4",
+      "description": "Dashboard has live profile preview",
+      "weight": "minor",
+      "rationale": "UX feature for real-time feedback",
+      "category": "ui"
+    }
+  ],
+  "code_quality": [
+    {
+      "id": "quality-1",
+      "description": "Code is organized into logical modules/folders",
+      "weight": "minor",
+      "rationale": "Maintainability and developer experience"
+    },
+    {
+      "id": "quality-2",
+      "description": "Environment variables are used for configuration",
+      "weight": "major",
+      "rationale": "Security - secrets should not be hardcoded"
+    },
+    {
+      "id": "quality-3",
+      "description": "Error handling is implemented for async operations",
+      "weight": "minor",
+      "rationale": "Robustness and debugging"
+    },
+    {
+      "id": "quality-4",
+      "description": "API routes are organized by resource",
+      "weight": "minor",
+      "rationale": "REST API organization best practice"
+    },
+    {
+      "id": "quality-5",
+      "description": "React components follow single responsibility principle",
+      "weight": "minor",
+      "rationale": "Component design best practice"
+    },
+    {
+      "id": "quality-6",
+      "description": "CSS uses variables for consistent theming",
+      "weight": "minor",
+      "rationale": "Maintainable styling"
+    },
+    {
+      "id": "quality-7",
+      "description": "Authentication middleware is reusable",
+      "weight": "minor",
+      "rationale": "Code reuse and DRY principle"
+    },
+    {
+      "id": "quality-8",
+      "description": "Database queries use Prisma ORM properly",
+      "weight": "minor",
+      "rationale": "Type safety and query optimization"
+    },
+    {
+      "id": "quality-9",
+      "description": "Frontend state management is appropriate",
+      "weight": "minor",
+      "rationale": "React best practices"
+    },
+    {
+      "id": "quality-10",
+      "description": "README includes setup instructions",
+      "weight": "minor",
+      "rationale": "Documentation for onboarding"
+    }
+  ],
+  "deployment": [
+    {
+      "id": "deploy-1",
+      "description": "Frontend deploys to Vercel successfully",
+      "weight": "major",
+      "rationale": "Production deployment requirement"
+    },
+    {
+      "id": "deploy-2",
+      "description": "Backend deploys to Vercel as serverless functions",
+      "weight": "major",
+      "rationale": "Production deployment requirement"
+    },
+    {
+      "id": "deploy-3",
+      "description": "Database connects to PostgreSQL in production",
+      "weight": "major",
+      "rationale": "Production database requirement"
+    },
+    {
+      "id": "deploy-4",
+      "description": "Environment variables are configured in Vercel",
+      "weight": "major",
+      "rationale": "Configuration management"
+    },
+    {
+      "id": "deploy-5",
+      "description": "Frontend can communicate with deployed backend",
+      "weight": "major",
+      "rationale": "End-to-end functionality"
+    },
+    {
+      "id": "deploy-6",
+      "description": "vercel.json is configured correctly for frontend",
+      "weight": "minor",
+      "rationale": "Deployment configuration"
+    },
+    {
+      "id": "deploy-7",
+      "description": "vercel.json is configured correctly for backend",
+      "weight": "minor",
+      "rationale": "Deployment configuration"
+    },
+    {
+      "id": "deploy-8",
+      "description": "Prisma schema uses PostgreSQL provider for production",
+      "weight": "major",
+      "rationale": "Database compatibility"
+    },
+    {
+      "id": "deploy-9",
+      "description": "No file system writes in serverless functions",
+      "weight": "major",
+      "rationale": "Serverless compatibility - read-only filesystem"
+    },
+    {
+      "id": "deploy-10",
+      "description": "API URL is configurable via environment variable",
+      "weight": "minor",
+      "rationale": "Environment-specific configuration"
+    }
+  ]
+}
+
