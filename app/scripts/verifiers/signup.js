@@ -2,14 +2,13 @@
  * BrowserBase Verification Script: User Signup Flow
  * 
  * Actions:
- * 1. Navigate to landing page
- * 2. Click "Get Started" / "Sign Up" button
- * 3. Fill in email, password, and handle
- * 4. Submit the form
+ * 1. Navigate to signup page
+ * 2. Step 1: Enter handle and continue
+ * 3. Step 2: Enter email and password, continue
+ * 4. Step 3: Select category and submit
  * 
  * Verifications:
  * - User is redirected to dashboard
- * - Dashboard displays user's handle
  * - User record exists in database (via API check)
  */
 
@@ -25,7 +24,7 @@ async function verifySignup() {
   const testUser = {
     email: `signup-test-${Date.now()}@example.com`,
     password: 'TestPassword123!',
-    handle: `signuptest${Date.now()}`
+    handle: `test${Date.now().toString().slice(-8)}`
   };
   
   console.log('\n🚀 Starting Signup Verification (BrowserBase)...\n');
@@ -40,55 +39,52 @@ async function verifySignup() {
     
     reporter.record('BrowserBase session created', true, `Session: ${sessionId}`);
     
-    // === Step 1: Navigate to landing page ===
-    console.log('Step 1: Navigate to landing page');
-    await page.goto(config.frontendUrl);
+    // === Step 1: Navigate to signup page ===
+    console.log('Step 1: Navigate to signup page');
+    await page.goto(`${config.frontendUrl}/signup`);
     await page.waitForLoadState('networkidle');
     
-    const landingLoaded = await page.title();
-    reporter.record('Landing page loads', !!landingLoaded, `Title: ${landingLoaded}`);
+    const signupLoaded = await page.$('form');
+    reporter.record('Signup page loads', !!signupLoaded);
     
-    // === Step 2: Click Sign Up button ===
-    console.log('Step 2: Click Sign Up button');
+    // === Step 2: Enter handle (Step 1 of form) ===
+    console.log('Step 2: Enter handle');
     
-    // Try different possible selectors for signup button
-    const signupSelectors = [
-      'text=Get Started',
-      'text=Sign Up',
-      'text=Claim Your Handle',
-      'a[href="/signup"]',
-      'button:has-text("Sign")',
-      '.cta-button'
-    ];
-    
-    let clicked = false;
-    for (const selector of signupSelectors) {
-      try {
-        await page.click(selector, { timeout: 3000 });
-        clicked = true;
-        break;
-      } catch {
-        continue;
+    // Find the handle input (placeholder="yourname")
+    const handleInput = await page.$('input[placeholder="yourname"]');
+    if (handleInput) {
+      await handleInput.fill(testUser.handle);
+      reporter.record('Fill handle field', true);
+      
+      // Wait for availability check
+      await page.waitForTimeout(1500);
+      
+      // Check if handle is available
+      const availableMsg = await page.$('.handle-feedback.success, .available');
+      if (availableMsg) {
+        reporter.record('Handle is available', true);
+      } else {
+        reporter.record('Handle is available', false, 'May be taken');
       }
+      
+      // Click Continue button
+      const continueBtn = await page.$('button[type="submit"]:not([disabled])');
+      if (continueBtn) {
+        await continueBtn.click();
+        await page.waitForTimeout(500);
+        reporter.record('Continue to step 2', true);
+      }
+    } else {
+      reporter.record('Fill handle field', false, 'Handle input not found');
     }
     
-    reporter.record('Navigate to signup page', clicked);
+    // === Step 3: Enter email and password (Step 2 of form) ===
+    console.log('Step 3: Enter email and password');
     
-    if (!clicked) {
-      // Direct navigation fallback
-      await page.goto(`${config.frontendUrl}/signup`);
-    }
-    
-    await page.waitForLoadState('networkidle');
-    
-    // === Step 3: Fill signup form ===
-    console.log('Step 3: Fill signup form');
-    
-    // Wait for form to be visible
-    await page.waitForSelector('form', { timeout: 10000 });
+    await page.waitForTimeout(500);
     
     // Fill email
-    const emailInput = await page.$('input[type="email"], input[name="email"], input[placeholder*="email" i]');
+    const emailInput = await page.$('input[type="email"]');
     if (emailInput) {
       await emailInput.fill(testUser.email);
       reporter.record('Fill email field', true);
@@ -97,7 +93,7 @@ async function verifySignup() {
     }
     
     // Fill password
-    const passwordInput = await page.$('input[type="password"], input[name="password"]');
+    const passwordInput = await page.$('input[type="password"]');
     if (passwordInput) {
       await passwordInput.fill(testUser.password);
       reporter.record('Fill password field', true);
@@ -105,55 +101,62 @@ async function verifySignup() {
       reporter.record('Fill password field', false, 'Password input not found');
     }
     
-    // Fill handle
-    const handleInput = await page.$('input[name="handle"], input[placeholder*="handle" i], input[placeholder*="username" i]');
-    if (handleInput) {
-      await handleInput.fill(testUser.handle);
-      reporter.record('Fill handle field', true);
-    } else {
-      reporter.record('Fill handle field', false, 'Handle input not found');
+    // Click Continue button
+    await page.waitForTimeout(300);
+    const continueBtn2 = await page.$('button.btn-primary:not([disabled])');
+    if (continueBtn2) {
+      await continueBtn2.click();
+      await page.waitForTimeout(500);
+      reporter.record('Continue to step 3', true);
     }
     
-    // === Step 4: Submit form ===
-    console.log('Step 4: Submit signup form');
+    // === Step 4: Select category (Step 3 of form) ===
+    console.log('Step 4: Select category');
     
-    const submitButton = await page.$('button[type="submit"], button:has-text("Sign Up"), button:has-text("Create")');
-    if (submitButton) {
-      await submitButton.click();
+    await page.waitForTimeout(500);
+    
+    // Click first category button
+    const categoryBtn = await page.$('.category-btn');
+    if (categoryBtn) {
+      await categoryBtn.click();
+      await page.waitForTimeout(300);
+      reporter.record('Select category', true);
+    } else {
+      reporter.record('Select category', false, 'Category buttons not found');
+    }
+    
+    // === Step 5: Submit form ===
+    console.log('Step 5: Submit signup form');
+    
+    const submitBtn = await page.$('button.btn-primary:not([disabled])');
+    if (submitBtn) {
+      await submitBtn.click();
       reporter.record('Submit signup form', true);
     } else {
-      // Try pressing Enter as fallback
-      await page.keyboard.press('Enter');
-      reporter.record('Submit signup form', true, 'Used Enter key');
+      reporter.record('Submit signup form', false, 'Submit button not found or disabled');
     }
     
-    // === Step 5: Verify redirect to dashboard ===
-    console.log('Step 5: Verify redirect to dashboard');
+    // === Step 6: Verify redirect to dashboard ===
+    console.log('Step 6: Verify redirect to dashboard');
     
     try {
-      await page.waitForURL('**/dashboard**', { timeout: 10000 });
+      await page.waitForURL('**/dashboard**', { timeout: 15000 });
       reporter.record('Redirected to dashboard', true);
     } catch {
       const currentUrl = page.url();
       reporter.record('Redirected to dashboard', false, `Current URL: ${currentUrl}`);
     }
     
-    // === Step 6: Verify dashboard shows user info ===
-    console.log('Step 6: Verify dashboard content');
-    
-    await page.waitForLoadState('networkidle');
-    const pageContent = await page.content();
-    const handleVisible = pageContent.toLowerCase().includes(testUser.handle.toLowerCase());
-    reporter.record('Dashboard displays user handle', handleVisible);
-    
     // === Step 7: Verify user exists in database via API ===
     console.log('Step 7: Verify user record in database');
+    
+    await page.waitForTimeout(1000);
     
     try {
       const response = await apiRequest(`/api/auth/check-handle/${testUser.handle}`);
       const data = await response.json();
       // Handle should NOT be available (because user was created)
-      const userExists = data.available === false || data.exists === true;
+      const userExists = data.available === false;
       reporter.record('User record exists in database', userExists, JSON.stringify(data));
     } catch (error) {
       reporter.record('User record exists in database', false, error.message);

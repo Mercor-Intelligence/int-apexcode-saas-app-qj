@@ -114,14 +114,15 @@ async function verifyLogin() {
     // === Step 5: Verify JWT token is stored ===
     console.log('Step 5: Verify authentication token');
     
-    const localStorage = await page.evaluate(() => {
+    await page.waitForTimeout(1000); // Wait for token to be stored
+    
+    const localStorageData = await page.evaluate(() => {
       return {
-        token: localStorage.getItem('token'),
-        user: localStorage.getItem('user')
+        token: localStorage.getItem('biolink_token')
       };
     });
     
-    const hasToken = !!localStorage.token;
+    const hasToken = !!localStorageData.token;
     reporter.record('JWT token stored in localStorage', hasToken);
     
     // === Step 6: Verify dashboard content is accessible ===
@@ -136,11 +137,11 @@ async function verifyLogin() {
     // === Step 7: Verify protected API access ===
     console.log('Step 7: Verify protected API access');
     
-    if (localStorage.token) {
+    if (localStorageData.token) {
       try {
         const profileResponse = await apiRequest('/api/profile', {
           headers: {
-            'Authorization': `Bearer ${localStorage.token}`
+            'Authorization': `Bearer ${localStorageData.token}`
           }
         });
         reporter.record('Protected API accessible with token', profileResponse.ok);

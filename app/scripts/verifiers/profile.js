@@ -4,16 +4,15 @@
  * Actions:
  * 1. Login as test user
  * 2. Navigate to Appearance tab
- * 3. Update display name
- * 4. Update bio
+ * 3. Update profile title (bioTitle)
+ * 4. Update bio (bioDescription)
  * 5. Change theme
  * 
  * Verifications:
  * - Profile form displays current values
- * - Display name updates correctly
- * - Bio updates correctly
- * - Theme changes apply to preview
+ * - Changes visible in preview
  * - Changes persist in database
+ * - Public profile reflects changes
  */
 
 import { launchBrowser, closeBrowser, screenshotOnFailure, apiRequest } from '../utils/browser.js';
@@ -29,13 +28,13 @@ async function verifyProfile() {
   const testUser = {
     email: `profile-test-${Date.now()}@example.com`,
     password: 'TestPassword123!',
-    handle: `profiletest${Date.now()}`
+    handle: `profiletest${Date.now().toString().slice(-8)}`
   };
   
   // Profile updates
   const profileUpdates = {
-    displayName: 'Updated Display Name',
-    bio: 'This is an updated bio for testing purposes.'
+    bioTitle: 'Updated Display Name',
+    bioDescription: 'This is an updated bio for testing.'
   };
   
   console.log('\n🚀 Starting Profile Management Verification (BrowserBase)...\n');
@@ -88,64 +87,57 @@ async function verifyProfile() {
     console.log('Step 2: Navigate to Appearance tab');
     
     await page.waitForLoadState('networkidle');
+    await page.waitForTimeout(500);
     
-    const appearanceTab = await page.$('text=Appearance, button:has-text("Appearance"), [data-tab="appearance"]');
-    if (appearanceTab) {
-      await appearanceTab.click();
-      await page.waitForTimeout(500);
-      reporter.record('Navigate to Appearance tab', true);
+    // Click Appearance link in sidebar
+    await page.goto(`${config.frontendUrl}/dashboard/appearance`);
+    await page.waitForLoadState('networkidle');
+    await page.waitForTimeout(500);
+    
+    const appearanceTab = await page.$('.appearance-tab');
+    reporter.record('Navigate to Appearance tab', !!appearanceTab);
+    
+    // === Step 3: Update profile title ===
+    console.log('Step 3: Update profile title');
+    
+    const titleInput = await page.$('input[placeholder="Your name or brand"]');
+    if (titleInput) {
+      await titleInput.fill('');
+      await titleInput.fill(profileUpdates.bioTitle);
+      await page.waitForTimeout(1000); // Wait for auto-save
+      reporter.record('Fill profile title', true);
     } else {
-      reporter.record('Navigate to Appearance tab', false, 'Tab not found');
-    }
-    
-    // === Step 3: Update display name ===
-    console.log('Step 3: Update display name');
-    
-    const displayNameInput = await page.$('input[name="displayName"], input[placeholder*="name" i], #displayName');
-    if (displayNameInput) {
-      await displayNameInput.fill('');
-      await displayNameInput.fill(profileUpdates.displayName);
-      reporter.record('Fill display name', true);
-    } else {
-      reporter.record('Fill display name', false, 'Input not found');
+      reporter.record('Fill profile title', false, 'Input not found');
     }
     
     // === Step 4: Update bio ===
     console.log('Step 4: Update bio');
     
-    const bioInput = await page.$('textarea[name="bio"], textarea[placeholder*="bio" i], #bio, textarea');
+    const bioInput = await page.$('input[placeholder="A short description about you"]');
     if (bioInput) {
       await bioInput.fill('');
-      await bioInput.fill(profileUpdates.bio);
+      await bioInput.fill(profileUpdates.bioDescription);
+      await page.waitForTimeout(1000); // Wait for auto-save
       reporter.record('Fill bio', true);
     } else {
       reporter.record('Fill bio', false, 'Input not found');
     }
     
-    // === Step 5: Save profile changes ===
-    console.log('Step 5: Save profile changes');
+    // === Step 5: Verify changes in preview ===
+    console.log('Step 5: Verify changes in preview');
     
-    const saveButton = await page.$('button:has-text("Save"), button:has-text("Update"), button[type="submit"]');
-    if (saveButton) {
-      await saveButton.click();
-      await page.waitForTimeout(1000);
-      reporter.record('Save profile changes', true);
-    } else {
-      reporter.record('Save profile changes', false, 'Save button not found');
-    }
-    
-    // === Step 6: Verify changes in preview ===
-    console.log('Step 6: Verify changes in preview');
-    
+    await page.waitForTimeout(500);
     const previewContent = await page.content();
-    const displayNameInPreview = previewContent.includes(profileUpdates.displayName);
-    const bioInPreview = previewContent.includes(profileUpdates.bio);
+    const titleInPreview = previewContent.includes(profileUpdates.bioTitle);
+    const bioInPreview = previewContent.includes(profileUpdates.bioDescription);
     
-    reporter.record('Display name visible in preview', displayNameInPreview);
+    reporter.record('Title visible in preview', titleInPreview);
     reporter.record('Bio visible in preview', bioInPreview);
     
-    // === Step 7: Verify changes persisted via API ===
-    console.log('Step 7: Verify changes in database');
+    // === Step 6: Verify changes persisted via API ===
+    console.log('Step 6: Verify changes in database');
+    
+    await page.waitForTimeout(1000); // Wait for save to complete
     
     const profileResponse = await apiRequest('/api/profile', {
       headers: { 'Authorization': `Bearer ${authToken}` }
@@ -153,50 +145,37 @@ async function verifyProfile() {
     
     if (profileResponse.ok) {
       const profile = await profileResponse.json();
-      reporter.record('Display name saved to database', profile.displayName === profileUpdates.displayName);
-      reporter.record('Bio saved to database', profile.bio === profileUpdates.bio);
+      reporter.record('Title saved to database', profile.bioTitle === profileUpdates.bioTitle);
+      reporter.record('Bio saved to database', profile.bioDescription === profileUpdates.bioDescription);
     } else {
       reporter.record('Profile fetch from database', false, 'API error');
     }
     
-    // === Step 8: Change theme ===
-    console.log('Step 8: Change theme');
+    // === Step 7: Change theme ===
+    console.log('Step 7: Change theme');
     
-    const themeOptions = await page.$$('.theme-option, [data-theme], input[name="theme"]');
-    if (themeOptions.length > 1) {
+    const themeCards = await page.$$('.theme-card');
+    if (themeCards.length > 1) {
       // Click second theme option
-      await themeOptions[1].click();
-      await page.waitForTimeout(500);
+      await themeCards[1].click();
+      await page.waitForTimeout(1000);
       reporter.record('Change theme selection', true);
-      
-      // Save theme
-      const themeSaveBtn = await page.$('button:has-text("Save")');
-      if (themeSaveBtn) {
-        await themeSaveBtn.click();
-        await page.waitForTimeout(1000);
-      }
-      
-      // Verify theme changed in preview
-      const previewEl = await page.$('.profile-preview, .preview');
-      if (previewEl) {
-        const previewClass = await previewEl.getAttribute('class');
-        reporter.record('Theme applied to preview', !!previewClass);
-      }
     } else {
-      reporter.record('Change theme selection', false, 'Theme options not found');
+      reporter.record('Change theme selection', false, 'Theme cards not found');
     }
     
-    // === Step 9: Verify public profile reflects changes ===
-    console.log('Step 9: Verify public profile');
+    // === Step 8: Verify public profile reflects changes ===
+    console.log('Step 8: Verify public profile');
     
-    await page.goto(`${config.frontendUrl}/@${testUser.handle}`);
+    await page.goto(`${config.frontendUrl}/${testUser.handle}`);
     await page.waitForLoadState('networkidle');
+    await page.waitForTimeout(500);
     
     const publicContent = await page.content();
-    const displayNameOnPublic = publicContent.includes(profileUpdates.displayName);
-    const bioOnPublic = publicContent.includes(profileUpdates.bio);
+    const titleOnPublic = publicContent.includes(profileUpdates.bioTitle);
+    const bioOnPublic = publicContent.includes(profileUpdates.bioDescription);
     
-    reporter.record('Display name visible on public profile', displayNameOnPublic);
+    reporter.record('Title visible on public profile', titleOnPublic);
     reporter.record('Bio visible on public profile', bioOnPublic);
     
   } catch (error) {

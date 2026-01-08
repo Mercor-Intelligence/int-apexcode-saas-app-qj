@@ -110,12 +110,14 @@ export async function getTextContent(page, selector) {
  */
 export async function apiRequest(endpoint, options = {}) {
   const url = `${config.backendUrl}${endpoint}`;
+  const { headers: optionHeaders, ...restOptions } = options;
+  
   const response = await fetch(url, {
+    ...restOptions,
     headers: {
       'Content-Type': 'application/json',
-      ...options.headers
-    },
-    ...options
+      ...optionHeaders
+    }
   });
   return response;
 }
