@@ -1,12 +1,18 @@
 /**
- * Configuration for browser verification scripts
- * Supports both local development and production (Vercel) environments
+ * Configuration for BrowserBase verification scripts
+ * Uses BrowserBase cloud browsers for automated testing
  */
 
 import dotenv from 'dotenv';
 dotenv.config();
 
 export const config = {
+  // BrowserBase configuration
+  browserbase: {
+    apiKey: process.env.BROWSERBASE_API_KEY,
+    projectId: process.env.BROWSERBASE_PROJECT_ID
+  },
+  
   // Base URLs - override with environment variables for production testing
   frontendUrl: process.env.FRONTEND_URL || 'http://localhost:5173',
   backendUrl: process.env.BACKEND_URL || 'http://localhost:3001',
@@ -22,8 +28,6 @@ export const config = {
   
   // Browser settings
   browser: {
-    headless: process.env.HEADLESS !== 'false', // Default to headless
-    slowMo: parseInt(process.env.SLOW_MO) || 0, // Slow down for debugging
     timeout: parseInt(process.env.TIMEOUT) || 30000
   },
   

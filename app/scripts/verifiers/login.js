@@ -1,5 +1,5 @@
 /**
- * Browser Verification Script: User Login Flow
+ * BrowserBase Verification Script: User Login Flow
  * 
  * Actions:
  * 1. Create a test user via API (setup)
@@ -19,7 +19,7 @@ import Reporter from '../utils/reporter.js';
 
 async function verifyLogin() {
   const reporter = new Reporter('Login Verification');
-  let browser, page;
+  let browser, page, sessionId;
   
   // Test user credentials
   const testUser = {
@@ -28,7 +28,7 @@ async function verifyLogin() {
     handle: `logintest${Date.now()}`
   };
   
-  console.log('\n🚀 Starting Login Verification...\n');
+  console.log('\n🚀 Starting Login Verification (BrowserBase)...\n');
   console.log(`Test User: ${testUser.email}\n`);
   
   try {
@@ -51,10 +51,13 @@ async function verifyLogin() {
       reporter.record('Test user created via API', false, error.message);
     }
     
-    // Launch browser
+    // Launch BrowserBase session
     const browserSetup = await launchBrowser();
     browser = browserSetup.browser;
     page = browserSetup.page;
+    sessionId = browserSetup.sessionId;
+    
+    reporter.record('BrowserBase session created', true, `Session: ${sessionId}`);
     
     // === Step 1: Navigate to login page ===
     console.log('Step 1: Navigate to login page');
@@ -153,7 +156,7 @@ async function verifyLogin() {
     if (page) await screenshotOnFailure(page, 'login-error');
     reporter.record('Login flow completion', false, error.message);
   } finally {
-    await closeBrowser(browser);
+    await closeBrowser(browser, sessionId);
   }
   
   return reporter.summary();
@@ -167,4 +170,3 @@ if (process.argv[1].includes('login.js')) {
 }
 
 export default verifyLogin;
-

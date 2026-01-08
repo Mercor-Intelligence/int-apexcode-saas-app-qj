@@ -1,5 +1,5 @@
 /**
- * Browser Verification Script: Analytics Tracking
+ * BrowserBase Verification Script: Analytics Tracking
  * 
  * Actions:
  * 1. Create a test user with links via API
@@ -21,7 +21,7 @@ import Reporter from '../utils/reporter.js';
 
 async function verifyAnalytics() {
   const reporter = new Reporter('Analytics Verification');
-  let browser, page;
+  let browser, page, sessionId;
   let authToken = null;
   let createdLinkId = null;
   
@@ -39,7 +39,7 @@ async function verifyAnalytics() {
     isVisible: true
   };
   
-  console.log('\n🚀 Starting Analytics Verification...\n');
+  console.log('\n🚀 Starting Analytics Verification (BrowserBase)...\n');
   
   try {
     // === Setup: Create test user and link ===
@@ -88,10 +88,13 @@ async function verifyAnalytics() {
       initialClicks = data.totalClicks || 0;
     }
     
-    // Launch browser
+    // Launch BrowserBase session
     const browserSetup = await launchBrowser();
     browser = browserSetup.browser;
     page = browserSetup.page;
+    sessionId = browserSetup.sessionId;
+    
+    reporter.record('BrowserBase session created', true, `Session: ${sessionId}`);
     
     // === Step 1: Visit public profile (generate view) ===
     console.log('Step 1: Visit public profile to generate view');
@@ -236,7 +239,7 @@ async function verifyAnalytics() {
     if (page) await screenshotOnFailure(page, 'analytics-error');
     reporter.record('Analytics flow', false, error.message);
   } finally {
-    await closeBrowser(browser);
+    await closeBrowser(browser, sessionId);
   }
   
   return reporter.summary();
@@ -250,4 +253,3 @@ if (process.argv[1].includes('analytics.js')) {
 }
 
 export default verifyAnalytics;
-

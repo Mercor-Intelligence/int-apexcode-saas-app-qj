@@ -1,5 +1,5 @@
 /**
- * Browser Verification Script: Link Management Flow
+ * BrowserBase Verification Script: Link Management Flow
  * 
  * Actions:
  * 1. Login as test user
@@ -23,7 +23,7 @@ import Reporter from '../utils/reporter.js';
 
 async function verifyLinks() {
   const reporter = new Reporter('Link Management Verification');
-  let browser, page;
+  let browser, page, sessionId;
   let authToken = null;
   
   // Test user credentials
@@ -41,7 +41,7 @@ async function verifyLinks() {
     editedUrl: 'https://example.com/updated-link'
   };
   
-  console.log('\n🚀 Starting Link Management Verification...\n');
+  console.log('\n🚀 Starting Link Management Verification (BrowserBase)...\n');
   
   try {
     // === Setup: Create test user and get token ===
@@ -61,10 +61,13 @@ async function verifyLinks() {
       return reporter.summary();
     }
     
-    // Launch browser
+    // Launch BrowserBase session
     const browserSetup = await launchBrowser();
     browser = browserSetup.browser;
     page = browserSetup.page;
+    sessionId = browserSetup.sessionId;
+    
+    reporter.record('BrowserBase session created', true, `Session: ${sessionId}`);
     
     // === Step 1: Login ===
     console.log('Step 1: Login as test user');
@@ -238,7 +241,7 @@ async function verifyLinks() {
     if (page) await screenshotOnFailure(page, 'links-error');
     reporter.record('Link management flow', false, error.message);
   } finally {
-    await closeBrowser(browser);
+    await closeBrowser(browser, sessionId);
   }
   
   return reporter.summary();
@@ -252,4 +255,3 @@ if (process.argv[1].includes('links.js')) {
 }
 
 export default verifyLinks;
-

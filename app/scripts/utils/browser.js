@@ -1,37 +1,65 @@
 /**
- * Browser utility functions for verification scripts
+ * BrowserBase utility functions for verification scripts
+ * Uses BrowserBase cloud browsers for automated testing
  */
 
-import { chromium } from 'playwright';
+import Browserbase from '@browserbasehq/sdk';
+import { chromium } from 'playwright-core';
 import { config } from '../config.js';
 import fs from 'fs';
 import path from 'path';
 
+// Initialize BrowserBase client
+const browserbase = new Browserbase({
+  apiKey: config.browserbase.apiKey
+});
+
 /**
- * Launch a new browser instance with configured settings
+ * Launch a new BrowserBase session and connect via Playwright
  */
 export async function launchBrowser() {
-  const browser = await chromium.launch({
-    headless: config.browser.headless,
-    slowMo: config.browser.slowMo
+  console.log('  🌐 Creating BrowserBase session...');
+  
+  // Create a new BrowserBase session
+  const session = await browserbase.sessions.create({
+    projectId: config.browserbase.projectId,
+    browserSettings: {
+      viewport: {
+        width: 1280,
+        height: 720
+      }
+    }
   });
   
-  const context = await browser.newContext({
-    viewport: { width: 1280, height: 720 }
-  });
+  console.log(`  📍 Session ID: ${session.id}`);
+  console.log(`  🔗 Debug URL: https://browserbase.com/sessions/${session.id}`);
   
-  const page = await context.newPage();
+  // Connect to the session using Playwright
+  const browser = await chromium.connectOverCDP(session.connectUrl);
+  const context = browser.contexts()[0] || await browser.newContext();
+  const page = context.pages()[0] || await context.newPage();
+  
   page.setDefaultTimeout(config.browser.timeout);
   
-  return { browser, context, page };
+  return { 
+    browser, 
+    context, 
+    page, 
+    sessionId: session.id,
+    debugUrl: `https://browserbase.com/sessions/${session.id}`
+  };
 }
 
 /**
- * Close browser and cleanup
+ * Close browser and end BrowserBase session
  */
-export async function closeBrowser(browser) {
+export async function closeBrowser(browser, sessionId) {
   if (browser) {
     await browser.close();
+  }
+  
+  if (sessionId) {
+    console.log(`  ✅ Session completed: https://browserbase.com/sessions/${sessionId}`);
   }
 }
 
@@ -46,7 +74,7 @@ export async function screenshotOnFailure(page, testName) {
     }
     const filename = `${testName}-${Date.now()}.png`;
     await page.screenshot({ path: path.join(dir, filename) });
-    console.log(`Screenshot saved: ${filename}`);
+    console.log(`  📸 Screenshot saved: ${filename}`);
   }
 }
 
@@ -92,6 +120,13 @@ export async function apiRequest(endpoint, options = {}) {
   return response;
 }
 
+/**
+ * Get session recording URL for debugging
+ */
+export function getSessionRecording(sessionId) {
+  return `https://browserbase.com/sessions/${sessionId}`;
+}
+
 export default {
   launchBrowser,
   closeBrowser,
@@ -99,6 +134,6 @@ export default {
   waitForNavigation,
   elementExists,
   getTextContent,
-  apiRequest
+  apiRequest,
+  getSessionRecording
 };
-

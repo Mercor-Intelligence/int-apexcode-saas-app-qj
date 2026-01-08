@@ -1,5 +1,5 @@
 /**
- * Browser Verification Script: Profile Management Flow
+ * BrowserBase Verification Script: Profile Management Flow
  * 
  * Actions:
  * 1. Login as test user
@@ -22,7 +22,7 @@ import Reporter from '../utils/reporter.js';
 
 async function verifyProfile() {
   const reporter = new Reporter('Profile Management Verification');
-  let browser, page;
+  let browser, page, sessionId;
   let authToken = null;
   
   // Test user credentials
@@ -38,7 +38,7 @@ async function verifyProfile() {
     bio: 'This is an updated bio for testing purposes.'
   };
   
-  console.log('\n🚀 Starting Profile Management Verification...\n');
+  console.log('\n🚀 Starting Profile Management Verification (BrowserBase)...\n');
   
   try {
     // === Setup: Create test user and get token ===
@@ -58,10 +58,13 @@ async function verifyProfile() {
       return reporter.summary();
     }
     
-    // Launch browser
+    // Launch BrowserBase session
     const browserSetup = await launchBrowser();
     browser = browserSetup.browser;
     page = browserSetup.page;
+    sessionId = browserSetup.sessionId;
+    
+    reporter.record('BrowserBase session created', true, `Session: ${sessionId}`);
     
     // === Step 1: Login ===
     console.log('Step 1: Login as test user');
@@ -201,7 +204,7 @@ async function verifyProfile() {
     if (page) await screenshotOnFailure(page, 'profile-error');
     reporter.record('Profile management flow', false, error.message);
   } finally {
-    await closeBrowser(browser);
+    await closeBrowser(browser, sessionId);
   }
   
   return reporter.summary();
@@ -215,4 +218,3 @@ if (process.argv[1].includes('profile.js')) {
 }
 
 export default verifyProfile;
-

@@ -1,7 +1,7 @@
 {
   "name": "biolink-browser-verifiers",
   "version": "1.0.0",
-  "description": "Automated browser verification scripts for BioLink application",
+  "description": "Automated BrowserBase verification scripts for BioLink application",
   "type": "module",
   "scripts": {
     "verify:signup": "node verifiers/signup.js",
@@ -14,7 +14,8 @@
     "test": "node run-all-verifiers.js"
   },
   "dependencies": {
-    "playwright": "^1.40.0",
+    "@browserbasehq/sdk": "^2.0.0",
+    "playwright-core": "^1.40.0",
     "dotenv": "^16.3.1"
   },
   "devDependencies": {}

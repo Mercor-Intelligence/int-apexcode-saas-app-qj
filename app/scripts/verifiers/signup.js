@@ -1,5 +1,5 @@
 /**
- * Browser Verification Script: User Signup Flow
+ * BrowserBase Verification Script: User Signup Flow
  * 
  * Actions:
  * 1. Navigate to landing page
@@ -19,7 +19,7 @@ import Reporter from '../utils/reporter.js';
 
 async function verifySignup() {
   const reporter = new Reporter('Signup Verification');
-  let browser, page;
+  let browser, page, sessionId;
   
   // Generate unique test user for this run
   const testUser = {
@@ -28,14 +28,17 @@ async function verifySignup() {
     handle: `signuptest${Date.now()}`
   };
   
-  console.log('\n🚀 Starting Signup Verification...\n');
+  console.log('\n🚀 Starting Signup Verification (BrowserBase)...\n');
   console.log(`Test User: ${testUser.email} / @${testUser.handle}\n`);
   
   try {
-    // Launch browser
+    // Launch BrowserBase session
     const browserSetup = await launchBrowser();
     browser = browserSetup.browser;
     page = browserSetup.page;
+    sessionId = browserSetup.sessionId;
+    
+    reporter.record('BrowserBase session created', true, `Session: ${sessionId}`);
     
     // === Step 1: Navigate to landing page ===
     console.log('Step 1: Navigate to landing page');
@@ -161,7 +164,7 @@ async function verifySignup() {
     if (page) await screenshotOnFailure(page, 'signup-error');
     reporter.record('Signup flow completion', false, error.message);
   } finally {
-    await closeBrowser(browser);
+    await closeBrowser(browser, sessionId);
   }
   
   return reporter.summary();
@@ -175,4 +178,3 @@ if (process.argv[1].includes('signup.js')) {
 }
 
 export default verifySignup;
-

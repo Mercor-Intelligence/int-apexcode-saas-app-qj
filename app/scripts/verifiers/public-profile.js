@@ -1,5 +1,5 @@
 /**
- * Browser Verification Script: Public Profile Page
+ * BrowserBase Verification Script: Public Profile Page
  * 
  * Actions:
  * 1. Create a test user with profile and links via API
@@ -23,7 +23,7 @@ import Reporter from '../utils/reporter.js';
 
 async function verifyPublicProfile() {
   const reporter = new Reporter('Public Profile Verification');
-  let browser, page;
+  let browser, page, sessionId;
   let authToken = null;
   
   // Test user credentials
@@ -52,7 +52,7 @@ async function verifyPublicProfile() {
     isVisible: false
   };
   
-  console.log('\n🚀 Starting Public Profile Verification...\n');
+  console.log('\n🚀 Starting Public Profile Verification (BrowserBase)...\n');
   console.log(`Test Profile: @${testUser.handle}\n`);
   
   try {
@@ -98,10 +98,13 @@ async function verifyPublicProfile() {
     });
     reporter.record('Hidden link created', hiddenLinkResponse.ok);
     
-    // Launch browser
+    // Launch BrowserBase session
     const browserSetup = await launchBrowser();
     browser = browserSetup.browser;
     page = browserSetup.page;
+    sessionId = browserSetup.sessionId;
+    
+    reporter.record('BrowserBase session created', true, `Session: ${sessionId}`);
     
     // === Step 1: Navigate to public profile ===
     console.log('Step 1: Navigate to public profile');
@@ -194,7 +197,7 @@ async function verifyPublicProfile() {
     if (page) await screenshotOnFailure(page, 'public-profile-error');
     reporter.record('Public profile flow', false, error.message);
   } finally {
-    await closeBrowser(browser);
+    await closeBrowser(browser, sessionId);
   }
   
   return reporter.summary();
@@ -208,4 +211,3 @@ if (process.argv[1].includes('public-profile.js')) {
 }
 
 export default verifyPublicProfile;
-
