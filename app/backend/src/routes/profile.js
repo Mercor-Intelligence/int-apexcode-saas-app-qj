@@ -2,36 +2,20 @@ const express = require('express');
 const { PrismaClient } = require('@prisma/client');
 const { authenticateToken } = require('../middleware/auth');
 const multer = require('multer');
-const path = require('path');
-const fs = require('fs');
 
 const router = express.Router();
 const prisma = new PrismaClient();
 
-// Configure multer for avatar uploads
-const uploadsDir = path.join(__dirname, '../../uploads');
-if (!fs.existsSync(uploadsDir)) {
-  fs.mkdirSync(uploadsDir, { recursive: true });
-}
-
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, uploadsDir);
-  },
-  filename: (req, file, cb) => {
-    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-    cb(null, 'avatar-' + uniqueSuffix + path.extname(file.originalname));
-  },
-});
+// Use memory storage for serverless environments
+const storage = multer.memoryStorage();
 
 const upload = multer({
   storage,
-  limits: { fileSize: 5 * 1024 * 1024 }, // 5MB
+  limits: { fileSize: 2 * 1024 * 1024 }, // 2MB for base64
   fileFilter: (req, file, cb) => {
     const allowedTypes = /jpeg|jpg|png|gif|webp/;
-    const extname = allowedTypes.test(path.extname(file.originalname).toLowerCase());
     const mimetype = allowedTypes.test(file.mimetype);
-    if (extname && mimetype) {
+    if (mimetype) {
       return cb(null, true);
     }
     cb(new Error('Only image files are allowed'));
@@ -123,14 +107,16 @@ router.put('/', authenticateToken, async (req, res) => {
   }
 });
 
-// Upload avatar
+// Upload avatar - stores as base64 data URL in database
 router.post('/avatar', authenticateToken, upload.single('avatar'), async (req, res) => {
   try {
     if (!req.file) {
       return res.status(400).json({ error: 'No file uploaded' });
     }
     
-    const avatarUrl = `/uploads/${req.file.filename}`;
+    // Convert to base64 data URL for serverless storage
+    const base64 = req.file.buffer.toString('base64');
+    const avatarUrl = `data:${req.file.mimetype};base64,${base64}`;
     
     await prisma.user.update({
       where: { id: req.user.id },
@@ -145,4 +131,3 @@ router.post('/avatar', authenticateToken, upload.single('avatar'), async (req, r
 });
 
 module.exports = router;
-
