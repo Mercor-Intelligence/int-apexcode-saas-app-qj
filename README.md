@@ -8,7 +8,7 @@ A full-stack Linktree clone built with React and Node.js, featuring automated br
 [![Vercel](https://img.shields.io/badge/deployed%20on-Vercel-black)](https://vercel.com)
 [![BrowserBase](https://img.shields.io/badge/verified%20with-BrowserBase-blue)](https://browserbase.com)
 
-## 🎯 Overview
+## Overview
 
 BioLink is a link-in-bio platform that allows users to create a personalized landing page to share all their important links, social profiles, and content in one place.
 
@@ -16,18 +16,18 @@ BioLink is a link-in-bio platform that allows users to create a personalized lan
 - Frontend: https://frontend-ten-cyan-42.vercel.app
 - Backend API: https://backend-eight-mu-60.vercel.app
 
-## ✨ Features
+## Features
 
 | Feature | Description |
 |---------|-------------|
-| 🔗 **Link Management** | Add, edit, reorder (drag & drop), and delete links |
-| 🎨 **Customization** | Multiple themes, button styles, fonts, and avatar upload |
-| 📊 **Analytics** | Track page views, link clicks, referrers, and devices |
-| 🔐 **Authentication** | Secure JWT-based signup/login with handle reservation |
-| 📱 **Responsive** | Mobile-optimized public profile pages |
-| 👁️ **Live Preview** | Real-time preview while editing |
+| **Link Management** | Add, edit, reorder (drag & drop), and delete links |
+| **Customization** | Multiple themes, button styles, fonts, and avatar upload |
+| **Analytics** | Track page views, link clicks, referrers, and devices |
+| **Authentication** | Secure JWT-based signup/login with handle reservation |
+| **Responsive** | Mobile-optimized public profile pages |
+| **Live Preview** | Real-time preview while editing |
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 ┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
@@ -44,7 +44,7 @@ BioLink is a link-in-bio platform that allows users to create a personalized lan
 └─────────────────┘
 ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 int-apexcode-saas-app-qj/
@@ -85,7 +85,7 @@ int-apexcode-saas-app-qj/
 └── README.md                     # This file
 ```
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -118,7 +118,7 @@ npm run dev
 - Frontend: http://localhost:5173
 - Backend: http://localhost:3001
 
-## 🧪 Automated Testing with BrowserBase
+## Automated Testing with BrowserBase
 
 This project includes comprehensive E2E tests using [BrowserBase](https://browserbase.com) cloud browsers.
 
@@ -169,10 +169,10 @@ npm run verify:analytics
 
 Every test generates a BrowserBase session recording for debugging:
 ```
-🔗 Watch replay: https://browserbase.com/sessions/{session_id}
+Watch replay: https://browserbase.com/sessions/{session_id}
 ```
 
-## 🌐 Deployment
+## Deployment
 
 ### Vercel Deployment
 
@@ -192,7 +192,7 @@ Every test generates a BrowserBase session recording for debugging:
    - `VITE_API_URL` - Backend URL (e.g., `https://your-backend.vercel.app/api`)
 5. Deploy
 
-## 📚 API Reference
+## API Reference
 
 ### Authentication
 | Method | Endpoint | Description |
@@ -231,7 +231,7 @@ Every test generates a BrowserBase session recording for debugging:
 | POST | `/api/public/:handle/view` | Track page view |
 | POST | `/api/public/click/:linkId` | Track link click |
 
-## 🎨 Themes
+## Themes
 
 Built-in themes for public profiles:
 
@@ -243,7 +243,7 @@ Built-in themes for public profiles:
 | Violet | Red to yellow to pink |
 | Light | Minimal white/gray |
 
-## 📊 Evaluation Rubric
+## Evaluation Rubric
 
 The project includes a comprehensive evaluation rubric (`app/rubric/`) covering:
 
@@ -251,14 +251,14 @@ The project includes a comprehensive evaluation rubric (`app/rubric/`) covering:
 - **Code Quality (10 criteria)** - Best practices
 - **Deployment (10 criteria)** - Production readiness
 
-## 📖 Additional Documentation
+## Additional Documentation
 
 - [`app/README.md`](app/README.md) - Detailed app documentation
 - [`app/scripts/README.md`](app/scripts/README.md) - BrowserBase testing guide
 - [`knowledge_base.md`](knowledge_base.md) - Stakeholder Q&A
 - [`product_requirements_doc.md`](product_requirements_doc.md) - Original requirements
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 |-------|------------|
@@ -269,7 +269,6 @@ The project includes a comprehensive evaluation rubric (`app/rubric/`) covering:
 | Hosting | Vercel (Serverless) |
 | Testing | BrowserBase, Playwright |
 
-## 📝 License
+## License
 
 MIT License - see [LICENSE](LICENSE) for details.
-
