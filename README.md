@@ -1,3 +1,5 @@
+The following is a data sample created for [APEX Code V2 - Saas Apps Proposal](https://docs.google.com/document/d/10_RJao9r0v-BIkYMpXOjLQASadAK62gj-Gjjm_lguSA/edit?tab=t.pl7ix8556vx3)
+
 # BioLink SaaS Application
 
 A full-stack Linktree clone built with React and Node.js, featuring automated browser verification using BrowserBase.
@@ -270,8 +272,4 @@ The project includes a comprehensive evaluation rubric (`app/rubric/`) covering:
 ## 📝 License
 
 MIT License - see [LICENSE](LICENSE) for details.
-
----
-
-Built with ❤️ using React, Node.js, and BrowserBase
 
