@@ -10,8 +10,10 @@
     "verify:profile": "node verifiers/profile.js",
     "verify:public": "node verifiers/public-profile.js",
     "verify:analytics": "node verifiers/analytics.js",
+    "verify:full": "node verifiers/full-journey.js",
     "verify:all": "node run-all-verifiers.js",
-    "test": "node run-all-verifiers.js"
+    "test": "node run-all-verifiers.js",
+    "test:full": "node verifiers/full-journey.js"
   },
   "dependencies": {
     "@browserbasehq/sdk": "^2.0.0",
