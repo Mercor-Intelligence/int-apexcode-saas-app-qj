@@ -14,6 +14,14 @@ import verifyProfile from './verifiers/profile.js';
 import verifyPublicProfile from './verifiers/public-profile.js';
 import verifyAnalytics from './verifiers/analytics.js';
 import verifyFullJourney from './verifiers/full-journey.js';
+// Advanced verifiers from knowledge_base.md
+import verifyPasswordValidation from './verifiers/password-validation.js';
+import verifyHandleValidation from './verifiers/handle-validation.js';
+import verifyBioLimits from './verifiers/bio-limits.js';
+import verifyLinkBehavior from './verifiers/link-behavior.js';
+import verifyThemeAnd404 from './verifiers/theme-and-404.js';
+import verifyAnalyticsAdvanced from './verifiers/analytics-advanced.js';
+import verifyResponsiveA11y from './verifiers/responsive-a11y.js';
 import { config } from './config.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -75,8 +83,8 @@ async function runWithTrajectory() {
   const startTime = Date.now();
   let episodeNum = 0;
   
-  // Define verifiers
-  const verifiers = [
+  // Define verifiers - basic tests
+  const basicVerifiers = [
     { name: 'Signup', fn: verifySignup },
     { name: 'Login', fn: verifyLogin },
     { name: 'Links', fn: verifyLinks },
@@ -84,6 +92,33 @@ async function runWithTrajectory() {
     { name: 'Public Profile', fn: verifyPublicProfile },
     { name: 'Analytics', fn: verifyAnalytics }
   ];
+  
+  // Advanced verifiers from knowledge_base.md - harder to pass
+  const advancedVerifiers = [
+    { name: 'Password Validation', fn: verifyPasswordValidation },
+    { name: 'Handle Validation', fn: verifyHandleValidation },
+    { name: 'Bio Limits', fn: verifyBioLimits },
+    { name: 'Link Behavior', fn: verifyLinkBehavior },
+    { name: 'Theme & 404', fn: verifyThemeAnd404 },
+    { name: 'Advanced Analytics', fn: verifyAnalyticsAdvanced },
+    { name: 'Responsive & A11y', fn: verifyResponsiveA11y }
+  ];
+  
+  // Use --basic for basic only, --advanced for advanced only, default runs all
+  const runBasicOnly = process.argv.includes('--basic');
+  const runAdvancedOnly = process.argv.includes('--advanced');
+  
+  let verifiers;
+  if (runBasicOnly) {
+    verifiers = basicVerifiers;
+    console.log('Running BASIC verifiers only\n');
+  } else if (runAdvancedOnly) {
+    verifiers = advancedVerifiers;
+    console.log('Running ADVANCED verifiers only\n');
+  } else {
+    verifiers = [...basicVerifiers, ...advancedVerifiers];
+    console.log('Running ALL verifiers (basic + advanced)\n');
+  }
   
   // Check if full journey should be run instead
   const runFullJourney = process.argv.includes('--full');
