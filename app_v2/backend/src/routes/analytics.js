@@ -233,5 +233,146 @@ router.get('/daily', authenticateToken, async (req, res) => {
   }
 });
 
+// Track page view (public endpoint)
+router.post('/view', async (req, res) => {
+  try {
+    const { handle, referrer } = req.body;
+    
+    if (!handle) {
+      return res.status(400).json({ error: 'Handle is required' });
+    }
+    
+    const user = await prisma.user.findUnique({
+      where: { handleLower: handle.toLowerCase() }
+    });
+    
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+    
+    // Categorize referrer
+    let referrerCategory = 'direct';
+    if (referrer) {
+      if (referrer.includes('twitter') || referrer.includes('instagram') || 
+          referrer.includes('tiktok') || referrer.includes('facebook')) {
+        referrerCategory = 'social';
+      } else if (referrer.includes('google') || referrer.includes('bing') || 
+                 referrer.includes('yahoo')) {
+        referrerCategory = 'search';
+      } else {
+        referrerCategory = 'other';
+      }
+    }
+    
+    await prisma.analyticsEvent.create({
+      data: {
+        userId: user.id,
+        eventType: 'PAGE_VIEW',
+        referrer,
+        referrerCategory,
+        device: req.body.device || 'desktop'
+      }
+    });
+    
+    res.json({ success: true });
+  } catch (error) {
+    console.error('Track view error:', error);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
+// Track link click (public endpoint)
+router.post('/click', async (req, res) => {
+  try {
+    const { linkId, referrer } = req.body;
+    
+    if (!linkId) {
+      return res.status(400).json({ error: 'Link ID is required' });
+    }
+    
+    const link = await prisma.link.findUnique({
+      where: { id: linkId }
+    });
+    
+    if (!link) {
+      return res.status(404).json({ error: 'Link not found' });
+    }
+    
+    // Increment click count
+    await prisma.link.update({
+      where: { id: linkId },
+      data: { clickCount: { increment: 1 } }
+    });
+    
+    // Record analytics event
+    await prisma.analyticsEvent.create({
+      data: {
+        userId: link.userId,
+        linkId,
+        eventType: 'LINK_CLICK',
+        referrer,
+        device: req.body.device || 'desktop'
+      }
+    });
+    
+    res.json({ success: true });
+  } catch (error) {
+    console.error('Track click error:', error);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
+// Get analytics (alias for summary - for compatibility)
+router.get('/', authenticateToken, async (req, res) => {
+  try {
+    const { period = '30d' } = req.query;
+    
+    const now = new Date();
+    let startDate;
+    switch (period) {
+      case '7d':
+        startDate = new Date(now - 7 * 24 * 60 * 60 * 1000);
+        break;
+      case '30d':
+        startDate = new Date(now - 30 * 24 * 60 * 60 * 1000);
+        break;
+      case '90d':
+        startDate = new Date(now - 90 * 24 * 60 * 60 * 1000);
+        break;
+      default:
+        startDate = new Date(now - 30 * 24 * 60 * 60 * 1000);
+    }
+    
+    const views = await prisma.analyticsEvent.count({
+      where: {
+        userId: req.user.id,
+        eventType: 'PAGE_VIEW',
+        createdAt: { gte: startDate }
+      }
+    });
+    
+    const clicks = await prisma.analyticsEvent.count({
+      where: {
+        userId: req.user.id,
+        eventType: 'LINK_CLICK',
+        createdAt: { gte: startDate }
+      }
+    });
+    
+    const ctr = views > 0 ? ((clicks / views) * 100).toFixed(2) : 0;
+    
+    res.json({
+      totalViews: views,
+      totalClicks: clicks,
+      ctr: parseFloat(ctr),
+      views,
+      clicks
+    });
+  } catch (error) {
+    console.error('Analytics error:', error);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
 export default router;
 
