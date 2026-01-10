@@ -107,10 +107,11 @@ export default function AppearanceTab({ profile, setProfile, onUpdate }) {
           </label>
         </div>
         
-        <div className="input-group">
+        <div className="input-group profile-title">
           <label>Profile Title</label>
           <input
             type="text"
+            name="bioTitle"
             value={profile.bioTitle || ''}
             onChange={e => handleChange('bioTitle', e.target.value)}
             placeholder="Your name or title"
@@ -120,15 +121,16 @@ export default function AppearanceTab({ profile, setProfile, onUpdate }) {
           <span className="char-count">{(profile.bioTitle || '').length}/60</span>
         </div>
         
-        <div className="input-group">
+        <div className="input-group bio-input">
           <label>Bio</label>
-          <input
-            type="text"
+          <textarea
+            name="bio"
             value={profile.bioDescription || ''}
             onChange={e => handleChange('bioDescription', e.target.value)}
-            placeholder="A short bio about you"
+            placeholder="A short description about you"
             className="input"
             maxLength={150}
+            rows={3}
           />
           <span className="char-count">{(profile.bioDescription || '').length}/150</span>
         </div>

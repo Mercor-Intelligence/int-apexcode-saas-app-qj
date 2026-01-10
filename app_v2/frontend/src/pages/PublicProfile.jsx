@@ -149,9 +149,15 @@ export default function PublicProfile() {
                 {link.title}
               </div>
             ) : (
-              <button
+              <a
                 key={link.id}
-                onClick={() => handleLinkClick(link)}
+                href={link.url || '#'}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleLinkClick(link);
+                }}
                 className={`link-button ${profile.buttonStyle || 'rounded'}`}
                 style={{ animationDelay: `${index * 0.05}s` }}
               >
@@ -164,7 +170,7 @@ export default function PublicProfile() {
                 )}
                 <span className="link-title">{link.title}</span>
                 <ExternalLink size={16} className="link-arrow" />
-              </button>
+              </a>
             )
           ))}
         </div>

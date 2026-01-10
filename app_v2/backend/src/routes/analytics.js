@@ -233,10 +233,39 @@ router.get('/daily', authenticateToken, async (req, res) => {
   }
 });
 
+// Helper function to detect device type
+function detectDevice(userAgent) {
+  if (!userAgent) return 'desktop';
+  const ua = userAgent.toLowerCase();
+  if (ua.includes('mobile') || ua.includes('android') || ua.includes('iphone')) {
+    return 'mobile';
+  }
+  if (ua.includes('tablet') || ua.includes('ipad')) {
+    return 'tablet';
+  }
+  return 'desktop';
+}
+
+// Helper function to categorize referrer
+function categorizeReferrer(referrer) {
+  if (!referrer || referrer === '') return 'direct';
+  const ref = referrer.toLowerCase();
+  if (ref.includes('twitter') || ref.includes('instagram') || 
+      ref.includes('tiktok') || ref.includes('facebook') ||
+      ref.includes('linkedin') || ref.includes('youtube')) {
+    return 'social';
+  }
+  if (ref.includes('google') || ref.includes('bing') || 
+      ref.includes('yahoo') || ref.includes('duckduckgo')) {
+    return 'search';
+  }
+  return 'other';
+}
+
 // Track page view (public endpoint)
 router.post('/view', async (req, res) => {
   try {
-    const { handle, referrer } = req.body;
+    const { handle, referrer, device, countryCode, userAgent } = req.body;
     
     if (!handle) {
       return res.status(400).json({ error: 'Handle is required' });
@@ -251,26 +280,20 @@ router.post('/view', async (req, res) => {
     }
     
     // Categorize referrer
-    let referrerCategory = 'direct';
-    if (referrer) {
-      if (referrer.includes('twitter') || referrer.includes('instagram') || 
-          referrer.includes('tiktok') || referrer.includes('facebook')) {
-        referrerCategory = 'social';
-      } else if (referrer.includes('google') || referrer.includes('bing') || 
-                 referrer.includes('yahoo')) {
-        referrerCategory = 'search';
-      } else {
-        referrerCategory = 'other';
-      }
-    }
+    const referrerCategory = categorizeReferrer(referrer);
+    
+    // Detect device
+    const detectedDevice = device || detectDevice(userAgent || req.headers['user-agent']);
     
     await prisma.analyticsEvent.create({
       data: {
         userId: user.id,
         eventType: 'PAGE_VIEW',
-        referrer,
+        referrer: referrer || null,
         referrerCategory,
-        device: req.body.device || 'desktop'
+        device: detectedDevice,
+        countryCode: countryCode || null,
+        userAgent: userAgent || req.headers['user-agent'] || null
       }
     });
     
@@ -284,7 +307,7 @@ router.post('/view', async (req, res) => {
 // Track link click (public endpoint)
 router.post('/click', async (req, res) => {
   try {
-    const { linkId, referrer } = req.body;
+    const { linkId, referrer, device, countryCode, userAgent } = req.body;
     
     if (!linkId) {
       return res.status(400).json({ error: 'Link ID is required' });
@@ -304,14 +327,21 @@ router.post('/click', async (req, res) => {
       data: { clickCount: { increment: 1 } }
     });
     
+    // Categorize referrer and detect device
+    const referrerCategory = categorizeReferrer(referrer);
+    const detectedDevice = device || detectDevice(userAgent || req.headers['user-agent']);
+    
     // Record analytics event
     await prisma.analyticsEvent.create({
       data: {
         userId: link.userId,
         linkId,
         eventType: 'LINK_CLICK',
-        referrer,
-        device: req.body.device || 'desktop'
+        referrer: referrer || null,
+        referrerCategory,
+        device: detectedDevice,
+        countryCode: countryCode || null,
+        userAgent: userAgent || req.headers['user-agent'] || null
       }
     });
     
