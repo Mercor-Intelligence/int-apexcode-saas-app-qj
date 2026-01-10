@@ -1,0 +1,83 @@
+{
+  "suite": "Bio & Profile Limits",
+  "tests": [
+    {
+      "test": "Test user created",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T03:20:03.811Z"
+    },
+    {
+      "test": "BrowserBase session created",
+      "passed": true,
+      "details": "Session: 62dbfd97-af71-4a2e-ab94-624506be6be7",
+      "timestamp": "2026-01-10T03:20:04.083Z"
+    },
+    {
+      "test": "Login successful",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T03:20:08.855Z"
+    },
+    {
+      "test": "Navigate to Appearance tab",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T03:20:11.359Z"
+    },
+    {
+      "test": "Bio character count indicator visible",
+      "passed": true,
+      "details": "Character counter found",
+      "timestamp": "2026-01-10T03:20:11.553Z"
+    },
+    {
+      "test": "Bio accepts exactly 150 characters",
+      "passed": false,
+      "details": "Length: 80",
+      "timestamp": "2026-01-10T03:20:13.296Z"
+    },
+    {
+      "test": "Bio truncates to 150 characters",
+      "passed": true,
+      "details": "Length: 80",
+      "timestamp": "2026-01-10T03:20:14.721Z"
+    },
+    {
+      "test": "API accepts 150 character bio",
+      "passed": true,
+      "details": "Bio saved",
+      "timestamp": "2026-01-10T03:20:14.911Z"
+    },
+    {
+      "test": "API truncates/rejects bio over 150 chars",
+      "passed": true,
+      "details": "Saved length: 80",
+      "timestamp": "2026-01-10T03:20:15.213Z"
+    },
+    {
+      "test": "Title input has max length limit",
+      "passed": true,
+      "details": "Length: 60",
+      "timestamp": "2026-01-10T03:20:16.805Z"
+    },
+    {
+      "test": "Bio visible on public profile",
+      "passed": true,
+      "details": "Bio found",
+      "timestamp": "2026-01-10T03:20:19.079Z"
+    },
+    {
+      "test": "Empty bio is allowed",
+      "passed": true,
+      "details": "Empty bio saved",
+      "timestamp": "2026-01-10T03:20:19.201Z"
+    }
+  ],
+  "total": 12,
+  "passed": 11,
+  "failed": 1,
+  "overallPassed": false,
+  "sessionUrl": "https://browserbase.com/sessions/62dbfd97-af71-4a2e-ab94-624506be6be7",
+  "duration": "15.65s"
+}

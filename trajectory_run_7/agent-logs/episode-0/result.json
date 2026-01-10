@@ -1,0 +1,71 @@
+{
+  "suite": "Password Validation",
+  "tests": [
+    {
+      "test": "BrowserBase session created",
+      "passed": true,
+      "details": "Session: f9b6eea6-2f0d-4576-9a22-78ace120b2a9",
+      "timestamp": "2026-01-10T03:19:36.949Z"
+    },
+    {
+      "test": "Signup page loads",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T03:19:41.974Z"
+    },
+    {
+      "test": "Rejects password under 8 characters",
+      "passed": false,
+      "details": "No validation error",
+      "timestamp": "2026-01-10T03:19:46.382Z"
+    },
+    {
+      "test": "Rejects password without uppercase",
+      "passed": false,
+      "details": "No validation error",
+      "timestamp": "2026-01-10T03:19:47.682Z"
+    },
+    {
+      "test": "Rejects password without lowercase",
+      "passed": false,
+      "details": "No validation error",
+      "timestamp": "2026-01-10T03:19:48.960Z"
+    },
+    {
+      "test": "Rejects password without number",
+      "passed": false,
+      "details": "No validation error",
+      "timestamp": "2026-01-10T03:19:50.251Z"
+    },
+    {
+      "test": "Accepts valid password",
+      "passed": true,
+      "details": "No validation error",
+      "timestamp": "2026-01-10T03:19:51.639Z"
+    },
+    {
+      "test": "Password strength indicator visible",
+      "passed": false,
+      "details": "No indicator",
+      "timestamp": "2026-01-10T03:19:51.639Z"
+    },
+    {
+      "test": "API rejects weak password",
+      "passed": true,
+      "details": "Password rejected",
+      "timestamp": "2026-01-10T03:19:51.885Z"
+    },
+    {
+      "test": "API accepts strong password",
+      "passed": true,
+      "details": "User created",
+      "timestamp": "2026-01-10T03:19:52.199Z"
+    }
+  ],
+  "total": 10,
+  "passed": 5,
+  "failed": 5,
+  "overallPassed": false,
+  "sessionUrl": "https://browserbase.com/sessions/f9b6eea6-2f0d-4576-9a22-78ace120b2a9",
+  "duration": "15.90s"
+}

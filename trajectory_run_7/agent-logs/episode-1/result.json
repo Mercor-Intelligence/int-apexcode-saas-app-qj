@@ -1,0 +1,89 @@
+{
+  "suite": "Handle Validation",
+  "tests": [
+    {
+      "test": "BrowserBase session created",
+      "passed": true,
+      "details": "Session: 9d540b59-f8f0-4244-8b8b-0902906a5308",
+      "timestamp": "2026-01-10T03:19:53.545Z"
+    },
+    {
+      "test": "Signup page loads",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T03:19:58.087Z"
+    },
+    {
+      "test": "Rejects handle under 3 characters",
+      "passed": true,
+      "details": "Handle rejected",
+      "timestamp": "2026-01-10T03:20:00.266Z"
+    },
+    {
+      "test": "Rejects handle starting with number",
+      "passed": true,
+      "details": "Handle rejected",
+      "timestamp": "2026-01-10T03:20:00.790Z"
+    },
+    {
+      "test": "Rejects handle with special characters (@)",
+      "passed": true,
+      "details": "Handle rejected",
+      "timestamp": "2026-01-10T03:20:00.985Z"
+    },
+    {
+      "test": "Rejects handle with consecutive periods",
+      "passed": true,
+      "details": "Handle rejected",
+      "timestamp": "2026-01-10T03:20:01.092Z"
+    },
+    {
+      "test": "Rejects handle with consecutive underscores",
+      "passed": true,
+      "details": "Handle rejected",
+      "timestamp": "2026-01-10T03:20:01.210Z"
+    },
+    {
+      "test": "Rejects handle over 30 characters",
+      "passed": true,
+      "details": "Handle rejected",
+      "timestamp": "2026-01-10T03:20:01.324Z"
+    },
+    {
+      "test": "Accepts valid handle (letters only)",
+      "passed": true,
+      "details": "Handle available",
+      "timestamp": "2026-01-10T03:20:01.442Z"
+    },
+    {
+      "test": "Accepts valid handle (with underscore)",
+      "passed": true,
+      "details": "Handle available",
+      "timestamp": "2026-01-10T03:20:01.582Z"
+    },
+    {
+      "test": "Accepts valid handle (with period)",
+      "passed": true,
+      "details": "Handle available",
+      "timestamp": "2026-01-10T03:20:01.760Z"
+    },
+    {
+      "test": "Handles are case-insensitive",
+      "passed": true,
+      "details": "Uppercase variant correctly unavailable",
+      "timestamp": "2026-01-10T03:20:02.126Z"
+    },
+    {
+      "test": "Handle preserves original case",
+      "passed": true,
+      "details": "Stored: MixedCase1768015193251, Expected: MixedCase1768015193251",
+      "timestamp": "2026-01-10T03:20:02.547Z"
+    }
+  ],
+  "total": 13,
+  "passed": 13,
+  "failed": 0,
+  "overallPassed": true,
+  "sessionUrl": "https://browserbase.com/sessions/9d540b59-f8f0-4244-8b8b-0902906a5308",
+  "duration": "9.35s"
+}

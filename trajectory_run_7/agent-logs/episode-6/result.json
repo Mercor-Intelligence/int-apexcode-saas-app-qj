@@ -1,0 +1,113 @@
+{
+  "suite": "Responsive & Accessibility",
+  "tests": [
+    {
+      "test": "Test user created",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T03:20:57.377Z"
+    },
+    {
+      "test": "BrowserBase session created",
+      "passed": true,
+      "details": "Session: 70c53701-984d-4b22-a601-c61f597439fe",
+      "timestamp": "2026-01-10T03:20:58.465Z"
+    },
+    {
+      "test": "No horizontal scroll at 320px",
+      "passed": true,
+      "details": "Layout fits",
+      "timestamp": "2026-01-10T03:21:03.670Z"
+    },
+    {
+      "test": "Links visible at 320px",
+      "passed": true,
+      "details": "Found 5 links",
+      "timestamp": "2026-01-10T03:21:04.184Z"
+    },
+    {
+      "test": "Links have adequate touch targets",
+      "passed": false,
+      "details": "Size: 284x40",
+      "timestamp": "2026-01-10T03:21:04.485Z"
+    },
+    {
+      "test": "Avatar visible at 320px",
+      "passed": false,
+      "details": "No avatar",
+      "timestamp": "2026-01-10T03:21:04.529Z"
+    },
+    {
+      "test": "Profile info visible at 320px",
+      "passed": true,
+      "details": "Title: true, Bio: true",
+      "timestamp": "2026-01-10T03:21:04.586Z"
+    },
+    {
+      "test": "Layout works at 768px",
+      "passed": true,
+      "details": "Found 5 links",
+      "timestamp": "2026-01-10T03:21:07.134Z"
+    },
+    {
+      "test": "Dashboard usable at 768px",
+      "passed": true,
+      "details": "Navigation accessible",
+      "timestamp": "2026-01-10T03:21:11.066Z"
+    },
+    {
+      "test": "PWA manifest present",
+      "passed": false,
+      "details": "No manifest",
+      "timestamp": "2026-01-10T03:21:12.005Z"
+    },
+    {
+      "test": "Viewport meta tag correct",
+      "passed": true,
+      "details": "viewport configured",
+      "timestamp": "2026-01-10T03:21:12.053Z"
+    },
+    {
+      "test": "Uses semantic HTML",
+      "passed": true,
+      "details": "Semantic elements found",
+      "timestamp": "2026-01-10T03:21:12.099Z"
+    },
+    {
+      "test": "Focus styles present",
+      "passed": true,
+      "details": "Focus indicators work",
+      "timestamp": "2026-01-10T03:21:12.149Z"
+    },
+    {
+      "test": "Images have alt text",
+      "passed": true,
+      "details": "All images have alt",
+      "timestamp": "2026-01-10T03:21:13.331Z"
+    },
+    {
+      "test": "Text is readable size",
+      "passed": false,
+      "details": "Some text too small",
+      "timestamp": "2026-01-10T03:21:13.382Z"
+    },
+    {
+      "test": "Reduced motion media query",
+      "passed": false,
+      "details": "No reduced motion support",
+      "timestamp": "2026-01-10T03:21:13.439Z"
+    },
+    {
+      "test": "Desktop layout centered",
+      "passed": false,
+      "details": "Full width or no container",
+      "timestamp": "2026-01-10T03:21:15.666Z"
+    }
+  ],
+  "total": 17,
+  "passed": 11,
+  "failed": 6,
+  "overallPassed": false,
+  "sessionUrl": "https://browserbase.com/sessions/70c53701-984d-4b22-a601-c61f597439fe",
+  "duration": "18.57s"
+}

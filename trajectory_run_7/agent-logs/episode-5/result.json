@@ -1,0 +1,35 @@
+{
+  "suite": "Advanced Analytics",
+  "tests": [
+    {
+      "test": "Test user created",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T03:20:50.189Z"
+    },
+    {
+      "test": "Test link created",
+      "passed": true,
+      "details": "Link ID: 32c2ef91-3925-4147-9ba3-450bcfc926f1",
+      "timestamp": "2026-01-10T03:20:50.315Z"
+    },
+    {
+      "test": "BrowserBase session created",
+      "passed": true,
+      "details": "Session: e2696197-62bd-4f74-acdd-0904d9a68be4",
+      "timestamp": "2026-01-10T03:20:50.591Z"
+    },
+    {
+      "test": "Advanced analytics flow",
+      "passed": false,
+      "details": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON",
+      "timestamp": "2026-01-10T03:20:55.870Z"
+    }
+  ],
+  "total": 4,
+  "passed": 3,
+  "failed": 1,
+  "overallPassed": false,
+  "sessionUrl": "https://browserbase.com/sessions/e2696197-62bd-4f74-acdd-0904d9a68be4",
+  "duration": "6.22s"
+}
