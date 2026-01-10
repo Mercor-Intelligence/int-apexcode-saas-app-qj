@@ -7,6 +7,8 @@
   align-items: center;
   padding: var(--spacing-xl) var(--spacing-md);
   position: relative;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 /* Theme variations */

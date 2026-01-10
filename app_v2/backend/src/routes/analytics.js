@@ -171,7 +171,8 @@ router.get('/links', authenticateToken, async (req, res) => {
       title: link.title,
       url: link.url,
       totalClicks: link.clickCount,
-      periodClicks: link._count.analyticsEvents
+      periodClicks: link._count.analyticsEvents,
+      clicks: link.clickCount // alias for compatibility
     }));
     
     res.json(linkStats);
@@ -391,12 +392,67 @@ router.get('/', authenticateToken, async (req, res) => {
     
     const ctr = views > 0 ? ((clicks / views) * 100).toFixed(2) : 0;
     
+    // Get referrer data
+    const referrerData = await prisma.analyticsEvent.groupBy({
+      by: ['referrerCategory'],
+      where: {
+        userId: req.user.id,
+        createdAt: { gte: startDate },
+        referrerCategory: { not: null }
+      },
+      _count: { id: true },
+      orderBy: { _count: { id: 'desc' } },
+      take: 5
+    });
+    
+    const topReferrers = referrerData.map(r => ({
+      source: r.referrerCategory || 'direct',
+      count: r._count.id
+    }));
+    
+    // Get device data
+    const deviceData = await prisma.analyticsEvent.groupBy({
+      by: ['device'],
+      where: {
+        userId: req.user.id,
+        createdAt: { gte: startDate },
+        device: { not: null }
+      },
+      _count: { id: true }
+    });
+    
+    const devices = deviceData.reduce((acc, d) => {
+      acc[d.device || 'unknown'] = d._count.id;
+      return acc;
+    }, {});
+    
+    // Get location data
+    const countryData = await prisma.analyticsEvent.groupBy({
+      by: ['countryCode'],
+      where: {
+        userId: req.user.id,
+        createdAt: { gte: startDate },
+        countryCode: { not: null }
+      },
+      _count: { id: true },
+      orderBy: { _count: { id: 'desc' } },
+      take: 5
+    });
+    
+    const topCountries = countryData.map(c => ({
+      country: c.countryCode,
+      count: c._count.id
+    }));
+    
     res.json({
       totalViews: views,
       totalClicks: clicks,
       ctr: parseFloat(ctr),
       views,
-      clicks
+      clicks,
+      topReferrers,
+      devices,
+      topCountries
     });
   } catch (error) {
     console.error('Analytics error:', error);
