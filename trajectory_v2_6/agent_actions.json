@@ -1,0 +1,93 @@
+{
+  "run_number": 6,
+  "started_at": "2026-01-10T03:39:04.670Z",
+  "completed_at": "2026-01-10T03:40:56.290Z",
+  "duration_seconds": 111.62,
+  "total_episodes": 8,
+  "actions": [
+    {
+      "episode": 0,
+      "type": "browser_verification",
+      "suite": "Password Validation",
+      "url": "https://biolink-v2-frontend.vercel.app",
+      "timestamp": "2026-01-10T03:39:04.671Z",
+      "result": {
+        "passed": false,
+        "tests_passed": 6,
+        "tests_failed": 4
+      }
+    },
+    {
+      "episode": 1,
+      "type": "browser_verification",
+      "suite": "Handle Validation",
+      "url": "https://biolink-v2-frontend.vercel.app",
+      "timestamp": "2026-01-10T03:39:20.859Z",
+      "result": {
+        "passed": true,
+        "tests_passed": 13,
+        "tests_failed": 0
+      }
+    },
+    {
+      "episode": 2,
+      "type": "browser_verification",
+      "suite": "Bio Limits",
+      "url": "https://biolink-v2-frontend.vercel.app",
+      "timestamp": "2026-01-10T03:39:30.735Z",
+      "result": {
+        "passed": false,
+        "tests_passed": 10,
+        "tests_failed": 2
+      }
+    },
+    {
+      "episode": 3,
+      "type": "browser_verification",
+      "suite": "Link Behavior",
+      "url": "https://biolink-v2-frontend.vercel.app",
+      "timestamp": "2026-01-10T03:39:44.142Z",
+      "result": {
+        "passed": false,
+        "tests_passed": 11,
+        "tests_failed": 1
+      }
+    },
+    {
+      "episode": 4,
+      "type": "browser_verification",
+      "suite": "Theme & 404",
+      "url": "https://biolink-v2-frontend.vercel.app",
+      "timestamp": "2026-01-10T03:39:54.894Z",
+      "result": {
+        "passed": true,
+        "tests_passed": 13,
+        "tests_failed": 0
+      }
+    },
+    {
+      "episode": 5,
+      "type": "browser_verification",
+      "suite": "Advanced Analytics",
+      "url": "https://biolink-v2-frontend.vercel.app",
+      "timestamp": "2026-01-10T03:40:13.774Z",
+      "result": {
+        "passed": false,
+        "tests_passed": 11,
+        "tests_failed": 4
+      }
+    },
+    {
+      "episode": 6,
+      "type": "browser_verification",
+      "suite": "Responsive & A11y",
+      "url": "https://biolink-v2-frontend.vercel.app",
+      "timestamp": "2026-01-10T03:40:36.390Z",
+      "result": {
+        "passed": false,
+        "tests_passed": 15,
+        "tests_failed": 2
+      }
+    }
+  ]
+}
