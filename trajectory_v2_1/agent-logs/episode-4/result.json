@@ -1,0 +1,40 @@
+{
+  "suite": "Public Profile Verification",
+  "total": 5,
+  "passed": 4,
+  "failed": 1,
+  "duration": 1.4,
+  "results": [
+    {
+      "test": "Test user created",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T02:50:45.485Z"
+    },
+    {
+      "test": "Profile data set",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T02:50:45.784Z"
+    },
+    {
+      "test": "Visible link created",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T02:50:46.004Z"
+    },
+    {
+      "test": "Hidden link created",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T02:50:46.276Z"
+    },
+    {
+      "test": "Public profile flow",
+      "passed": false,
+      "details": "400 Invalid Project ID",
+      "timestamp": "2026-01-10T02:50:46.374Z"
+    }
+  ],
+  "overallPassed": false
+}

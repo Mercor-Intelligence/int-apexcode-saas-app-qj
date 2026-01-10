@@ -1,0 +1,28 @@
+{
+  "suite": "Analytics Verification",
+  "total": 3,
+  "passed": 2,
+  "failed": 1,
+  "duration": 0.72,
+  "results": [
+    {
+      "test": "Test user created",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T02:50:47.868Z"
+    },
+    {
+      "test": "Test link created",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T02:50:47.998Z"
+    },
+    {
+      "test": "Analytics flow",
+      "passed": false,
+      "details": "400 Invalid Project ID",
+      "timestamp": "2026-01-10T02:50:48.095Z"
+    }
+  ],
+  "overallPassed": false
+}

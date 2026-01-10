@@ -21,17 +21,17 @@ const __dirname = path.dirname(__filename);
 
 // Get the next trajectory run number
 function getNextRunNumber() {
-  const baseDir = path.join(__dirname, '../../');
-  const dirs = fs.readdirSync(baseDir).filter(d => d.startsWith('trajectory_run_'));
+  const baseDir = path.join(__dirname, '../');
+  const dirs = fs.readdirSync(baseDir).filter(d => d.startsWith('trajectory_v2_'));
   if (dirs.length === 0) return 1;
   
-  const numbers = dirs.map(d => parseInt(d.replace('trajectory_run_', ''), 10)).filter(n => !isNaN(n));
+  const numbers = dirs.map(d => parseInt(d.replace('trajectory_v2_', ''), 10)).filter(n => !isNaN(n));
   return Math.max(...numbers) + 1;
 }
 
 // Create trajectory directory structure
 function createTrajectoryDir(runNumber) {
-  const trajectoryDir = path.join(__dirname, '../../', `trajectory_run_${runNumber}`);
+  const trajectoryDir = path.join(__dirname, '../', `trajectory_v2_${runNumber}`);
   const agentLogsDir = path.join(trajectoryDir, 'agent-logs');
   const sessionsDir = path.join(trajectoryDir, 'sessions');
   
@@ -65,9 +65,9 @@ async function runWithTrajectory() {
   const { trajectoryDir, agentLogsDir, sessionsDir } = createTrajectoryDir(runNumber);
   
   console.log('\n' + '═'.repeat(60));
-  console.log(`BioLink Browser Verification - Run #${runNumber}`);
+  console.log(`BioLink V2 Browser Verification - Run #${runNumber}`);
   console.log('═'.repeat(60));
-  console.log(`Trajectory: trajectory_run_${runNumber}`);
+  console.log(`Trajectory: trajectory_v2_${runNumber}`);
   console.log(`Started: ${new Date().toISOString()}\n`);
   
   const allActions = [];
@@ -258,7 +258,7 @@ async function runWithTrajectory() {
   
   // Save summary
   const summary = `
-BioLink Browser Verification - Run #${runNumber}
+BioLink V2 Browser Verification - Run #${runNumber}
 ${'═'.repeat(50)}
 
 Started:  ${new Date(startTime).toISOString()}
@@ -309,7 +309,7 @@ ${results.filter(r => r.sessionUrl).map(r => `${r.suite}: ${r.sessionUrl}`).join
   console.log(`Overall:       ${allPassed ? '✅ ALL SUITES PASSED' : '❌ SOME SUITES FAILED'}`);
   console.log('═'.repeat(60));
   
-  console.log(`\nTrajectory saved to: trajectory_run_${runNumber}/`);
+  console.log(`\nTrajectory saved to: trajectory_v2_${runNumber}/`);
   console.log('  - eval_results.json');
   console.log('  - agent_actions.json');
   console.log('  - summary.txt');
