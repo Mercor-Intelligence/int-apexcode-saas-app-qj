@@ -1,0 +1,89 @@
+{
+  "suite": "Theme & 404 Page",
+  "tests": [
+    {
+      "test": "Test user created",
+      "passed": false,
+      "details": "Server error",
+      "timestamp": "2026-01-10T03:03:42.144Z"
+    },
+    {
+      "test": "BrowserBase session created",
+      "passed": true,
+      "details": "Session: f14f54ed-f844-4a22-aea4-de3ef3877a68",
+      "timestamp": "2026-01-10T03:03:42.430Z"
+    },
+    {
+      "test": "404 page shown for non-existent profile",
+      "passed": true,
+      "details": "404 content found",
+      "timestamp": "2026-01-10T03:03:46.806Z"
+    },
+    {
+      "test": "404 page suggests claiming handle",
+      "passed": true,
+      "details": "Claim suggestion found",
+      "timestamp": "2026-01-10T03:03:46.806Z"
+    },
+    {
+      "test": "404 page has signup link",
+      "passed": false,
+      "details": "No signup link",
+      "timestamp": "2026-01-10T03:03:47.585Z"
+    },
+    {
+      "test": "Dark mode is default theme",
+      "passed": true,
+      "details": "Dark background detected",
+      "timestamp": "2026-01-10T03:03:49.497Z"
+    },
+    {
+      "test": "Theme selection options available",
+      "passed": false,
+      "details": "No auth token",
+      "timestamp": "2026-01-10T03:03:49.497Z"
+    },
+    {
+      "test": "Theme selection interactive",
+      "passed": false,
+      "details": "No auth token",
+      "timestamp": "2026-01-10T03:03:49.497Z"
+    },
+    {
+      "test": "Page has CSS animations",
+      "passed": true,
+      "details": "Animations detected",
+      "timestamp": "2026-01-10T03:03:50.544Z"
+    },
+    {
+      "test": "Links have staggered animations",
+      "passed": false,
+      "details": "No stagger detected",
+      "timestamp": "2026-01-10T03:03:51.917Z"
+    },
+    {
+      "test": "Theme persists in database",
+      "passed": false,
+      "details": "No auth token",
+      "timestamp": "2026-01-10T03:03:51.917Z"
+    },
+    {
+      "test": "Public profile includes theme",
+      "passed": false,
+      "details": "Theme: none",
+      "timestamp": "2026-01-10T03:03:52.108Z"
+    },
+    {
+      "test": "Primary color scheme matches spec",
+      "passed": true,
+      "details": "Primary: #FF6B35",
+      "timestamp": "2026-01-10T03:03:52.156Z"
+    }
+  ],
+  "total": 13,
+  "passed": 6,
+  "failed": 7,
+  "overallPassed": false,
+  "sessionUrl": "https://browserbase.com/sessions/f14f54ed-f844-4a22-aea4-de3ef3877a68",
+  "duration": "10.18s"
+}

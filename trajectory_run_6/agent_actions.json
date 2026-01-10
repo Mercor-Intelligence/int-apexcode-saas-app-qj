@@ -1,0 +1,93 @@
+{
+  "run_number": 6,
+  "started_at": "2026-01-10T03:02:52.142Z",
+  "completed_at": "2026-01-10T03:04:15.159Z",
+  "duration_seconds": 83.02,
+  "total_episodes": 8,
+  "actions": [
+    {
+      "episode": 0,
+      "type": "browser_verification",
+      "suite": "Password Validation",
+      "url": "https://frontend-ten-cyan-42.vercel.app",
+      "timestamp": "2026-01-10T03:02:52.142Z",
+      "result": {
+        "passed": false,
+        "tests_passed": 2,
+        "tests_failed": 1
+      }
+    },
+    {
+      "episode": 1,
+      "type": "browser_verification",
+      "suite": "Handle Validation",
+      "url": "https://frontend-ten-cyan-42.vercel.app",
+      "timestamp": "2026-01-10T03:03:29.106Z",
+      "result": {
+        "passed": false,
+        "tests_passed": 8,
+        "tests_failed": 5
+      }
+    },
+    {
+      "episode": 2,
+      "type": "browser_verification",
+      "suite": "Bio Limits",
+      "url": "https://frontend-ten-cyan-42.vercel.app",
+      "timestamp": "2026-01-10T03:03:39.778Z",
+      "result": {
+        "passed": false,
+        "tests_passed": 0,
+        "tests_failed": 2
+      }
+    },
+    {
+      "episode": 3,
+      "type": "browser_verification",
+      "suite": "Link Behavior",
+      "url": "https://frontend-ten-cyan-42.vercel.app",
+      "timestamp": "2026-01-10T03:03:40.908Z",
+      "result": {
+        "passed": false,
+        "tests_passed": 0,
+        "tests_failed": 2
+      }
+    },
+    {
+      "episode": 4,
+      "type": "browser_verification",
+      "suite": "Theme & 404",
+      "url": "https://frontend-ten-cyan-42.vercel.app",
+      "timestamp": "2026-01-10T03:03:42.027Z",
+      "result": {
+        "passed": false,
+        "tests_passed": 6,
+        "tests_failed": 7
+      }
+    },
+    {
+      "episode": 5,
+      "type": "browser_verification",
+      "suite": "Advanced Analytics",
+      "url": "https://frontend-ten-cyan-42.vercel.app",
+      "timestamp": "2026-01-10T03:03:53.207Z",
+      "result": {
+        "passed": false,
+        "tests_passed": 0,
+        "tests_failed": 1
+      }
+    },
+    {
+      "episode": 6,
+      "type": "browser_verification",
+      "suite": "Responsive & A11y",
+      "url": "https://frontend-ten-cyan-42.vercel.app",
+      "timestamp": "2026-01-10T03:03:54.323Z",
+      "result": {
+        "passed": false,
+        "tests_passed": 2,
+        "tests_failed": 6
+      }
+    }
+  ]
+}
