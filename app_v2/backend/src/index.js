@@ -86,4 +86,5 @@ app.listen(PORT, () => {
 });
 
 export { prisma };
+export default app;
 
