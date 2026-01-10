@@ -31,7 +31,7 @@ router.get('/summary', authenticateToken, async (req, res) => {
     const events = await prisma.analyticsEvent.findMany({
       where: {
         userId: req.user.id,
-        timestamp: { gte: startDate },
+        createdAt: { gte: startDate },
       },
     });
     
@@ -73,7 +73,7 @@ router.get('/summary', authenticateToken, async (req, res) => {
     // Daily views for chart
     const dailyViews = {};
     events.filter(e => e.eventType === 'PAGE_VIEW').forEach(e => {
-      const day = e.timestamp.toISOString().split('T')[0];
+      const day = e.createdAt.toISOString().split('T')[0];
       dailyViews[day] = (dailyViews[day] || 0) + 1;
     });
     

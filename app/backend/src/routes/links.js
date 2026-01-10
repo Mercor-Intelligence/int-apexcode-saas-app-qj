@@ -9,7 +9,7 @@ const prisma = new PrismaClient();
 router.get('/', authenticateToken, async (req, res) => {
   try {
     const links = await prisma.link.findMany({
-      where: { userId: req.user.id },
+      where: { userId: req.user.id, isDeleted: false },
       orderBy: { position: 'asc' },
     });
     res.json(links);

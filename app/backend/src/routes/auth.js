@@ -12,18 +12,33 @@ router.get('/check-handle/:handle', async (req, res) => {
     const { handle } = req.params;
     
     // Validate handle format
-    if (!/^[a-zA-Z0-9_]{1,30}$/.test(handle)) {
-      return res.json({ available: false, reason: 'Invalid format. Use only letters, numbers, and underscores (max 30 chars)' });
+    if (!/^[a-zA-Z0-9_.]{1,30}$/.test(handle)) {
+      return res.json({ available: false, reason: 'Invalid format. Use only letters, numbers, underscores, and periods (max 30 chars)' });
     }
     
-    const existing = await prisma.user.findUnique({ where: { handle: handle.toLowerCase() } });
+    // Must start with a letter
+    if (!/^[a-zA-Z]/.test(handle)) {
+      return res.json({ available: false, reason: 'Handle must start with a letter' });
+    }
+    
+    // No consecutive periods or underscores
+    if (/[_.]{2}/.test(handle)) {
+      return res.json({ available: false, reason: 'No consecutive periods or underscores allowed' });
+    }
+    
+    // Minimum 3 characters
+    if (handle.length < 3) {
+      return res.json({ available: false, reason: 'Handle must be at least 3 characters' });
+    }
+    
+    const existing = await prisma.user.findUnique({ where: { handleLower: handle.toLowerCase() } });
     
     if (existing) {
       // Suggest alternatives
       const suggestions = [];
       for (let i = 1; i <= 3; i++) {
         const suggested = `${handle}${i}`;
-        const exists = await prisma.user.findUnique({ where: { handle: suggested.toLowerCase() } });
+        const exists = await prisma.user.findUnique({ where: { handleLower: suggested.toLowerCase() } });
         if (!exists) suggestions.push(suggested);
       }
       return res.json({ available: false, suggestions });
@@ -31,6 +46,7 @@ router.get('/check-handle/:handle', async (req, res) => {
     
     res.json({ available: true });
   } catch (error) {
+    console.error('Check handle error:', error);
     res.status(500).json({ error: 'Server error' });
   }
 });
@@ -45,8 +61,19 @@ router.post('/signup', async (req, res) => {
       return res.status(400).json({ error: 'Email, password, and handle are required' });
     }
     
-    if (!/^[a-zA-Z0-9_]{1,30}$/.test(handle)) {
-      return res.status(400).json({ error: 'Invalid handle format' });
+    // Validate handle format
+    if (!/^[a-zA-Z][a-zA-Z0-9_.]{2,29}$/.test(handle)) {
+      return res.status(400).json({ error: 'Invalid handle format. Must start with letter, 3-30 chars, only letters/numbers/underscores/periods' });
+    }
+    
+    // No consecutive periods or underscores
+    if (/[_.]{2}/.test(handle)) {
+      return res.status(400).json({ error: 'No consecutive periods or underscores allowed' });
+    }
+    
+    // Validate password strength
+    if (password.length < 8) {
+      return res.status(400).json({ error: 'Password must be at least 8 characters' });
     }
     
     // Check if email or handle exists
@@ -55,7 +82,7 @@ router.post('/signup', async (req, res) => {
       return res.status(400).json({ error: 'Email already registered' });
     }
     
-    const existingHandle = await prisma.user.findUnique({ where: { handle: handle.toLowerCase() } });
+    const existingHandle = await prisma.user.findUnique({ where: { handleLower: handle.toLowerCase() } });
     if (existingHandle) {
       return res.status(400).json({ error: 'Handle already taken' });
     }
@@ -66,7 +93,8 @@ router.post('/signup', async (req, res) => {
       data: {
         email,
         passwordHash,
-        handle: handle.toLowerCase(),
+        handle: handle, // Preserve original case
+        handleLower: handle.toLowerCase(), // For case-insensitive lookups
         category,
         bioTitle: handle,
       },
@@ -145,8 +173,8 @@ router.get('/me', authenticateToken, async (req, res) => {
         backgroundColor: true,
         buttonStyle: true,
         fontFamily: true,
-        metaTitle: true,
-        metaDescription: true,
+        displayName: true,
+        backgroundType: true,
       },
     });
     

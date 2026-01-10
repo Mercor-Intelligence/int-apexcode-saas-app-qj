@@ -10,7 +10,7 @@ router.get('/:handle', async (req, res) => {
     const { handle } = req.params;
     
     const user = await prisma.user.findUnique({
-      where: { handle: handle.toLowerCase() },
+      where: { handleLower: handle.toLowerCase() },
       select: {
         id: true,
         handle: true,
@@ -21,10 +21,10 @@ router.get('/:handle', async (req, res) => {
         backgroundColor: true,
         buttonStyle: true,
         fontFamily: true,
-        metaTitle: true,
-        metaDescription: true,
+        displayName: true,
+        backgroundType: true,
         links: {
-          where: { isActive: true },
+          where: { isActive: true, isDeleted: false },
           orderBy: { position: 'asc' },
           select: {
             id: true,
@@ -70,7 +70,7 @@ router.post('/:handle/view', async (req, res) => {
     const { referrer, device } = req.body;
     
     const user = await prisma.user.findUnique({
-      where: { handle: handle.toLowerCase() },
+      where: { handleLower: handle.toLowerCase() },
     });
     
     if (!user) {
