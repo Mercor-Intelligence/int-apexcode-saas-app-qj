@@ -1,0 +1,70 @@
+{
+  "suite": "Login Verification",
+  "total": 10,
+  "passed": 10,
+  "failed": 0,
+  "duration": 9.18,
+  "results": [
+    {
+      "test": "Test user created via API",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T01:29:39.440Z"
+    },
+    {
+      "test": "BrowserBase session created",
+      "passed": true,
+      "details": "Session: d0e09509-36d8-439c-bd04-8aa270b1fa30",
+      "timestamp": "2026-01-10T01:29:41.361Z"
+    },
+    {
+      "test": "Login page loads",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T01:29:44.288Z"
+    },
+    {
+      "test": "Fill email field",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T01:29:45.188Z"
+    },
+    {
+      "test": "Fill password field",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T01:29:45.686Z"
+    },
+    {
+      "test": "Submit login form",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T01:29:46.580Z"
+    },
+    {
+      "test": "Redirected to dashboard",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T01:29:46.904Z"
+    },
+    {
+      "test": "JWT token stored in localStorage",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T01:29:47.956Z"
+    },
+    {
+      "test": "Dashboard content loads",
+      "passed": true,
+      "details": "Found 8 dashboard elements",
+      "timestamp": "2026-01-10T01:29:48.162Z"
+    },
+    {
+      "test": "Protected API accessible with token",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T01:29:48.355Z"
+    }
+  ],
+  "overallPassed": true
+}

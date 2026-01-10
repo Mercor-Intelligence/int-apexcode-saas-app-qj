@@ -1,0 +1,73 @@
+{
+  "run_number": 4,
+  "timestamp": "2026-01-10T01:50:18.591Z",
+  "duration_seconds": 62.28,
+  "config": {
+    "frontend_url": "https://frontend-ten-cyan-42.vercel.app",
+    "backend_url": "https://backend-eight-mu-60.vercel.app",
+    "browserbase_project": "configured"
+  },
+  "summary": {
+    "total_tests": 15,
+    "passed": 9,
+    "failed": 6,
+    "pass_rate": "60.00%",
+    "overall_passed": false
+  },
+  "suites": [
+    {
+      "name": "Signup Verification",
+      "total": 1,
+      "passed": false,
+      "failed": 1,
+      "session_url": null,
+      "tests": [],
+      "error": null
+    },
+    {
+      "name": "Login Verification",
+      "total": 2,
+      "passed": false,
+      "failed": 1,
+      "session_url": null,
+      "tests": [],
+      "error": null
+    },
+    {
+      "name": "Link Management Verification",
+      "total": 2,
+      "passed": false,
+      "failed": 1,
+      "session_url": null,
+      "tests": [],
+      "error": null
+    },
+    {
+      "name": "Profile Management Verification",
+      "total": 2,
+      "passed": false,
+      "failed": 1,
+      "session_url": null,
+      "tests": [],
+      "error": null
+    },
+    {
+      "name": "Public Profile Verification",
+      "total": 5,
+      "passed": false,
+      "failed": 1,
+      "session_url": null,
+      "tests": [],
+      "error": null
+    },
+    {
+      "name": "Analytics Verification",
+      "total": 3,
+      "passed": false,
+      "failed": 1,
+      "session_url": null,
+      "tests": [],
+      "error": null
+    }
+  ]
+}

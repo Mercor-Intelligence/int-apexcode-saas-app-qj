@@ -1,0 +1,22 @@
+{
+  "suite": "Login Verification",
+  "total": 2,
+  "passed": 0,
+  "failed": 2,
+  "duration": 1.78,
+  "results": [
+    {
+      "test": "Test user created via API",
+      "passed": false,
+      "details": "fetch failed",
+      "timestamp": "2026-01-10T01:28:19.304Z"
+    },
+    {
+      "test": "Login flow completion",
+      "passed": false,
+      "details": "Connection error.",
+      "timestamp": "2026-01-10T01:28:20.964Z"
+    }
+  ],
+  "overallPassed": false
+}

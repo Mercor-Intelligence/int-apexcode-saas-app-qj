@@ -1,0 +1,40 @@
+{
+  "suite": "Public Profile Verification",
+  "total": 5,
+  "passed": 4,
+  "failed": 1,
+  "duration": 1.03,
+  "results": [
+    {
+      "test": "Test user created",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T01:49:23.048Z"
+    },
+    {
+      "test": "Profile data set",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T01:49:23.262Z"
+    },
+    {
+      "test": "Visible link created",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T01:49:23.436Z"
+    },
+    {
+      "test": "Hidden link created",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T01:49:23.683Z"
+    },
+    {
+      "test": "Public profile flow",
+      "passed": false,
+      "details": "402 Free plan browser minutes limit reached. Please upgrade your account at https://browserbase.com/plans",
+      "timestamp": "2026-01-10T01:49:23.861Z"
+    }
+  ],
+  "overallPassed": false
+}

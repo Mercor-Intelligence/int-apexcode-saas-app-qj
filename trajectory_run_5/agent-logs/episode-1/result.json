@@ -1,0 +1,70 @@
+{
+  "suite": "Login Verification",
+  "total": 10,
+  "passed": 2,
+  "failed": 8,
+  "duration": "8.19",
+  "results": [
+    {
+      "test": "Test user created via API",
+      "passed": true,
+      "details": "Test passed",
+      "timestamp": "2026-01-10T01:51:16.150Z"
+    },
+    {
+      "test": "BrowserBase session created",
+      "passed": true,
+      "details": "Test passed",
+      "timestamp": "2026-01-10T01:51:16.202Z"
+    },
+    {
+      "test": "Login page loads",
+      "passed": false,
+      "details": "Simulated failure - element not found or timeout",
+      "timestamp": "2026-01-10T01:51:16.253Z"
+    },
+    {
+      "test": "Fill email field",
+      "passed": false,
+      "details": "Simulated failure - element not found or timeout",
+      "timestamp": "2026-01-10T01:51:16.304Z"
+    },
+    {
+      "test": "Fill password field",
+      "passed": false,
+      "details": "Simulated failure - element not found or timeout",
+      "timestamp": "2026-01-10T01:51:16.355Z"
+    },
+    {
+      "test": "Submit login form",
+      "passed": false,
+      "details": "Simulated failure - element not found or timeout",
+      "timestamp": "2026-01-10T01:51:16.406Z"
+    },
+    {
+      "test": "Redirected to dashboard",
+      "passed": false,
+      "details": "Simulated failure - element not found or timeout",
+      "timestamp": "2026-01-10T01:51:16.458Z"
+    },
+    {
+      "test": "JWT token stored in localStorage",
+      "passed": false,
+      "details": "Simulated failure - element not found or timeout",
+      "timestamp": "2026-01-10T01:51:16.509Z"
+    },
+    {
+      "test": "Dashboard content loads",
+      "passed": false,
+      "details": "Simulated failure - element not found or timeout",
+      "timestamp": "2026-01-10T01:51:16.560Z"
+    },
+    {
+      "test": "Protected API accessible with token",
+      "passed": false,
+      "details": "Simulated failure - element not found or timeout",
+      "timestamp": "2026-01-10T01:51:16.611Z"
+    }
+  ],
+  "overallPassed": false
+}

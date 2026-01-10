@@ -1,0 +1,88 @@
+{
+  "suite": "Profile Management Verification",
+  "total": 13,
+  "passed": 13,
+  "failed": 0,
+  "duration": 16.33,
+  "results": [
+    {
+      "test": "Test user created",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T01:30:06.900Z"
+    },
+    {
+      "test": "BrowserBase session created",
+      "passed": true,
+      "details": "Session: c41f634f-b21a-4194-8af8-3a86394ae0f3",
+      "timestamp": "2026-01-10T01:30:08.608Z"
+    },
+    {
+      "test": "Login successful",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T01:30:11.309Z"
+    },
+    {
+      "test": "Navigate to Appearance tab",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T01:30:13.652Z"
+    },
+    {
+      "test": "Fill profile title",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T01:30:15.614Z"
+    },
+    {
+      "test": "Fill bio",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T01:30:17.576Z"
+    },
+    {
+      "test": "Title visible in preview",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T01:30:18.133Z"
+    },
+    {
+      "test": "Bio visible in preview",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T01:30:18.133Z"
+    },
+    {
+      "test": "Title saved to database",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T01:30:19.349Z"
+    },
+    {
+      "test": "Bio saved to database",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T01:30:19.349Z"
+    },
+    {
+      "test": "Change theme selection",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T01:30:21.239Z"
+    },
+    {
+      "test": "Title visible on public profile",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T01:30:22.967Z"
+    },
+    {
+      "test": "Bio visible on public profile",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T01:30:22.967Z"
+    }
+  ],
+  "overallPassed": true
+}

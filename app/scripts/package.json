@@ -13,7 +13,9 @@
     "verify:full": "node verifiers/full-journey.js",
     "verify:all": "node run-all-verifiers.js",
     "test": "node run-all-verifiers.js",
-    "test:full": "node verifiers/full-journey.js"
+    "test:full": "node verifiers/full-journey.js",
+    "trajectory": "node run-with-trajectory.js",
+    "trajectory:full": "node run-with-trajectory.js --full"
   },
   "dependencies": {
     "@browserbasehq/sdk": "^2.0.0",

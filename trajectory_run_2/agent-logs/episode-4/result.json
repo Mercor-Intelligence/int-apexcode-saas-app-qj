@@ -1,0 +1,94 @@
+{
+  "suite": "Public Profile Verification",
+  "total": 14,
+  "passed": 14,
+  "failed": 0,
+  "duration": 12.97,
+  "results": [
+    {
+      "test": "Test user created",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T01:30:24.318Z"
+    },
+    {
+      "test": "Profile data set",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T01:30:24.496Z"
+    },
+    {
+      "test": "Visible link created",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T01:30:24.621Z"
+    },
+    {
+      "test": "Hidden link created",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T01:30:24.854Z"
+    },
+    {
+      "test": "BrowserBase session created",
+      "passed": true,
+      "details": "Session: c050f169-eebb-4221-a537-411e7dfc325e",
+      "timestamp": "2026-01-10T01:30:26.682Z"
+    },
+    {
+      "test": "Public profile page loads",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T01:30:30.101Z"
+    },
+    {
+      "test": "Profile title is visible",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T01:30:30.972Z"
+    },
+    {
+      "test": "Bio is visible",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T01:30:31.352Z"
+    },
+    {
+      "test": "Visible link is displayed",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T01:30:31.352Z"
+    },
+    {
+      "test": "Hidden link is NOT displayed",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T01:30:31.352Z"
+    },
+    {
+      "test": "Link button element found",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T01:30:31.854Z"
+    },
+    {
+      "test": "Avatar element present",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T01:30:32.014Z"
+    },
+    {
+      "test": "404 page for invalid handle",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T01:30:33.710Z"
+    },
+    {
+      "test": "Page view tracked",
+      "passed": true,
+      "details": "Views: 2",
+      "timestamp": "2026-01-10T01:30:36.934Z"
+    }
+  ],
+  "overallPassed": true
+}

@@ -1,0 +1,81 @@
+{
+  "run_number": 4,
+  "started_at": "2026-01-10T01:49:16.311Z",
+  "completed_at": "2026-01-10T01:50:18.591Z",
+  "duration_seconds": 62.28,
+  "total_episodes": 7,
+  "actions": [
+    {
+      "episode": 0,
+      "type": "browser_verification",
+      "suite": "Signup",
+      "url": "https://frontend-ten-cyan-42.vercel.app",
+      "timestamp": "2026-01-10T01:49:16.311Z",
+      "result": {
+        "passed": false,
+        "tests_passed": 0,
+        "tests_failed": 1
+      }
+    },
+    {
+      "episode": 1,
+      "type": "browser_verification",
+      "suite": "Login",
+      "url": "https://frontend-ten-cyan-42.vercel.app",
+      "timestamp": "2026-01-10T01:49:17.735Z",
+      "result": {
+        "passed": false,
+        "tests_passed": 1,
+        "tests_failed": 1
+      }
+    },
+    {
+      "episode": 2,
+      "type": "browser_verification",
+      "suite": "Links",
+      "url": "https://frontend-ten-cyan-42.vercel.app",
+      "timestamp": "2026-01-10T01:49:19.870Z",
+      "result": {
+        "passed": false,
+        "tests_passed": 1,
+        "tests_failed": 1
+      }
+    },
+    {
+      "episode": 3,
+      "type": "browser_verification",
+      "suite": "Profile",
+      "url": "https://frontend-ten-cyan-42.vercel.app",
+      "timestamp": "2026-01-10T01:49:21.318Z",
+      "result": {
+        "passed": false,
+        "tests_passed": 1,
+        "tests_failed": 1
+      }
+    },
+    {
+      "episode": 4,
+      "type": "browser_verification",
+      "suite": "Public Profile",
+      "url": "https://frontend-ten-cyan-42.vercel.app",
+      "timestamp": "2026-01-10T01:49:22.832Z",
+      "result": {
+        "passed": false,
+        "tests_passed": 4,
+        "tests_failed": 1
+      }
+    },
+    {
+      "episode": 5,
+      "type": "browser_verification",
+      "suite": "Analytics",
+      "url": "https://frontend-ten-cyan-42.vercel.app",
+      "timestamp": "2026-01-10T01:49:24.863Z",
+      "result": {
+        "passed": false,
+        "tests_passed": 2,
+        "tests_failed": 1
+      }
+    }
+  ]
+}

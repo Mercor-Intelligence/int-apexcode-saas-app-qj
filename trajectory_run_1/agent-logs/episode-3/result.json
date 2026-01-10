@@ -1,0 +1,16 @@
+{
+  "suite": "Profile Management Verification",
+  "total": 1,
+  "passed": 0,
+  "failed": 1,
+  "duration": 0.06,
+  "results": [
+    {
+      "test": "Profile management flow",
+      "passed": false,
+      "details": "fetch failed",
+      "timestamp": "2026-01-10T01:28:23.104Z"
+    }
+  ],
+  "overallPassed": false
+}

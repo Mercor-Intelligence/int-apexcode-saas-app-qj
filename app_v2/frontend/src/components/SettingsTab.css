@@ -1,0 +1,136 @@
+/* Settings Tab Styles */
+
+.settings-tab {
+  animation: fadeIn 0.3s ease;
+}
+
+.settings-section {
+  margin-bottom: var(--spacing-xl);
+  padding: var(--spacing-lg);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.settings-section h3 {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-size: 1rem;
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Setting items */
+.setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md) 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.setting-item:last-of-type {
+  border-bottom: none;
+}
+
+.setting-item label {
+  color: var(--text-secondary);
+}
+
+.setting-value {
+  font-weight: 500;
+}
+
+.plan-badge {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background: rgba(var(--primary-rgb), 0.1);
+  color: var(--primary);
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+/* Password form */
+.password-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.password-form .btn {
+  align-self: flex-start;
+  margin-top: var(--spacing-sm);
+}
+
+.message {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+}
+
+.message.error {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+.message.success {
+  background: rgba(34, 197, 94, 0.1);
+  color: #22c55e;
+}
+
+/* Danger zone */
+.settings-section.danger {
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.settings-section.danger h3 {
+  color: #ef4444;
+}
+
+.danger-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+
+.danger-content h4 {
+  font-size: 0.875rem;
+  margin-bottom: var(--spacing-xs);
+}
+
+.danger-content p {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.delete-confirm {
+  margin-top: var(--spacing-lg);
+  padding: var(--spacing-lg);
+  background: rgba(239, 68, 68, 0.05);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: var(--radius-md);
+}
+
+.delete-confirm p {
+  margin-bottom: var(--spacing-md);
+}
+
+.confirm-actions {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .danger-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+

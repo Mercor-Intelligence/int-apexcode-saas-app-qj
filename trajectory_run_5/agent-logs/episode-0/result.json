@@ -1,0 +1,82 @@
+{
+  "suite": "Signup Verification",
+  "total": 12,
+  "passed": 1,
+  "failed": 11,
+  "duration": "8.28",
+  "results": [
+    {
+      "test": "BrowserBase session created",
+      "passed": true,
+      "details": "Test passed",
+      "timestamp": "2026-01-10T01:51:15.537Z"
+    },
+    {
+      "test": "Signup page loads",
+      "passed": false,
+      "details": "Simulated failure - element not found or timeout",
+      "timestamp": "2026-01-10T01:51:15.588Z"
+    },
+    {
+      "test": "Fill handle field",
+      "passed": false,
+      "details": "Simulated failure - element not found or timeout",
+      "timestamp": "2026-01-10T01:51:15.639Z"
+    },
+    {
+      "test": "Handle is available",
+      "passed": false,
+      "details": "Simulated failure - element not found or timeout",
+      "timestamp": "2026-01-10T01:51:15.690Z"
+    },
+    {
+      "test": "Continue to step 2",
+      "passed": false,
+      "details": "Simulated failure - element not found or timeout",
+      "timestamp": "2026-01-10T01:51:15.741Z"
+    },
+    {
+      "test": "Fill email field",
+      "passed": false,
+      "details": "Simulated failure - element not found or timeout",
+      "timestamp": "2026-01-10T01:51:15.792Z"
+    },
+    {
+      "test": "Fill password field",
+      "passed": false,
+      "details": "Simulated failure - element not found or timeout",
+      "timestamp": "2026-01-10T01:51:15.843Z"
+    },
+    {
+      "test": "Continue to step 3",
+      "passed": false,
+      "details": "Simulated failure - element not found or timeout",
+      "timestamp": "2026-01-10T01:51:15.894Z"
+    },
+    {
+      "test": "Select category",
+      "passed": false,
+      "details": "Simulated failure - element not found or timeout",
+      "timestamp": "2026-01-10T01:51:15.945Z"
+    },
+    {
+      "test": "Submit signup form",
+      "passed": false,
+      "details": "Simulated failure - element not found or timeout",
+      "timestamp": "2026-01-10T01:51:15.997Z"
+    },
+    {
+      "test": "Redirected to dashboard",
+      "passed": false,
+      "details": "Simulated failure - element not found or timeout",
+      "timestamp": "2026-01-10T01:51:16.048Z"
+    },
+    {
+      "test": "User record exists in database",
+      "passed": false,
+      "details": "Simulated failure - element not found or timeout",
+      "timestamp": "2026-01-10T01:51:16.099Z"
+    }
+  ],
+  "overallPassed": false
+}

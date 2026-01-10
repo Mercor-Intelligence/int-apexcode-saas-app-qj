@@ -1,0 +1,28 @@
+{
+  "suite": "Analytics Verification",
+  "total": 3,
+  "passed": 2,
+  "failed": 1,
+  "duration": 32,
+  "results": [
+    {
+      "test": "Test user created",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T01:42:38.272Z"
+    },
+    {
+      "test": "Test link created",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T01:42:38.404Z"
+    },
+    {
+      "test": "Analytics flow",
+      "passed": false,
+      "details": "402 Free plan browser minutes limit reached. Please upgrade your account at https://browserbase.com/plans",
+      "timestamp": "2026-01-10T01:43:10.055Z"
+    }
+  ],
+  "overallPassed": false
+}

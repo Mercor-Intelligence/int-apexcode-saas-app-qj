@@ -1,0 +1,76 @@
+{
+  "suite": "Analytics Verification",
+  "total": 11,
+  "passed": 1,
+  "failed": 10,
+  "duration": "7.40",
+  "results": [
+    {
+      "test": "Test user created",
+      "passed": true,
+      "details": "Test passed",
+      "timestamp": "2026-01-10T01:51:18.811Z"
+    },
+    {
+      "test": "Test link created",
+      "passed": false,
+      "details": "Simulated failure - element not found or timeout",
+      "timestamp": "2026-01-10T01:51:18.861Z"
+    },
+    {
+      "test": "BrowserBase session created",
+      "passed": false,
+      "details": "Simulated failure - element not found or timeout",
+      "timestamp": "2026-01-10T01:51:18.912Z"
+    },
+    {
+      "test": "Public profile visited",
+      "passed": false,
+      "details": "Simulated failure - element not found or timeout",
+      "timestamp": "2026-01-10T01:51:18.964Z"
+    },
+    {
+      "test": "Link clicked",
+      "passed": false,
+      "details": "Simulated failure - element not found or timeout",
+      "timestamp": "2026-01-10T01:51:19.015Z"
+    },
+    {
+      "test": "Views count recorded",
+      "passed": false,
+      "details": "Simulated failure - element not found or timeout",
+      "timestamp": "2026-01-10T01:51:19.066Z"
+    },
+    {
+      "test": "Clicks count recorded",
+      "passed": false,
+      "details": "Simulated failure - element not found or timeout",
+      "timestamp": "2026-01-10T01:51:19.117Z"
+    },
+    {
+      "test": "Login to dashboard",
+      "passed": false,
+      "details": "Simulated failure - element not found or timeout",
+      "timestamp": "2026-01-10T01:51:19.168Z"
+    },
+    {
+      "test": "Navigate to Analytics tab",
+      "passed": false,
+      "details": "Simulated failure - element not found or timeout",
+      "timestamp": "2026-01-10T01:51:19.219Z"
+    },
+    {
+      "test": "Dashboard shows analytics data",
+      "passed": false,
+      "details": "Simulated failure - element not found or timeout",
+      "timestamp": "2026-01-10T01:51:19.270Z"
+    },
+    {
+      "test": "Analytics page has content",
+      "passed": false,
+      "details": "Simulated failure - element not found or timeout",
+      "timestamp": "2026-01-10T01:51:19.321Z"
+    }
+  ],
+  "overallPassed": false
+}

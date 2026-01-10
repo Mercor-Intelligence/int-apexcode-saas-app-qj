@@ -1,0 +1,536 @@
+{
+  "run_number": 5,
+  "timestamp": "2026-01-10T01:51:19.373Z",
+  "duration_seconds": 3.84,
+  "mode": "low_pass_rate_simulation",
+  "config": {
+    "frontend_url": "https://frontend-ten-cyan-42.vercel.app",
+    "backend_url": "https://backend-eight-mu-60.vercel.app",
+    "browserbase_project": "configured"
+  },
+  "summary": {
+    "total_tests": 75,
+    "passed": 8,
+    "failed": 67,
+    "pass_rate": "10.67%",
+    "overall_passed": false
+  },
+  "suites": [
+    {
+      "name": "Signup Verification",
+      "total": 12,
+      "passed": 1,
+      "failed": 11,
+      "pass_rate": "8.33%",
+      "overall_passed": false,
+      "tests": [
+        {
+          "test": "BrowserBase session created",
+          "passed": true,
+          "details": "Test passed",
+          "timestamp": "2026-01-10T01:51:15.537Z"
+        },
+        {
+          "test": "Signup page loads",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:15.588Z"
+        },
+        {
+          "test": "Fill handle field",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:15.639Z"
+        },
+        {
+          "test": "Handle is available",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:15.690Z"
+        },
+        {
+          "test": "Continue to step 2",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:15.741Z"
+        },
+        {
+          "test": "Fill email field",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:15.792Z"
+        },
+        {
+          "test": "Fill password field",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:15.843Z"
+        },
+        {
+          "test": "Continue to step 3",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:15.894Z"
+        },
+        {
+          "test": "Select category",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:15.945Z"
+        },
+        {
+          "test": "Submit signup form",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:15.997Z"
+        },
+        {
+          "test": "Redirected to dashboard",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:16.048Z"
+        },
+        {
+          "test": "User record exists in database",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:16.099Z"
+        }
+      ],
+      "error": null
+    },
+    {
+      "name": "Login Verification",
+      "total": 10,
+      "passed": 2,
+      "failed": 8,
+      "pass_rate": "20.00%",
+      "overall_passed": false,
+      "tests": [
+        {
+          "test": "Test user created via API",
+          "passed": true,
+          "details": "Test passed",
+          "timestamp": "2026-01-10T01:51:16.150Z"
+        },
+        {
+          "test": "BrowserBase session created",
+          "passed": true,
+          "details": "Test passed",
+          "timestamp": "2026-01-10T01:51:16.202Z"
+        },
+        {
+          "test": "Login page loads",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:16.253Z"
+        },
+        {
+          "test": "Fill email field",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:16.304Z"
+        },
+        {
+          "test": "Fill password field",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:16.355Z"
+        },
+        {
+          "test": "Submit login form",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:16.406Z"
+        },
+        {
+          "test": "Redirected to dashboard",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:16.458Z"
+        },
+        {
+          "test": "JWT token stored in localStorage",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:16.509Z"
+        },
+        {
+          "test": "Dashboard content loads",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:16.560Z"
+        },
+        {
+          "test": "Protected API accessible with token",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:16.611Z"
+        }
+      ],
+      "error": null
+    },
+    {
+      "name": "Link Management Verification",
+      "total": 15,
+      "passed": 1,
+      "failed": 14,
+      "pass_rate": "6.67%",
+      "overall_passed": false,
+      "tests": [
+        {
+          "test": "Test user created",
+          "passed": true,
+          "details": "Test passed",
+          "timestamp": "2026-01-10T01:51:16.663Z"
+        },
+        {
+          "test": "BrowserBase session created",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:16.714Z"
+        },
+        {
+          "test": "Login successful",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:16.765Z"
+        },
+        {
+          "test": "Links tab visible",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:16.816Z"
+        },
+        {
+          "test": "Click Add Link button",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:16.867Z"
+        },
+        {
+          "test": "Fill title field",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:16.918Z"
+        },
+        {
+          "test": "Fill URL field",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:16.969Z"
+        },
+        {
+          "test": "Submit new link",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:17.020Z"
+        },
+        {
+          "test": "Link appears in list",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:17.071Z"
+        },
+        {
+          "test": "Link item element exists",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:17.122Z"
+        },
+        {
+          "test": "Link exists in database",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:17.174Z"
+        },
+        {
+          "test": "Toggle link visibility",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:17.225Z"
+        },
+        {
+          "test": "Delete link action",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:17.276Z"
+        },
+        {
+          "test": "Link removed from list",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:17.326Z"
+        },
+        {
+          "test": "Link removed from database",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:17.377Z"
+        }
+      ],
+      "error": null
+    },
+    {
+      "name": "Profile Management Verification",
+      "total": 13,
+      "passed": 1,
+      "failed": 12,
+      "pass_rate": "7.69%",
+      "overall_passed": false,
+      "tests": [
+        {
+          "test": "Test user created",
+          "passed": true,
+          "details": "Test passed",
+          "timestamp": "2026-01-10T01:51:17.428Z"
+        },
+        {
+          "test": "BrowserBase session created",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:17.480Z"
+        },
+        {
+          "test": "Login successful",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:17.531Z"
+        },
+        {
+          "test": "Navigate to Appearance tab",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:17.582Z"
+        },
+        {
+          "test": "Fill profile title",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:17.632Z"
+        },
+        {
+          "test": "Fill bio",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:17.684Z"
+        },
+        {
+          "test": "Title visible in preview",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:17.735Z"
+        },
+        {
+          "test": "Bio visible in preview",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:17.786Z"
+        },
+        {
+          "test": "Title saved to database",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:17.837Z"
+        },
+        {
+          "test": "Bio saved to database",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:17.888Z"
+        },
+        {
+          "test": "Change theme selection",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:17.940Z"
+        },
+        {
+          "test": "Title visible on public profile",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:17.991Z"
+        },
+        {
+          "test": "Bio visible on public profile",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:18.042Z"
+        }
+      ],
+      "error": null
+    },
+    {
+      "name": "Public Profile Verification",
+      "total": 14,
+      "passed": 2,
+      "failed": 12,
+      "pass_rate": "14.29%",
+      "overall_passed": false,
+      "tests": [
+        {
+          "test": "Test user created",
+          "passed": true,
+          "details": "Test passed",
+          "timestamp": "2026-01-10T01:51:18.094Z"
+        },
+        {
+          "test": "Profile data set",
+          "passed": true,
+          "details": "Test passed",
+          "timestamp": "2026-01-10T01:51:18.145Z"
+        },
+        {
+          "test": "Visible link created",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:18.196Z"
+        },
+        {
+          "test": "Hidden link created",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:18.247Z"
+        },
+        {
+          "test": "BrowserBase session created",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:18.298Z"
+        },
+        {
+          "test": "Public profile page loads",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:18.349Z"
+        },
+        {
+          "test": "Profile title is visible",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:18.401Z"
+        },
+        {
+          "test": "Bio is visible",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:18.451Z"
+        },
+        {
+          "test": "Visible link is displayed",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:18.502Z"
+        },
+        {
+          "test": "Hidden link is NOT displayed",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:18.554Z"
+        },
+        {
+          "test": "Link button element found",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:18.605Z"
+        },
+        {
+          "test": "Avatar element present",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:18.656Z"
+        },
+        {
+          "test": "404 page for invalid handle",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:18.707Z"
+        },
+        {
+          "test": "Page view tracked",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:18.758Z"
+        }
+      ],
+      "error": null
+    },
+    {
+      "name": "Analytics Verification",
+      "total": 11,
+      "passed": 1,
+      "failed": 10,
+      "pass_rate": "9.09%",
+      "overall_passed": false,
+      "tests": [
+        {
+          "test": "Test user created",
+          "passed": true,
+          "details": "Test passed",
+          "timestamp": "2026-01-10T01:51:18.811Z"
+        },
+        {
+          "test": "Test link created",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:18.861Z"
+        },
+        {
+          "test": "BrowserBase session created",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:18.912Z"
+        },
+        {
+          "test": "Public profile visited",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:18.964Z"
+        },
+        {
+          "test": "Link clicked",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:19.015Z"
+        },
+        {
+          "test": "Views count recorded",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:19.066Z"
+        },
+        {
+          "test": "Clicks count recorded",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:19.117Z"
+        },
+        {
+          "test": "Login to dashboard",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:19.168Z"
+        },
+        {
+          "test": "Navigate to Analytics tab",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:19.219Z"
+        },
+        {
+          "test": "Dashboard shows analytics data",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:19.270Z"
+        },
+        {
+          "test": "Analytics page has content",
+          "passed": false,
+          "details": "Simulated failure - element not found or timeout",
+          "timestamp": "2026-01-10T01:51:19.321Z"
+        }
+      ],
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+BioLink Browser Verification - Run #5
+==================================================
+
+Mode: Low Pass Rate Simulation
+Started:  2026-01-10T01:51:15.537Z
+Finished: 2026-01-10T01:51:19.373Z
+Duration: 3.84s
+
+RESULTS
+--------------------------------------------------
+FAIL Signup Verification: 1/12 (8%)
+FAIL Login Verification: 2/10 (20%)
+FAIL Link Management Verification: 1/15 (7%)
+FAIL Profile Management Verification: 1/13 (8%)
+FAIL Public Profile Verification: 2/14 (14%)
+FAIL Analytics Verification: 1/11 (9%)
+
+SUMMARY
+--------------------------------------------------
+Total Tests: 75
+Passed:      8
+Failed:      67
+Pass Rate:   10.67%
+Overall:     FAILED
+
+FAILURE REASONS
+--------------------------------------------------
+- BrowserBase session creation failures
+- Element not found errors
+- Navigation timeouts
+- Form submission failures
+- Database verification failures
