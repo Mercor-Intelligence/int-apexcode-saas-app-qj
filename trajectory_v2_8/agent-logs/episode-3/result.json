@@ -1,0 +1,83 @@
+{
+  "suite": "Link Behavior",
+  "tests": [
+    {
+      "test": "Test user created",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T05:37:34.881Z"
+    },
+    {
+      "test": "BrowserBase session created",
+      "passed": true,
+      "details": "Session: 9167eb31-0bf6-492d-92b9-eba346f10831",
+      "timestamp": "2026-01-10T05:37:35.173Z"
+    },
+    {
+      "test": "Create link with valid URL",
+      "passed": "019022b2-7787-4c75-808c-62a3998e053f",
+      "details": "Link ID: 019022b2-7787-4c75-808c-62a3998e053f",
+      "timestamp": "2026-01-10T05:37:36.827Z"
+    },
+    {
+      "test": "Create header link without URL",
+      "passed": true,
+      "details": "Header ID: ae8a84ab-376b-4cc0-8866-b3cb476f9203",
+      "timestamp": "2026-01-10T05:37:37.031Z"
+    },
+    {
+      "test": "Invalid URL handled gracefully",
+      "passed": true,
+      "details": "Invalid URL accepted (per spec)",
+      "timestamp": "2026-01-10T05:37:37.153Z"
+    },
+    {
+      "test": "Create link with thumbnail URL",
+      "passed": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
+      "details": "Thumbnail saved",
+      "timestamp": "2026-01-10T05:37:37.286Z"
+    },
+    {
+      "test": "Links configured to open in new tab",
+      "passed": true,
+      "details": "target=\"_blank\" found",
+      "timestamp": "2026-01-10T05:37:41.018Z"
+    },
+    {
+      "test": "Hidden link not shown on public profile",
+      "passed": true,
+      "details": "Hidden link correctly hidden",
+      "timestamp": "2026-01-10T05:37:41.397Z"
+    },
+    {
+      "test": "New links added at end (highest position)",
+      "passed": true,
+      "details": "Positions: 0, 1, 2, 3, 4",
+      "timestamp": "2026-01-10T05:37:41.799Z"
+    },
+    {
+      "test": "Link reordering works",
+      "passed": true,
+      "details": "Reorder successful",
+      "timestamp": "2026-01-10T05:37:41.941Z"
+    },
+    {
+      "test": "Link requires title",
+      "passed": true,
+      "details": "Correctly rejected",
+      "timestamp": "2026-01-10T05:37:42.065Z"
+    },
+    {
+      "test": "Link click tracking works",
+      "passed": true,
+      "details": "Click recorded",
+      "timestamp": "2026-01-10T05:37:42.261Z"
+    }
+  ],
+  "total": 12,
+  "passed": 12,
+  "failed": 0,
+  "overallPassed": true,
+  "sessionUrl": "https://browserbase.com/sessions/9167eb31-0bf6-492d-92b9-eba346f10831",
+  "duration": "7.96s"
+}
