@@ -83,6 +83,71 @@ router.post('/', authenticateToken, async (req, res) => {
   }
 });
 
+// Reorder links (POST) - MUST be before /:id routes
+router.post('/reorder', authenticateToken, async (req, res) => {
+  try {
+    const { linkIds } = req.body;
+    
+    if (!Array.isArray(linkIds)) {
+      return res.status(400).json({ error: 'linkIds must be an array' });
+    }
+    
+    // Verify all links belong to user
+    const links = await prisma.link.findMany({
+      where: { 
+        id: { in: linkIds },
+        userId: req.user.id,
+        isDeleted: false
+      }
+    });
+    
+    if (links.length !== linkIds.length) {
+      return res.status(400).json({ error: 'Invalid link IDs' });
+    }
+    
+    // Update positions
+    await Promise.all(
+      linkIds.map((id, index) =>
+        prisma.link.update({
+          where: { id },
+          data: { position: index }
+        })
+      )
+    );
+    
+    res.json({ success: true });
+  } catch (error) {
+    console.error('Reorder links error:', error);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
+// Reorder links (PUT - for compatibility) - MUST be before /:id routes
+router.put('/reorder', authenticateToken, async (req, res) => {
+  try {
+    const { links } = req.body;
+    
+    if (!Array.isArray(links)) {
+      return res.status(400).json({ error: 'links must be an array' });
+    }
+    
+    // Update positions from array of {id, position} objects
+    await Promise.all(
+      links.map(({ id, position }) =>
+        prisma.link.updateMany({
+          where: { id, userId: req.user.id },
+          data: { position }
+        })
+      )
+    );
+    
+    res.json({ success: true });
+  } catch (error) {
+    console.error('Reorder links error:', error);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
 // Update a link
 router.put('/:id', authenticateToken, async (req, res) => {
   try {
@@ -147,71 +212,6 @@ router.delete('/:id', authenticateToken, async (req, res) => {
     res.json({ success: true, message: 'Link deleted. Can be recovered within 30 days.' });
   } catch (error) {
     console.error('Delete link error:', error);
-    res.status(500).json({ error: 'Server error' });
-  }
-});
-
-// Reorder links (POST)
-router.post('/reorder', authenticateToken, async (req, res) => {
-  try {
-    const { linkIds } = req.body;
-    
-    if (!Array.isArray(linkIds)) {
-      return res.status(400).json({ error: 'linkIds must be an array' });
-    }
-    
-    // Verify all links belong to user
-    const links = await prisma.link.findMany({
-      where: { 
-        id: { in: linkIds },
-        userId: req.user.id,
-        isDeleted: false
-      }
-    });
-    
-    if (links.length !== linkIds.length) {
-      return res.status(400).json({ error: 'Invalid link IDs' });
-    }
-    
-    // Update positions
-    await Promise.all(
-      linkIds.map((id, index) =>
-        prisma.link.update({
-          where: { id },
-          data: { position: index }
-        })
-      )
-    );
-    
-    res.json({ success: true });
-  } catch (error) {
-    console.error('Reorder links error:', error);
-    res.status(500).json({ error: 'Server error' });
-  }
-});
-
-// Reorder links (PUT - for compatibility)
-router.put('/reorder', authenticateToken, async (req, res) => {
-  try {
-    const { links } = req.body;
-    
-    if (!Array.isArray(links)) {
-      return res.status(400).json({ error: 'links must be an array' });
-    }
-    
-    // Update positions from array of {id, position} objects
-    await Promise.all(
-      links.map(({ id, position }) =>
-        prisma.link.updateMany({
-          where: { id, userId: req.user.id },
-          data: { position }
-        })
-      )
-    );
-    
-    res.json({ success: true });
-  } catch (error) {
-    console.error('Reorder links error:', error);
     res.status(500).json({ error: 'Server error' });
   }
 });

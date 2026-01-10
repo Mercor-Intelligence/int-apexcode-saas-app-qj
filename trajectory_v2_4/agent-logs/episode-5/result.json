@@ -1,0 +1,101 @@
+{
+  "suite": "Advanced Analytics",
+  "tests": [
+    {
+      "test": "Test user created",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-10T03:32:20.316Z"
+    },
+    {
+      "test": "Test link created",
+      "passed": true,
+      "details": "Link ID: 6ad565c7-15cb-450f-9694-8f669bd00630",
+      "timestamp": "2026-01-10T03:32:20.441Z"
+    },
+    {
+      "test": "BrowserBase session created",
+      "passed": true,
+      "details": "Session: 47b5d951-5661-408f-abd5-0a6191ab027f",
+      "timestamp": "2026-01-10T03:32:20.704Z"
+    },
+    {
+      "test": "First view tracked",
+      "passed": true,
+      "details": "Views: 1",
+      "timestamp": "2026-01-10T03:32:25.635Z"
+    },
+    {
+      "test": "View deduplication works",
+      "passed": true,
+      "details": "No duplicate view",
+      "timestamp": "2026-01-10T03:32:28.765Z"
+    },
+    {
+      "test": "Click event tracked",
+      "passed": true,
+      "details": "Clicks: 1",
+      "timestamp": "2026-01-10T03:32:32.191Z"
+    },
+    {
+      "test": "View with referrer tracked",
+      "passed": true,
+      "details": "Referrer recorded",
+      "timestamp": "2026-01-10T03:32:32.398Z"
+    },
+    {
+      "test": "Analytics includes referrer data",
+      "passed": false,
+      "details": "No referrer data",
+      "timestamp": "2026-01-10T03:32:32.518Z"
+    },
+    {
+      "test": "Per-link click tracking works",
+      "passed": false,
+      "details": "Link1: 0, Link2: 0",
+      "timestamp": "2026-01-10T03:32:33.182Z"
+    },
+    {
+      "test": "CTR calculation available",
+      "passed": true,
+      "details": "CTR: 200.00%",
+      "timestamp": "2026-01-10T03:32:33.303Z"
+    },
+    {
+      "test": "Device type tracking",
+      "passed": false,
+      "details": "No device data",
+      "timestamp": "2026-01-10T03:32:33.303Z"
+    },
+    {
+      "test": "Location tracking",
+      "passed": false,
+      "details": "No location data",
+      "timestamp": "2026-01-10T03:32:33.303Z"
+    },
+    {
+      "test": "Analytics supports time filtering",
+      "passed": true,
+      "details": "Time filtering works",
+      "timestamp": "2026-01-10T03:32:33.580Z"
+    },
+    {
+      "test": "Analytics dashboard has stats",
+      "passed": true,
+      "details": "Found 27 stat elements",
+      "timestamp": "2026-01-10T03:32:39.201Z"
+    },
+    {
+      "test": "Analytics dashboard has charts",
+      "passed": true,
+      "details": "Found 1 charts",
+      "timestamp": "2026-01-10T03:32:39.201Z"
+    }
+  ],
+  "total": 15,
+  "passed": 11,
+  "failed": 4,
+  "overallPassed": false,
+  "sessionUrl": "https://browserbase.com/sessions/47b5d951-5661-408f-abd5-0a6191ab027f",
+  "duration": "19.60s"
+}
