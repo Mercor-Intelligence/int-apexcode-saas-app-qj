@@ -1,0 +1,641 @@
+{
+  "run_number": 5,
+  "timestamp": "2026-01-10T03:38:15.566Z",
+  "duration_seconds": 112.3,
+  "config": {
+    "frontend_url": "https://biolink-v2-frontend.vercel.app",
+    "backend_url": "https://biolink-v2-backend.vercel.app",
+    "browserbase_project": "configured"
+  },
+  "summary": {
+    "total_tests": 92,
+    "passed": 78,
+    "failed": 14,
+    "pass_rate": "84.78%",
+    "overall_passed": false
+  },
+  "suites": [
+    {
+      "name": "Password Validation",
+      "total": 10,
+      "passed": false,
+      "failed": 4,
+      "session_url": "https://browserbase.com/sessions/96360203-bd80-4c0d-886a-46d9d5b1d8c3",
+      "tests": [
+        {
+          "test": "BrowserBase session created",
+          "passed": true,
+          "details": "Session: 96360203-bd80-4c0d-886a-46d9d5b1d8c3",
+          "timestamp": "2026-01-10T03:36:23.581Z"
+        },
+        {
+          "test": "Signup page loads",
+          "passed": true,
+          "details": "",
+          "timestamp": "2026-01-10T03:36:28.917Z"
+        },
+        {
+          "test": "Rejects password under 8 characters",
+          "passed": false,
+          "details": "No validation error",
+          "timestamp": "2026-01-10T03:36:33.533Z"
+        },
+        {
+          "test": "Rejects password without uppercase",
+          "passed": false,
+          "details": "No validation error",
+          "timestamp": "2026-01-10T03:36:34.859Z"
+        },
+        {
+          "test": "Rejects password without lowercase",
+          "passed": false,
+          "details": "No validation error",
+          "timestamp": "2026-01-10T03:36:36.180Z"
+        },
+        {
+          "test": "Rejects password without number",
+          "passed": false,
+          "details": "No validation error",
+          "timestamp": "2026-01-10T03:36:37.485Z"
+        },
+        {
+          "test": "Accepts valid password",
+          "passed": true,
+          "details": "No validation error",
+          "timestamp": "2026-01-10T03:36:38.945Z"
+        },
+        {
+          "test": "Password strength indicator visible",
+          "passed": true,
+          "details": "Indicator found",
+          "timestamp": "2026-01-10T03:36:38.945Z"
+        },
+        {
+          "test": "API rejects weak password",
+          "passed": true,
+          "details": "Password rejected",
+          "timestamp": "2026-01-10T03:36:39.209Z"
+        },
+        {
+          "test": "API accepts strong password",
+          "passed": true,
+          "details": "User created",
+          "timestamp": "2026-01-10T03:36:39.820Z"
+        }
+      ],
+      "error": null
+    },
+    {
+      "name": "Handle Validation",
+      "total": 13,
+      "passed": true,
+      "failed": 0,
+      "session_url": "https://browserbase.com/sessions/7c67f2c7-bb48-49d4-89e7-1e2e6c0cc04b",
+      "tests": [
+        {
+          "test": "BrowserBase session created",
+          "passed": true,
+          "details": "Session: 7c67f2c7-bb48-49d4-89e7-1e2e6c0cc04b",
+          "timestamp": "2026-01-10T03:36:41.155Z"
+        },
+        {
+          "test": "Signup page loads",
+          "passed": true,
+          "details": "",
+          "timestamp": "2026-01-10T03:36:44.866Z"
+        },
+        {
+          "test": "Rejects handle under 3 characters",
+          "passed": true,
+          "details": "Handle rejected",
+          "timestamp": "2026-01-10T03:36:47.006Z"
+        },
+        {
+          "test": "Rejects handle starting with number",
+          "passed": true,
+          "details": "Handle rejected",
+          "timestamp": "2026-01-10T03:36:47.553Z"
+        },
+        {
+          "test": "Rejects handle with special characters (@)",
+          "passed": true,
+          "details": "Handle rejected",
+          "timestamp": "2026-01-10T03:36:47.744Z"
+        },
+        {
+          "test": "Rejects handle with consecutive periods",
+          "passed": true,
+          "details": "Handle rejected",
+          "timestamp": "2026-01-10T03:36:47.862Z"
+        },
+        {
+          "test": "Rejects handle with consecutive underscores",
+          "passed": true,
+          "details": "Handle rejected",
+          "timestamp": "2026-01-10T03:36:47.984Z"
+        },
+        {
+          "test": "Rejects handle over 30 characters",
+          "passed": true,
+          "details": "Handle rejected",
+          "timestamp": "2026-01-10T03:36:48.104Z"
+        },
+        {
+          "test": "Accepts valid handle (letters only)",
+          "passed": true,
+          "details": "Handle available",
+          "timestamp": "2026-01-10T03:36:48.225Z"
+        },
+        {
+          "test": "Accepts valid handle (with underscore)",
+          "passed": true,
+          "details": "Handle available",
+          "timestamp": "2026-01-10T03:36:48.343Z"
+        },
+        {
+          "test": "Accepts valid handle (with period)",
+          "passed": true,
+          "details": "Handle available",
+          "timestamp": "2026-01-10T03:36:48.461Z"
+        },
+        {
+          "test": "Handles are case-insensitive",
+          "passed": true,
+          "details": "Uppercase variant correctly unavailable",
+          "timestamp": "2026-01-10T03:36:49.069Z"
+        },
+        {
+          "test": "Handle preserves original case",
+          "passed": true,
+          "details": "Stored: MixedCase1768016200876, Expected: MixedCase1768016200876",
+          "timestamp": "2026-01-10T03:36:49.732Z"
+        }
+      ],
+      "error": null
+    },
+    {
+      "name": "Bio & Profile Limits",
+      "total": 12,
+      "passed": false,
+      "failed": 2,
+      "session_url": "https://browserbase.com/sessions/2b0a1b3a-25f5-4525-b5f4-e0f97c40d1d5",
+      "tests": [
+        {
+          "test": "Test user created",
+          "passed": true,
+          "details": "",
+          "timestamp": "2026-01-10T03:36:51.287Z"
+        },
+        {
+          "test": "BrowserBase session created",
+          "passed": true,
+          "details": "Session: 2b0a1b3a-25f5-4525-b5f4-e0f97c40d1d5",
+          "timestamp": "2026-01-10T03:36:51.554Z"
+        },
+        {
+          "test": "Login successful",
+          "passed": true,
+          "details": "",
+          "timestamp": "2026-01-10T03:36:56.427Z"
+        },
+        {
+          "test": "Navigate to Appearance tab",
+          "passed": true,
+          "details": "",
+          "timestamp": "2026-01-10T03:36:58.621Z"
+        },
+        {
+          "test": "Bio character count indicator visible",
+          "passed": true,
+          "details": "Character counter found",
+          "timestamp": "2026-01-10T03:36:58.764Z"
+        },
+        {
+          "test": "Bio accepts exactly 150 characters",
+          "passed": false,
+          "details": "Bio input not found",
+          "timestamp": "2026-01-10T03:36:58.887Z"
+        },
+        {
+          "test": "Bio truncates to 150 characters",
+          "passed": false,
+          "details": "Bio input not found",
+          "timestamp": "2026-01-10T03:36:58.887Z"
+        },
+        {
+          "test": "API accepts 150 character bio",
+          "passed": true,
+          "details": "Bio saved",
+          "timestamp": "2026-01-10T03:36:59.084Z"
+        },
+        {
+          "test": "API truncates/rejects bio over 150 chars",
+          "passed": true,
+          "details": "Saved length: 150",
+          "timestamp": "2026-01-10T03:36:59.408Z"
+        },
+        {
+          "test": "Title input has max length limit",
+          "passed": true,
+          "details": "Length: 60",
+          "timestamp": "2026-01-10T03:37:00.983Z"
+        },
+        {
+          "test": "Bio visible on public profile",
+          "passed": true,
+          "details": "Bio found",
+          "timestamp": "2026-01-10T03:37:03.231Z"
+        },
+        {
+          "test": "Empty bio is allowed",
+          "passed": true,
+          "details": "Empty bio saved",
+          "timestamp": "2026-01-10T03:37:03.356Z"
+        }
+      ],
+      "error": null
+    },
+    {
+      "name": "Link Behavior",
+      "total": 12,
+      "passed": false,
+      "failed": 1,
+      "session_url": "https://browserbase.com/sessions/7ce33e38-fdf8-48b4-b430-382cee3189fb",
+      "tests": [
+        {
+          "test": "Test user created",
+          "passed": true,
+          "details": "",
+          "timestamp": "2026-01-10T03:37:04.889Z"
+        },
+        {
+          "test": "BrowserBase session created",
+          "passed": true,
+          "details": "Session: 7ce33e38-fdf8-48b4-b430-382cee3189fb",
+          "timestamp": "2026-01-10T03:37:05.179Z"
+        },
+        {
+          "test": "Create link with valid URL",
+          "passed": "2997614e-6a77-4eb3-b0a0-64b80c5fe572",
+          "details": "Link ID: 2997614e-6a77-4eb3-b0a0-64b80c5fe572",
+          "timestamp": "2026-01-10T03:37:06.802Z"
+        },
+        {
+          "test": "Create header link without URL",
+          "passed": true,
+          "details": "Header ID: 1ff7fc9c-bee1-45be-875f-2b8440167d16",
+          "timestamp": "2026-01-10T03:37:06.982Z"
+        },
+        {
+          "test": "Invalid URL handled gracefully",
+          "passed": true,
+          "details": "Invalid URL accepted (per spec)",
+          "timestamp": "2026-01-10T03:37:07.134Z"
+        },
+        {
+          "test": "Create link with thumbnail URL",
+          "passed": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
+          "details": "Thumbnail saved",
+          "timestamp": "2026-01-10T03:37:07.254Z"
+        },
+        {
+          "test": "Links configured to open in new tab",
+          "passed": false,
+          "details": "Links may use JS for new tab",
+          "timestamp": "2026-01-10T03:37:13.724Z"
+        },
+        {
+          "test": "Hidden link not shown on public profile",
+          "passed": true,
+          "details": "Hidden link correctly hidden",
+          "timestamp": "2026-01-10T03:37:14.231Z"
+        },
+        {
+          "test": "New links added at end (highest position)",
+          "passed": true,
+          "details": "Positions: 0, 1, 2, 3, 4",
+          "timestamp": "2026-01-10T03:37:14.608Z"
+        },
+        {
+          "test": "Link reordering works",
+          "passed": true,
+          "details": "Reorder successful",
+          "timestamp": "2026-01-10T03:37:14.769Z"
+        },
+        {
+          "test": "Link requires title",
+          "passed": true,
+          "details": "Correctly rejected",
+          "timestamp": "2026-01-10T03:37:14.879Z"
+        },
+        {
+          "test": "Link click tracking works",
+          "passed": true,
+          "details": "Click recorded",
+          "timestamp": "2026-01-10T03:37:15.054Z"
+        }
+      ],
+      "error": null
+    },
+    {
+      "name": "Theme & 404 Page",
+      "total": 13,
+      "passed": true,
+      "failed": 0,
+      "session_url": "https://browserbase.com/sessions/918af6d6-5690-41a1-9744-fddf139c3ee8",
+      "tests": [
+        {
+          "test": "Test user created",
+          "passed": true,
+          "details": "",
+          "timestamp": "2026-01-10T03:37:16.588Z"
+        },
+        {
+          "test": "BrowserBase session created",
+          "passed": true,
+          "details": "Session: 918af6d6-5690-41a1-9744-fddf139c3ee8",
+          "timestamp": "2026-01-10T03:37:16.855Z"
+        },
+        {
+          "test": "404 page shown for non-existent profile",
+          "passed": true,
+          "details": "404 content found",
+          "timestamp": "2026-01-10T03:37:21.147Z"
+        },
+        {
+          "test": "404 page suggests claiming handle",
+          "passed": true,
+          "details": "Claim suggestion found",
+          "timestamp": "2026-01-10T03:37:21.147Z"
+        },
+        {
+          "test": "404 page has signup link",
+          "passed": true,
+          "details": "Signup link found",
+          "timestamp": "2026-01-10T03:37:21.565Z"
+        },
+        {
+          "test": "Dark mode is default theme",
+          "passed": true,
+          "details": "Dark background detected",
+          "timestamp": "2026-01-10T03:37:23.567Z"
+        },
+        {
+          "test": "Theme selection options available",
+          "passed": true,
+          "details": "Found 16 theme options",
+          "timestamp": "2026-01-10T03:37:28.414Z"
+        },
+        {
+          "test": "Theme selection interactive",
+          "passed": true,
+          "details": "Theme button clicked",
+          "timestamp": "2026-01-10T03:37:29.691Z"
+        },
+        {
+          "test": "Page has CSS animations",
+          "passed": true,
+          "details": "Animations detected",
+          "timestamp": "2026-01-10T03:37:30.876Z"
+        },
+        {
+          "test": "Links have staggered animations",
+          "passed": true,
+          "details": "Staggered delays found",
+          "timestamp": "2026-01-10T03:37:32.975Z"
+        },
+        {
+          "test": "Theme persists in database",
+          "passed": true,
+          "details": "Theme: sunset",
+          "timestamp": "2026-01-10T03:37:33.271Z"
+        },
+        {
+          "test": "Public profile includes theme",
+          "passed": true,
+          "details": "Theme: sunset",
+          "timestamp": "2026-01-10T03:37:33.396Z"
+        },
+        {
+          "test": "Primary color scheme matches spec",
+          "passed": true,
+          "details": "Primary: #FF6B35",
+          "timestamp": "2026-01-10T03:37:33.444Z"
+        }
+      ],
+      "error": null
+    },
+    {
+      "name": "Advanced Analytics",
+      "total": 15,
+      "passed": false,
+      "failed": 4,
+      "session_url": "https://browserbase.com/sessions/90bbd610-7e8b-4549-a59e-4c48c7549510",
+      "tests": [
+        {
+          "test": "Test user created",
+          "passed": true,
+          "details": "",
+          "timestamp": "2026-01-10T03:37:35.013Z"
+        },
+        {
+          "test": "Test link created",
+          "passed": true,
+          "details": "Link ID: 9165587d-8bc6-4d0a-9ed1-189cb3d4922a",
+          "timestamp": "2026-01-10T03:37:35.291Z"
+        },
+        {
+          "test": "BrowserBase session created",
+          "passed": true,
+          "details": "Session: 90bbd610-7e8b-4549-a59e-4c48c7549510",
+          "timestamp": "2026-01-10T03:37:35.649Z"
+        },
+        {
+          "test": "First view tracked",
+          "passed": true,
+          "details": "Views: 1",
+          "timestamp": "2026-01-10T03:37:40.497Z"
+        },
+        {
+          "test": "View deduplication works",
+          "passed": true,
+          "details": "No duplicate view",
+          "timestamp": "2026-01-10T03:37:43.620Z"
+        },
+        {
+          "test": "Click event tracked",
+          "passed": true,
+          "details": "Clicks: 1",
+          "timestamp": "2026-01-10T03:37:47.953Z"
+        },
+        {
+          "test": "View with referrer tracked",
+          "passed": true,
+          "details": "Referrer recorded",
+          "timestamp": "2026-01-10T03:37:48.133Z"
+        },
+        {
+          "test": "Analytics includes referrer data",
+          "passed": false,
+          "details": "No referrer data",
+          "timestamp": "2026-01-10T03:37:48.252Z"
+        },
+        {
+          "test": "Per-link click tracking works",
+          "passed": false,
+          "details": "Link1: 0, Link2: 0",
+          "timestamp": "2026-01-10T03:37:48.873Z"
+        },
+        {
+          "test": "CTR calculation available",
+          "passed": true,
+          "details": "CTR: 200.00%",
+          "timestamp": "2026-01-10T03:37:48.995Z"
+        },
+        {
+          "test": "Device type tracking",
+          "passed": false,
+          "details": "No device data",
+          "timestamp": "2026-01-10T03:37:48.995Z"
+        },
+        {
+          "test": "Location tracking",
+          "passed": false,
+          "details": "No location data",
+          "timestamp": "2026-01-10T03:37:48.995Z"
+        },
+        {
+          "test": "Analytics supports time filtering",
+          "passed": true,
+          "details": "Time filtering works",
+          "timestamp": "2026-01-10T03:37:49.243Z"
+        },
+        {
+          "test": "Analytics dashboard has stats",
+          "passed": true,
+          "details": "Found 27 stat elements",
+          "timestamp": "2026-01-10T03:37:55.115Z"
+        },
+        {
+          "test": "Analytics dashboard has charts",
+          "passed": true,
+          "details": "Found 1 charts",
+          "timestamp": "2026-01-10T03:37:55.115Z"
+        }
+      ],
+      "error": null
+    },
+    {
+      "name": "Responsive & Accessibility",
+      "total": 17,
+      "passed": false,
+      "failed": 3,
+      "session_url": "https://browserbase.com/sessions/4a14da6c-eb51-4641-9a14-090bceac06d6",
+      "tests": [
+        {
+          "test": "Test user created",
+          "passed": true,
+          "details": "",
+          "timestamp": "2026-01-10T03:37:56.799Z"
+        },
+        {
+          "test": "BrowserBase session created",
+          "passed": true,
+          "details": "Session: 4a14da6c-eb51-4641-9a14-090bceac06d6",
+          "timestamp": "2026-01-10T03:37:57.894Z"
+        },
+        {
+          "test": "No horizontal scroll at 320px",
+          "passed": true,
+          "details": "Layout fits",
+          "timestamp": "2026-01-10T03:38:02.264Z"
+        },
+        {
+          "test": "Links visible at 320px",
+          "passed": true,
+          "details": "Found 5 links",
+          "timestamp": "2026-01-10T03:38:02.759Z"
+        },
+        {
+          "test": "Links have adequate touch targets",
+          "passed": true,
+          "details": "Size: 280x54",
+          "timestamp": "2026-01-10T03:38:03.030Z"
+        },
+        {
+          "test": "Avatar visible at 320px",
+          "passed": true,
+          "details": "Avatar found",
+          "timestamp": "2026-01-10T03:38:03.177Z"
+        },
+        {
+          "test": "Profile info visible at 320px",
+          "passed": true,
+          "details": "Title: true, Bio: true",
+          "timestamp": "2026-01-10T03:38:03.230Z"
+        },
+        {
+          "test": "Layout works at 768px",
+          "passed": true,
+          "details": "Found 5 links",
+          "timestamp": "2026-01-10T03:38:05.626Z"
+        },
+        {
+          "test": "Dashboard usable at 768px",
+          "passed": true,
+          "details": "Navigation accessible",
+          "timestamp": "2026-01-10T03:38:09.695Z"
+        },
+        {
+          "test": "PWA manifest present",
+          "passed": false,
+          "details": "No manifest",
+          "timestamp": "2026-01-10T03:38:10.603Z"
+        },
+        {
+          "test": "Viewport meta tag correct",
+          "passed": true,
+          "details": "viewport configured",
+          "timestamp": "2026-01-10T03:38:10.669Z"
+        },
+        {
+          "test": "Uses semantic HTML",
+          "passed": true,
+          "details": "Semantic elements found",
+          "timestamp": "2026-01-10T03:38:10.742Z"
+        },
+        {
+          "test": "Focus styles present",
+          "passed": true,
+          "details": "Focus indicators work",
+          "timestamp": "2026-01-10T03:38:10.799Z"
+        },
+        {
+          "test": "Images have alt text",
+          "passed": true,
+          "details": "All images have alt",
+          "timestamp": "2026-01-10T03:38:12.174Z"
+        },
+        {
+          "test": "Text is readable size",
+          "passed": true,
+          "details": "Font sizes adequate",
+          "timestamp": "2026-01-10T03:38:12.233Z"
+        },
+        {
+          "test": "Reduced motion media query",
+          "passed": false,
+          "details": "No reduced motion support",
+          "timestamp": "2026-01-10T03:38:12.285Z"
+        },
+        {
+          "test": "Desktop layout centered",
+          "passed": false,
+          "details": "Full width or no container",
+          "timestamp": "2026-01-10T03:38:14.511Z"
+        }
+      ],
+      "error": null
+    }
+  ]
+}

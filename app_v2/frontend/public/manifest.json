@@ -1,0 +1,17 @@
+{
+  "name": "BioLink",
+  "short_name": "BioLink",
+  "description": "Create your personalized link-in-bio page",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0D0D0D",
+  "theme_color": "#FF6B35",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
+
