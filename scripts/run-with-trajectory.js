@@ -2,26 +2,46 @@
  * Run BrowserBase Verification with Trajectory Logging
  * 
  * Executes all verifiers and saves agent actions and results to trajectory_run_x directories
+ * 
+ * Usage:
+ *   node run-with-trajectory.js             # Run all frontend verifiers
+ *   node run-with-trajectory.js --basic     # Run basic frontend verifiers only
+ *   node run-with-trajectory.js --advanced  # Run advanced frontend verifiers only
+ *   node run-with-trajectory.js --backend   # Run backend API verifiers only
+ *   node run-with-trajectory.js --all       # Run both frontend and backend verifiers
+ *   node run-with-trajectory.js --full      # Run full journey test
+ *   node run-with-trajectory.js --v2        # Save to trajectory_v2_x instead
  */
 
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import verifySignup from './verifiers/signup.js';
-import verifyLogin from './verifiers/login.js';
-import verifyLinks from './verifiers/links.js';
-import verifyProfile from './verifiers/profile.js';
-import verifyPublicProfile from './verifiers/public-profile.js';
-import verifyAnalytics from './verifiers/analytics.js';
-import verifyFullJourney from './verifiers/full-journey.js';
-// Advanced verifiers from knowledge_base.md
-import verifyPasswordValidation from './verifiers/password-validation.js';
-import verifyHandleValidation from './verifiers/handle-validation.js';
-import verifyBioLimits from './verifiers/bio-limits.js';
-import verifyLinkBehavior from './verifiers/link-behavior.js';
-import verifyThemeAnd404 from './verifiers/theme-and-404.js';
-import verifyAnalyticsAdvanced from './verifiers/analytics-advanced.js';
-import verifyResponsiveA11y from './verifiers/responsive-a11y.js';
+
+// Frontend verifiers
+import verifySignup from './verifiers/frontend/signup.js';
+import verifyLogin from './verifiers/frontend/login.js';
+import verifyLinks from './verifiers/frontend/links.js';
+import verifyProfile from './verifiers/frontend/profile.js';
+import verifyPublicProfile from './verifiers/frontend/public-profile.js';
+import verifyAnalytics from './verifiers/frontend/analytics.js';
+import verifyFullJourney from './verifiers/frontend/full-journey.js';
+// Advanced frontend verifiers
+import verifyPasswordValidation from './verifiers/frontend/password-validation.js';
+import verifyHandleValidation from './verifiers/frontend/handle-validation.js';
+import verifyBioLimits from './verifiers/frontend/bio-limits.js';
+import verifyLinkBehavior from './verifiers/frontend/link-behavior.js';
+import verifyThemeAnd404 from './verifiers/frontend/theme-and-404.js';
+import verifyAnalyticsAdvanced from './verifiers/frontend/analytics-advanced.js';
+import verifyResponsiveA11y from './verifiers/frontend/responsive-a11y.js';
+
+// Backend verifiers
+import { verifyAuthAPI } from './verifiers/backend/auth-api.js';
+import { verifyLinksAPI } from './verifiers/backend/links-api.js';
+import { verifyProfileAPI } from './verifiers/backend/profile-api.js';
+import { verifyAnalyticsAPI } from './verifiers/backend/analytics-api.js';
+import { verifyPublicAPI } from './verifiers/backend/public-api.js';
+import { verifyValidationAPI } from './verifiers/backend/validation-api.js';
+
 import { config } from './config.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -81,9 +101,9 @@ async function runWithTrajectory() {
   const prefix = useV2Naming ? 'trajectory_v2_' : 'trajectory_run_';
   const appName = useV2Naming ? 'BioLink V2' : 'BioLink';
   
-  console.log('\n' + '═'.repeat(60));
-  console.log(`${appName} Browser Verification - Run #${runNumber}`);
-  console.log('═'.repeat(60));
+  console.log('\n' + '='.repeat(60));
+  console.log(`${appName} Verification - Run #${runNumber}`);
+  console.log('='.repeat(60));
   console.log(`Trajectory: ${prefix}${runNumber}`);
   console.log(`Started: ${new Date().toISOString()}\n`);
   
@@ -92,50 +112,48 @@ async function runWithTrajectory() {
   const startTime = Date.now();
   let episodeNum = 0;
   
-  // Define verifiers - basic tests
-  const basicVerifiers = [
-    { name: 'Signup', fn: verifySignup },
-    { name: 'Login', fn: verifyLogin },
-    { name: 'Links', fn: verifyLinks },
-    { name: 'Profile', fn: verifyProfile },
-    { name: 'Public Profile', fn: verifyPublicProfile },
-    { name: 'Analytics', fn: verifyAnalytics }
+  // Frontend verifiers
+  const basicFrontendVerifiers = [
+    { name: 'Signup', fn: verifySignup, type: 'frontend' },
+    { name: 'Login', fn: verifyLogin, type: 'frontend' },
+    { name: 'Links', fn: verifyLinks, type: 'frontend' },
+    { name: 'Profile', fn: verifyProfile, type: 'frontend' },
+    { name: 'Public Profile', fn: verifyPublicProfile, type: 'frontend' },
+    { name: 'Analytics', fn: verifyAnalytics, type: 'frontend' }
   ];
   
-  // Advanced verifiers from knowledge_base.md - harder to pass
-  const advancedVerifiers = [
-    { name: 'Password Validation', fn: verifyPasswordValidation },
-    { name: 'Handle Validation', fn: verifyHandleValidation },
-    { name: 'Bio Limits', fn: verifyBioLimits },
-    { name: 'Link Behavior', fn: verifyLinkBehavior },
-    { name: 'Theme & 404', fn: verifyThemeAnd404 },
-    { name: 'Advanced Analytics', fn: verifyAnalyticsAdvanced },
-    { name: 'Responsive & A11y', fn: verifyResponsiveA11y }
+  const advancedFrontendVerifiers = [
+    { name: 'Password Validation', fn: verifyPasswordValidation, type: 'frontend' },
+    { name: 'Handle Validation', fn: verifyHandleValidation, type: 'frontend' },
+    { name: 'Bio Limits', fn: verifyBioLimits, type: 'frontend' },
+    { name: 'Link Behavior', fn: verifyLinkBehavior, type: 'frontend' },
+    { name: 'Theme & 404', fn: verifyThemeAnd404, type: 'frontend' },
+    { name: 'Advanced Analytics', fn: verifyAnalyticsAdvanced, type: 'frontend' },
+    { name: 'Responsive & A11y', fn: verifyResponsiveA11y, type: 'frontend' }
   ];
   
-  // Use --basic for basic only, --advanced for advanced only, default runs all
+  // Backend verifiers
+  const backendVerifiers = [
+    { name: 'Auth API', fn: verifyAuthAPI, type: 'backend' },
+    { name: 'Links API', fn: verifyLinksAPI, type: 'backend' },
+    { name: 'Profile API', fn: verifyProfileAPI, type: 'backend' },
+    { name: 'Analytics API', fn: verifyAnalyticsAPI, type: 'backend' },
+    { name: 'Public API', fn: verifyPublicAPI, type: 'backend' },
+    { name: 'Validation API', fn: verifyValidationAPI, type: 'backend' }
+  ];
+  
+  // Determine which verifiers to run
   const runBasicOnly = process.argv.includes('--basic');
   const runAdvancedOnly = process.argv.includes('--advanced');
-  
-  let verifiers;
-  if (runBasicOnly) {
-    verifiers = basicVerifiers;
-    console.log('Running BASIC verifiers only\n');
-  } else if (runAdvancedOnly) {
-    verifiers = advancedVerifiers;
-    console.log('Running ADVANCED verifiers only\n');
-  } else {
-    verifiers = [...basicVerifiers, ...advancedVerifiers];
-    console.log('Running ALL verifiers (basic + advanced)\n');
-  }
-  
-  // Check if full journey should be run instead
+  const runBackendOnly = process.argv.includes('--backend');
+  const runAll = process.argv.includes('--all');
   const runFullJourney = process.argv.includes('--full');
+  
+  let verifiers = [];
   
   if (runFullJourney) {
     console.log('Running Full Journey Test...\n');
     
-    // Log the action
     const action = {
       type: 'browser_verification',
       suite: 'Full Journey',
@@ -150,7 +168,6 @@ async function runWithTrajectory() {
       const result = await verifyFullJourney();
       results.push(result);
       
-      // Log result
       const episodeDir = path.join(agentLogsDir, `episode-${episodeNum}`);
       fs.writeFileSync(
         path.join(episodeDir, 'result.json'),
@@ -175,37 +192,53 @@ async function runWithTrajectory() {
       });
     }
   } else {
+    if (runBackendOnly) {
+      verifiers = backendVerifiers;
+      console.log('Running BACKEND API verifiers only\n');
+    } else if (runAll) {
+      verifiers = [...basicFrontendVerifiers, ...advancedFrontendVerifiers, ...backendVerifiers];
+      console.log('Running ALL verifiers (frontend + backend)\n');
+    } else if (runBasicOnly) {
+      verifiers = basicFrontendVerifiers;
+      console.log('Running BASIC frontend verifiers only\n');
+    } else if (runAdvancedOnly) {
+      verifiers = advancedFrontendVerifiers;
+      console.log('Running ADVANCED frontend verifiers only\n');
+    } else {
+      // Default: all frontend verifiers
+      verifiers = [...basicFrontendVerifiers, ...advancedFrontendVerifiers];
+      console.log('Running ALL frontend verifiers (basic + advanced)\n');
+    }
+    
     // Run each verifier
     for (const verifier of verifiers) {
       console.log(`\n${'─'.repeat(60)}`);
-      console.log(`Running: ${verifier.name} Verification`);
+      console.log(`Running: ${verifier.name} Verification [${verifier.type}]`);
       console.log('─'.repeat(60));
       
-      // Log the action
       const action = {
-        type: 'browser_verification',
+        type: verifier.type === 'backend' ? 'api_verification' : 'browser_verification',
         suite: verifier.name,
-        url: config.frontendUrl,
+        url: verifier.type === 'backend' ? config.backendUrl : config.frontendUrl,
         timestamp: new Date().toISOString()
       };
       
       allActions.push(action);
-      const episodeDir = logAgentAction(agentLogsDir, episodeNum, verifier.name.toLowerCase().replace(' ', '-'), action);
+      const episodeDir = logAgentAction(agentLogsDir, episodeNum, verifier.name.toLowerCase().replace(/ /g, '-'), action);
       
       try {
         const result = await verifier.fn();
+        result.type = verifier.type;
         results.push(result);
         
-        // Log result to episode
         fs.writeFileSync(
           path.join(episodeDir, 'result.json'),
           JSON.stringify(result, null, 2)
         );
         
-        // Save session URL if available
         if (result.sessionUrl) {
           fs.writeFileSync(
-            path.join(sessionsDir, `${verifier.name.toLowerCase().replace(' ', '-')}-session.txt`),
+            path.join(sessionsDir, `${verifier.name.toLowerCase().replace(/ /g, '-')}-session.txt`),
             result.sessionUrl
           );
         }
@@ -214,6 +247,7 @@ async function runWithTrajectory() {
         console.error(`Error running ${verifier.name}:`, error.message);
         const errorResult = {
           suite: verifier.name,
+          type: verifier.type,
           total: 1,
           passed: 0,
           failed: 1,
@@ -242,6 +276,15 @@ async function runWithTrajectory() {
   const totalFailed = results.reduce((sum, r) => sum + (r.failed || 0), 0);
   const allPassed = results.every(r => r.overallPassed);
   
+  // Separate frontend and backend results
+  const frontendResults = results.filter(r => r.type === 'frontend');
+  const backendResults = results.filter(r => r.type === 'backend');
+  
+  const frontendTests = frontendResults.reduce((sum, r) => sum + (r.total || 0), 0);
+  const frontendPassed = frontendResults.reduce((sum, r) => sum + (r.passed || 0), 0);
+  const backendTests = backendResults.reduce((sum, r) => sum + (r.total || 0), 0);
+  const backendPassed = backendResults.reduce((sum, r) => sum + (r.passed || 0), 0);
+  
   // Build evaluation results
   const evalResults = {
     run_number: runNumber,
@@ -257,14 +300,25 @@ async function runWithTrajectory() {
       passed: totalPassed,
       failed: totalFailed,
       pass_rate: totalTests > 0 ? ((totalPassed / totalTests) * 100).toFixed(2) + '%' : '0%',
-      overall_passed: allPassed
+      overall_passed: allPassed,
+      frontend: {
+        tests: frontendTests,
+        passed: frontendPassed,
+        pass_rate: frontendTests > 0 ? ((frontendPassed / frontendTests) * 100).toFixed(2) + '%' : 'N/A'
+      },
+      backend: {
+        tests: backendTests,
+        passed: backendPassed,
+        pass_rate: backendTests > 0 ? ((backendPassed / backendTests) * 100).toFixed(2) + '%' : 'N/A'
+      }
     },
     suites: results.map(r => ({
       name: r.suite,
+      type: r.type || 'frontend',
       total: r.total || 0,
       passed: r.passed || 0,
       failed: r.failed || 0,
-      passed: r.overallPassed,
+      suite_passed: r.overallPassed,
       session_url: r.sessionUrl || null,
       tests: r.tests || [],
       error: r.error || null
@@ -302,24 +356,30 @@ async function runWithTrajectory() {
   
   // Save summary
   const summary = `
-${appName} Browser Verification - Run #${runNumber}
-${'═'.repeat(50)}
+${appName} Verification - Run #${runNumber}
+${'='.repeat(50)}
 
 Started:  ${new Date(startTime).toISOString()}
 Finished: ${new Date().toISOString()}
 Duration: ${totalDuration}s
 
-RESULTS
+FRONTEND RESULTS (Browser Tests)
 ${'─'.repeat(50)}
-${results.map(r => `${r.overallPassed ? '✓' : '✗'} ${r.suite}: ${r.passed}/${r.total} passed`).join('\n')}
+${frontendResults.map(r => `${r.overallPassed ? '[PASS]' : '[FAIL]'} ${r.suite}: ${r.passed}/${r.total} passed`).join('\n') || 'No frontend tests run'}
 
-SUMMARY
+BACKEND RESULTS (API Tests)
 ${'─'.repeat(50)}
-Total Tests: ${totalTests}
-Passed:      ${totalPassed}
-Failed:      ${totalFailed}
-Pass Rate:   ${totalTests > 0 ? ((totalPassed / totalTests) * 100).toFixed(2) : 0}%
-Overall:     ${allPassed ? 'PASSED' : 'FAILED'}
+${backendResults.map(r => `${r.overallPassed ? '[PASS]' : '[FAIL]'} ${r.suite}: ${r.passed}/${r.total} passed`).join('\n') || 'No backend tests run'}
+
+OVERALL SUMMARY
+${'─'.repeat(50)}
+Total Tests:      ${totalTests}
+Passed:           ${totalPassed}
+Failed:           ${totalFailed}
+Pass Rate:        ${totalTests > 0 ? ((totalPassed / totalTests) * 100).toFixed(2) : 0}%
+Frontend Rate:    ${frontendTests > 0 ? ((frontendPassed / frontendTests) * 100).toFixed(2) : 'N/A'}%
+Backend Rate:     ${backendTests > 0 ? ((backendPassed / backendTests) * 100).toFixed(2) : 'N/A'}%
+Overall:          ${allPassed ? 'PASSED' : 'FAILED'}
 
 SESSION RECORDINGS
 ${'─'.repeat(50)}
@@ -332,16 +392,26 @@ ${results.filter(r => r.sessionUrl).map(r => `${r.suite}: ${r.sessionUrl}`).join
   );
   
   // Print report
-  console.log('\n' + '═'.repeat(60));
+  console.log('\n' + '='.repeat(60));
   console.log('VERIFICATION REPORT');
-  console.log('═'.repeat(60));
+  console.log('='.repeat(60));
   
-  console.log('\nSuite Results:');
-  for (const result of results) {
-    const status = result.overallPassed ? '✅' : '❌';
-    console.log(`  ${status} ${result.suite}: ${result.passed}/${result.total} passed`);
-    if (result.sessionUrl) {
-      console.log(`     Session: ${result.sessionUrl}`);
+  if (frontendResults.length > 0) {
+    console.log('\nFrontend Results:');
+    for (const result of frontendResults) {
+      const status = result.overallPassed ? '[PASS]' : '[FAIL]';
+      console.log(`  ${status} ${result.suite}: ${result.passed}/${result.total} passed`);
+      if (result.sessionUrl) {
+        console.log(`       Session: ${result.sessionUrl}`);
+      }
+    }
+  }
+  
+  if (backendResults.length > 0) {
+    console.log('\nBackend Results:');
+    for (const result of backendResults) {
+      const status = result.overallPassed ? '[PASS]' : '[FAIL]';
+      console.log(`  ${status} ${result.suite}: ${result.passed}/${result.total} passed`);
     }
   }
   
@@ -350,8 +420,8 @@ ${results.filter(r => r.sessionUrl).map(r => `${r.suite}: ${r.sessionUrl}`).join
   console.log(`Passed:        ${totalPassed}`);
   console.log(`Failed:        ${totalFailed}`);
   console.log(`Duration:      ${totalDuration}s`);
-  console.log(`Overall:       ${allPassed ? '✅ ALL SUITES PASSED' : '❌ SOME SUITES FAILED'}`);
-  console.log('═'.repeat(60));
+  console.log(`Overall:       ${allPassed ? '[PASS] ALL SUITES PASSED' : '[FAIL] SOME SUITES FAILED'}`);
+  console.log('='.repeat(60));
   
   console.log(`\nTrajectory saved to: ${prefix}${runNumber}/`);
   console.log('  - eval_results.json');
@@ -371,4 +441,3 @@ runWithTrajectory().then(({ passed, runNumber }) => {
   console.error('Fatal error:', error);
   process.exit(1);
 });
-
