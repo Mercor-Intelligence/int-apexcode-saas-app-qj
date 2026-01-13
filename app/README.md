@@ -35,9 +35,16 @@ A full-stack Linktree clone built with React and Node.js. Create a beautiful lan
 
 ## Live Demo
 
-- **Frontend**: Deployed on Vercel
-- **Backend API**: Deployed as Vercel Serverless Functions
-- **Database**: Neon PostgreSQL
+### V1 (Original)
+- **Frontend**: https://frontend-ten-cyan-42.vercel.app
+- **Backend API**: https://backend-eight-mu-60.vercel.app
+
+### V2 (Enhanced)
+- **Frontend**: https://biolink-v2-frontend.vercel.app
+- **Backend API**: https://biolink-v2-backend.vercel.app
+
+### Database
+- **Provider**: Neon PostgreSQL (shared between v1 and v2)
 
 ## Deployment on Vercel
 
