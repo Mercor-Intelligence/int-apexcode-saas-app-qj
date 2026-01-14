@@ -1,80 +1,17 @@
 {
-  "suite": "Validation API",
-  "tests": [
+  "suite": "Analytics Verification",
+  "total": 1,
+  "passed": 0,
+  "failed": 1,
+  "duration": 0.03,
+  "results": [
     {
-      "name": "Password min 8 chars enforced",
-      "passed": true
-    },
-    {
-      "name": "Password requires uppercase",
-      "passed": true
-    },
-    {
-      "name": "Password requires lowercase",
-      "passed": true
-    },
-    {
-      "name": "Password requires number",
-      "passed": true
-    },
-    {
-      "name": "Valid password accepted",
-      "passed": true
-    },
-    {
-      "name": "Handle min 3 chars enforced",
-      "passed": true
-    },
-    {
-      "name": "Handle max 30 chars enforced",
-      "passed": true
-    },
-    {
-      "name": "Handle must start with letter",
-      "passed": true
-    },
-    {
-      "name": "Handle allows underscores",
-      "passed": true
-    },
-    {
-      "name": "Handle allows periods",
-      "passed": true
-    },
-    {
-      "name": "Handle rejects invalid special chars",
-      "passed": true
-    },
-    {
-      "name": "Handle rejects spaces",
-      "passed": true
-    },
-    {
-      "name": "Invalid email format rejected",
-      "passed": true
-    },
-    {
-      "name": "Email without domain rejected",
-      "passed": true
-    },
-    {
-      "name": "Valid URL accepted for links",
-      "passed": true
-    },
-    {
-      "name": "URL handling for missing protocol",
-      "passed": true,
-      "note": "Auto-prepends protocol"
-    },
-    {
-      "name": "Bio max length enforced",
-      "passed": true,
-      "note": "Truncates to 150"
+      "test": "Test user created",
+      "passed": false,
+      "details": "",
+      "timestamp": "2026-01-14T07:20:31.145Z"
     }
   ],
-  "passed": 17,
-  "failed": 0,
-  "total": 17,
-  "overallPassed": true,
-  "type": "backend"
+  "overallPassed": false,
+  "type": "frontend"
 }

@@ -1,0 +1,59 @@
+{
+  "suite": "Generic Dashboard Verification",
+  "total": 8,
+  "passed": 4,
+  "failed": 4,
+  "duration": 12.05,
+  "results": [
+    {
+      "test": "BrowserBase session created",
+      "passed": true,
+      "details": "Session: 9560ba9a-3d7f-4878-a1bb-95858c16a3e4",
+      "timestamp": "2026-01-14T07:44:10.431Z"
+    },
+    {
+      "test": "Signup and redirect to dashboard",
+      "passed": false,
+      "details": "Could not complete signup flow",
+      "timestamp": "2026-01-14T07:44:17.473Z"
+    },
+    {
+      "test": "Dashboard page loaded",
+      "passed": false,
+      "details": "",
+      "timestamp": "2026-01-14T07:44:20.444Z"
+    },
+    {
+      "test": "Dashboard has link management",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-14T07:44:20.444Z"
+    },
+    {
+      "test": "Dashboard has profile/settings",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-14T07:44:20.444Z"
+    },
+    {
+      "test": "Dashboard has navigation",
+      "passed": false,
+      "details": "",
+      "timestamp": "2026-01-14T07:44:20.444Z"
+    },
+    {
+      "test": "Link form accessible",
+      "passed": true,
+      "details": "Add link button not found",
+      "timestamp": "2026-01-14T07:44:20.496Z"
+    },
+    {
+      "test": "Logout option available",
+      "passed": false,
+      "details": "",
+      "timestamp": "2026-01-14T07:44:20.547Z"
+    }
+  ],
+  "overallPassed": false,
+  "sessionUrl": "https://browserbase.com/sessions/9560ba9a-3d7f-4878-a1bb-95858c16a3e4"
+}

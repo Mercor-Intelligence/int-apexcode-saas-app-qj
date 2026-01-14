@@ -1,0 +1,83 @@
+{
+  "suite": "Generic Homepage Verification",
+  "total": 12,
+  "passed": 12,
+  "failed": 0,
+  "duration": 8.04,
+  "results": [
+    {
+      "test": "BrowserBase session created",
+      "passed": true,
+      "details": "Session: dfb15aec-f58d-46f4-80a6-8de8a83d29ab",
+      "timestamp": "2026-01-14T07:43:40.648Z"
+    },
+    {
+      "test": "Homepage loads successfully",
+      "passed": true,
+      "details": "Status: 200, Load time: 1533ms",
+      "timestamp": "2026-01-14T07:43:42.181Z"
+    },
+    {
+      "test": "Page has title",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-14T07:43:43.344Z"
+    },
+    {
+      "test": "Page has heading",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-14T07:43:43.344Z"
+    },
+    {
+      "test": "Page has navigation/header",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-14T07:43:43.344Z"
+    },
+    {
+      "test": "Page has auth options",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-14T07:43:43.344Z"
+    },
+    {
+      "test": "Page has branding",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-14T07:43:43.344Z"
+    },
+    {
+      "test": "Mobile responsive (no horizontal scroll)",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-14T07:43:43.951Z"
+    },
+    {
+      "test": "Page loads under 3s",
+      "passed": true,
+      "details": "Load time: 1533ms",
+      "timestamp": "2026-01-14T07:43:44.035Z"
+    },
+    {
+      "test": "No critical JS errors",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-14T07:43:46.180Z"
+    },
+    {
+      "test": "Images have alt text",
+      "passed": true,
+      "details": "No images",
+      "timestamp": "2026-01-14T07:43:46.339Z"
+    },
+    {
+      "test": "Page has lang attribute",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-14T07:43:46.340Z"
+    }
+  ],
+  "overallPassed": true,
+  "sessionUrl": "https://browserbase.com/sessions/dfb15aec-f58d-46f4-80a6-8de8a83d29ab"
+}

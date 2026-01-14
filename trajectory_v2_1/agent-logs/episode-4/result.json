@@ -1,0 +1,41 @@
+{
+  "suite": "Generic Profile Verification",
+  "total": 5,
+  "passed": 4,
+  "failed": 1,
+  "duration": 7.42,
+  "results": [
+    {
+      "test": "Test user created",
+      "passed": false,
+      "details": "Could not create test user",
+      "timestamp": "2026-01-14T07:44:21.901Z"
+    },
+    {
+      "test": "BrowserBase session created",
+      "passed": true,
+      "details": "Session: e5b70299-a36d-4497-abcf-ed1e0ab8bbf7",
+      "timestamp": "2026-01-14T07:44:23.521Z"
+    },
+    {
+      "test": "Profile page accessible",
+      "passed": true,
+      "details": "Loaded: https://biolink-v2-frontend.vercel.app/profuser176837666160",
+      "timestamp": "2026-01-14T07:44:26.862Z"
+    },
+    {
+      "test": "404 for non-existent user",
+      "passed": true,
+      "details": "Correctly shows 404",
+      "timestamp": "2026-01-14T07:44:26.969Z"
+    },
+    {
+      "test": "404 for non-existent profile",
+      "passed": true,
+      "details": "Correctly returns 404",
+      "timestamp": "2026-01-14T07:44:28.975Z"
+    }
+  ],
+  "overallPassed": false,
+  "sessionUrl": "https://browserbase.com/sessions/e5b70299-a36d-4497-abcf-ed1e0ab8bbf7"
+}

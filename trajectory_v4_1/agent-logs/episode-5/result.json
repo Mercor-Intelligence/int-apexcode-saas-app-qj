@@ -1,0 +1,17 @@
+{
+  "suite": "Analytics Verification",
+  "total": 1,
+  "passed": 0,
+  "failed": 1,
+  "duration": 0.13,
+  "results": [
+    {
+      "test": "Test user created",
+      "passed": false,
+      "details": "",
+      "timestamp": "2026-01-14T07:26:46.790Z"
+    }
+  ],
+  "overallPassed": false,
+  "type": "frontend"
+}

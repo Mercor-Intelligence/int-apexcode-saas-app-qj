@@ -1,0 +1,69 @@
+{
+  "run_number": 1,
+  "timestamp": "2026-01-14T07:44:30.027Z",
+  "duration_seconds": 51.67,
+  "test_type": "generic",
+  "config": {
+    "frontend_url": "https://biolink-v2-frontend.vercel.app",
+    "browserbase_project": "configured"
+  },
+  "summary": {
+    "total_tests": 36,
+    "passed": 28,
+    "failed": 8,
+    "pass_rate": "77.78%",
+    "overall_passed": false
+  },
+  "suites": [
+    {
+      "name": "Generic Homepage Verification",
+      "total": 12,
+      "passed": 12,
+      "failed": 0,
+      "suite_passed": true,
+      "session_url": "https://browserbase.com/sessions/dfb15aec-f58d-46f4-80a6-8de8a83d29ab",
+      "tests": [],
+      "error": null
+    },
+    {
+      "name": "Generic Signup Verification",
+      "total": 3,
+      "passed": 1,
+      "failed": 2,
+      "suite_passed": false,
+      "session_url": "https://browserbase.com/sessions/1b3f521f-cf08-40b9-bda3-878c1cfd4f57",
+      "tests": [],
+      "error": null
+    },
+    {
+      "name": "Generic Login Verification",
+      "total": 8,
+      "passed": 7,
+      "failed": 1,
+      "suite_passed": false,
+      "session_url": "https://browserbase.com/sessions/e12ccc40-b4a4-4fc5-b18a-d05b6c71f809",
+      "tests": [],
+      "error": null
+    },
+    {
+      "name": "Generic Dashboard Verification",
+      "total": 8,
+      "passed": 4,
+      "failed": 4,
+      "suite_passed": false,
+      "session_url": "https://browserbase.com/sessions/9560ba9a-3d7f-4878-a1bb-95858c16a3e4",
+      "tests": [],
+      "error": null
+    },
+    {
+      "name": "Generic Profile Verification",
+      "total": 5,
+      "passed": 4,
+      "failed": 1,
+      "suite_passed": false,
+      "session_url": "https://browserbase.com/sessions/e5b70299-a36d-4497-abcf-ed1e0ab8bbf7",
+      "tests": [],
+      "error": null
+    }
+  ]
+}

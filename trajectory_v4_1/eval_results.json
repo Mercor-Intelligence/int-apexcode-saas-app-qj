@@ -1,0 +1,95 @@
+{
+  "run_number": 1,
+  "timestamp": "2026-01-14T07:26:47.792Z",
+  "duration_seconds": 47.77,
+  "config": {
+    "frontend_url": "https://biolink-v4-gemini.vercel.app",
+    "backend_url": "https://biolink-v4-gemini.vercel.app",
+    "browserbase_project": "configured"
+  },
+  "summary": {
+    "total_tests": 23,
+    "passed": 6,
+    "failed": 17,
+    "pass_rate": "26.09%",
+    "overall_passed": false,
+    "frontend": {
+      "tests": 23,
+      "passed": 6,
+      "pass_rate": "26.09%"
+    },
+    "backend": {
+      "tests": 0,
+      "passed": 0,
+      "pass_rate": "N/A"
+    }
+  },
+  "suites": [
+    {
+      "name": "Signup Verification",
+      "type": "frontend",
+      "total": 9,
+      "passed": 1,
+      "failed": 8,
+      "suite_passed": false,
+      "session_url": null,
+      "tests": [],
+      "error": null
+    },
+    {
+      "name": "Login Verification",
+      "type": "frontend",
+      "total": 10,
+      "passed": 5,
+      "failed": 5,
+      "suite_passed": false,
+      "session_url": null,
+      "tests": [],
+      "error": null
+    },
+    {
+      "name": "Link Management Verification",
+      "type": "frontend",
+      "total": 1,
+      "passed": 0,
+      "failed": 1,
+      "suite_passed": false,
+      "session_url": null,
+      "tests": [],
+      "error": null
+    },
+    {
+      "name": "Profile Management Verification",
+      "type": "frontend",
+      "total": 1,
+      "passed": 0,
+      "failed": 1,
+      "suite_passed": false,
+      "session_url": null,
+      "tests": [],
+      "error": null
+    },
+    {
+      "name": "Public Profile Verification",
+      "type": "frontend",
+      "total": 1,
+      "passed": 0,
+      "failed": 1,
+      "suite_passed": false,
+      "session_url": null,
+      "tests": [],
+      "error": null
+    },
+    {
+      "name": "Analytics Verification",
+      "type": "frontend",
+      "total": 1,
+      "passed": 0,
+      "failed": 1,
+      "suite_passed": false,
+      "session_url": null,
+      "tests": [],
+      "error": null
+    }
+  ]
+}

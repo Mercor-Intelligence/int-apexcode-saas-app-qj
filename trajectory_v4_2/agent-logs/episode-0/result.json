@@ -1,0 +1,83 @@
+{
+  "suite": "Generic Homepage Verification",
+  "total": 12,
+  "passed": 10,
+  "failed": 2,
+  "duration": 8.25,
+  "results": [
+    {
+      "test": "BrowserBase session created",
+      "passed": true,
+      "details": "Session: 1cb4a2fb-29a2-49f5-8271-de4999a77b05",
+      "timestamp": "2026-01-14T07:38:18.999Z"
+    },
+    {
+      "test": "Homepage loads successfully",
+      "passed": true,
+      "details": "Status: 200, Load time: 2363ms",
+      "timestamp": "2026-01-14T07:38:21.362Z"
+    },
+    {
+      "test": "Page has title",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-14T07:38:22.524Z"
+    },
+    {
+      "test": "Page has heading",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-14T07:38:22.525Z"
+    },
+    {
+      "test": "Page has navigation/header",
+      "passed": false,
+      "details": "",
+      "timestamp": "2026-01-14T07:38:22.525Z"
+    },
+    {
+      "test": "Page has auth options",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-14T07:38:22.525Z"
+    },
+    {
+      "test": "Page has branding",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-14T07:38:22.525Z"
+    },
+    {
+      "test": "Mobile responsive (no horizontal scroll)",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-14T07:38:23.129Z"
+    },
+    {
+      "test": "Page loads under 3s",
+      "passed": true,
+      "details": "Load time: 2363ms",
+      "timestamp": "2026-01-14T07:38:23.186Z"
+    },
+    {
+      "test": "No critical JS errors",
+      "passed": false,
+      "details": "Errors: Failed to execute 'send' on 'WebSocket': Still in CONNECTING state.",
+      "timestamp": "2026-01-14T07:38:25.212Z"
+    },
+    {
+      "test": "Images have alt text",
+      "passed": true,
+      "details": "No images",
+      "timestamp": "2026-01-14T07:38:25.316Z"
+    },
+    {
+      "test": "Page has lang attribute",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-14T07:38:25.316Z"
+    }
+  ],
+  "overallPassed": false,
+  "sessionUrl": "https://browserbase.com/sessions/1cb4a2fb-29a2-49f5-8271-de4999a77b05"
+}

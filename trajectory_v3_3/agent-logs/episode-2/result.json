@@ -1,0 +1,59 @@
+{
+  "suite": "Generic Login Verification",
+  "total": 8,
+  "passed": 7,
+  "failed": 1,
+  "duration": 14.48,
+  "results": [
+    {
+      "test": "Test user created via API",
+      "passed": false,
+      "details": "No working signup endpoint - testing UI flow only",
+      "timestamp": "2026-01-14T07:37:31.532Z"
+    },
+    {
+      "test": "BrowserBase session created",
+      "passed": true,
+      "details": "Session: bae7cb5a-ddef-489c-9277-a3a86ac807af",
+      "timestamp": "2026-01-14T07:37:33.323Z"
+    },
+    {
+      "test": "Login form found at /",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-14T07:37:41.074Z"
+    },
+    {
+      "test": "Email field filled",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-14T07:37:41.126Z"
+    },
+    {
+      "test": "Password field filled",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-14T07:37:41.178Z"
+    },
+    {
+      "test": "Login form submitted",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-14T07:37:41.734Z"
+    },
+    {
+      "test": "Login successful",
+      "passed": true,
+      "details": "Redirected to: https://biolink-v3-gpt.vercel.app/",
+      "timestamp": "2026-01-14T07:37:44.783Z"
+    },
+    {
+      "test": "Authentication state verified",
+      "passed": true,
+      "details": "Expected: no auth without user creation",
+      "timestamp": "2026-01-14T07:37:44.834Z"
+    }
+  ],
+  "overallPassed": false,
+  "sessionUrl": "https://browserbase.com/sessions/bae7cb5a-ddef-489c-9277-a3a86ac807af"
+}

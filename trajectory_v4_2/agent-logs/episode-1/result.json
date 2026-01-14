@@ -1,0 +1,59 @@
+{
+  "suite": "Generic Signup Verification",
+  "total": 8,
+  "passed": 6,
+  "failed": 2,
+  "duration": 12.7,
+  "results": [
+    {
+      "test": "BrowserBase session created",
+      "passed": true,
+      "details": "Session: f5e3c1c7-03f6-44e8-82d9-3af56049cd9d",
+      "timestamp": "2026-01-14T07:38:28.080Z"
+    },
+    {
+      "test": "Signup form found at /register",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-14T07:38:35.206Z"
+    },
+    {
+      "test": "Handle/username field filled",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-14T07:38:35.255Z"
+    },
+    {
+      "test": "Email field filled",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-14T07:38:35.304Z"
+    },
+    {
+      "test": "Password field filled",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-14T07:38:35.354Z"
+    },
+    {
+      "test": "Signup form submitted",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-14T07:38:35.922Z"
+    },
+    {
+      "test": "Signup completed successfully",
+      "passed": false,
+      "details": "Stayed on: https://biolink-v4-gemini.vercel.app/register",
+      "timestamp": "2026-01-14T07:38:38.976Z"
+    },
+    {
+      "test": "User is authenticated",
+      "passed": false,
+      "details": "",
+      "timestamp": "2026-01-14T07:38:39.023Z"
+    }
+  ],
+  "overallPassed": false,
+  "sessionUrl": "https://browserbase.com/sessions/f5e3c1c7-03f6-44e8-82d9-3af56049cd9d"
+}

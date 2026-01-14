@@ -1,0 +1,69 @@
+{
+  "run_number": 2,
+  "started_at": "2026-01-14T07:38:17.119Z",
+  "completed_at": "2026-01-14T07:39:16.520Z",
+  "duration_seconds": 59.4,
+  "total_episodes": 5,
+  "actions": [
+    {
+      "episode": 0,
+      "type": "browser_verification",
+      "suite": "Homepage",
+      "url": "https://biolink-v4-gemini.vercel.app",
+      "timestamp": "2026-01-14T07:38:17.119Z",
+      "result": {
+        "passed": false,
+        "tests_passed": 10,
+        "tests_failed": 2
+      }
+    },
+    {
+      "episode": 1,
+      "type": "browser_verification",
+      "suite": "Signup",
+      "url": "https://biolink-v4-gemini.vercel.app",
+      "timestamp": "2026-01-14T07:38:26.370Z",
+      "result": {
+        "passed": false,
+        "tests_passed": 6,
+        "tests_failed": 2
+      }
+    },
+    {
+      "episode": 2,
+      "type": "browser_verification",
+      "suite": "Login",
+      "url": "https://biolink-v4-gemini.vercel.app",
+      "timestamp": "2026-01-14T07:38:40.076Z",
+      "result": {
+        "passed": false,
+        "tests_passed": 7,
+        "tests_failed": 1
+      }
+    },
+    {
+      "episode": 3,
+      "type": "browser_verification",
+      "suite": "Dashboard",
+      "url": "https://biolink-v4-gemini.vercel.app",
+      "timestamp": "2026-01-14T07:38:50.134Z",
+      "result": {
+        "passed": false,
+        "tests_passed": 5,
+        "tests_failed": 3
+      }
+    },
+    {
+      "episode": 4,
+      "type": "browser_verification",
+      "suite": "Public Profile",
+      "url": "https://biolink-v4-gemini.vercel.app",
+      "timestamp": "2026-01-14T07:39:06.410Z",
+      "result": {
+        "passed": false,
+        "tests_passed": 2,
+        "tests_failed": 3
+      }
+    }
+  ]
+}

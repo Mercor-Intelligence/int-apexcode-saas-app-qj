@@ -1,0 +1,17 @@
+{
+  "suite": "Profile Management Verification",
+  "total": 1,
+  "passed": 0,
+  "failed": 1,
+  "duration": 0.22,
+  "results": [
+    {
+      "test": "Test user created",
+      "passed": false,
+      "details": "",
+      "timestamp": "2026-01-14T07:25:05.304Z"
+    }
+  ],
+  "overallPassed": false,
+  "type": "frontend"
+}

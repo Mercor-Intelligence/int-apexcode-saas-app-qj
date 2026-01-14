@@ -1,31 +1,31 @@
 BioLink V3 Verification - Run #1
 ==================================================
 
-Started:  2026-01-14T00:29:04.367Z
-Finished: 2026-01-14T00:29:33.760Z
-Duration: 29.39s
+Started:  2026-01-14T07:19:42.202Z
+Finished: 2026-01-14T07:20:32.149Z
+Duration: 49.94s
 
 FRONTEND RESULTS (Browser Tests)
 ──────────────────────────────────────────────────
-No frontend tests run
+[FAIL] Signup Verification: 3/9 passed
+[FAIL] Login Verification: 4/10 passed
+[FAIL] Link Management Verification: 0/1 passed
+[FAIL] Profile Management Verification: 0/1 passed
+[FAIL] Public Profile Verification: 0/1 passed
+[FAIL] Analytics Verification: 0/1 passed
 
 BACKEND RESULTS (API Tests)
 ──────────────────────────────────────────────────
-[PASS] Auth API: 11/11 passed
-[FAIL] Links API: 6/9 passed
-[PASS] Profile API: 13/13 passed
-[PASS] Analytics API: 16/16 passed
-[FAIL] Public API: 12/13 passed
-[PASS] Validation API: 17/17 passed
+No backend tests run
 
 OVERALL SUMMARY
 ──────────────────────────────────────────────────
-Total Tests:      79
-Passed:           75
-Failed:           4
-Pass Rate:        94.94%
-Frontend Rate:    N/A%
-Backend Rate:     94.94%
+Total Tests:      23
+Passed:           7
+Failed:           16
+Pass Rate:        30.43%
+Frontend Rate:    30.43%
+Backend Rate:     N/A%
 Overall:          FAILED
 
 SESSION RECORDINGS

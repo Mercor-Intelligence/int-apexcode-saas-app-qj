@@ -12,6 +12,7 @@
  *   node run-with-trajectory.js --full      # Run full journey test
  *   node run-with-trajectory.js --v2        # Save to trajectory_v2_x
  *   node run-with-trajectory.js --v3        # Save to trajectory_v3_x
+ *   node run-with-trajectory.js --v4        # Save to trajectory_v4_x
  */
 
 import fs from 'fs';
@@ -54,13 +55,16 @@ function getNextRunNumber() {
   // Check for version flags to pick trajectory prefix
   const useV2Naming = process.argv.includes('--v2');
   const useV3Naming = process.argv.includes('--v3');
-  const prefix = useV3Naming
-    ? 'trajectory_v3_'
-    : useV2Naming
-      ? 'trajectory_v2_'
-      : 'trajectory_run_';
+  const useV4Naming = process.argv.includes('--v4');
+  const prefix = useV4Naming
+    ? 'trajectory_v4_'
+    : useV3Naming
+      ? 'trajectory_v3_'
+      : useV2Naming
+        ? 'trajectory_v2_'
+        : 'trajectory_run_';
   const dirs = fs.readdirSync(baseDir).filter(d => d.startsWith(prefix));
-  if (dirs.length === 0) return useV3Naming || useV2Naming ? 1 : 6; // Start at 6 for trajectory_run_
+  if (dirs.length === 0) return useV4Naming || useV3Naming || useV2Naming ? 1 : 6; // Start at 6 for trajectory_run_
   
   const numbers = dirs.map(d => parseInt(d.replace(prefix, ''), 10)).filter(n => !isNaN(n));
   return Math.max(...numbers) + 1;
@@ -70,11 +74,14 @@ function getNextRunNumber() {
 function createTrajectoryDir(runNumber) {
   const useV2Naming = process.argv.includes('--v2');
   const useV3Naming = process.argv.includes('--v3');
-  const prefix = useV3Naming
-    ? 'trajectory_v3_'
-    : useV2Naming
-      ? 'trajectory_v2_'
-      : 'trajectory_run_';
+  const useV4Naming = process.argv.includes('--v4');
+  const prefix = useV4Naming
+    ? 'trajectory_v4_'
+    : useV3Naming
+      ? 'trajectory_v3_'
+      : useV2Naming
+        ? 'trajectory_v2_'
+        : 'trajectory_run_';
   const trajectoryDir = path.join(__dirname, '../', `${prefix}${runNumber}`);
   const agentLogsDir = path.join(trajectoryDir, 'agent-logs');
   const sessionsDir = path.join(trajectoryDir, 'sessions');
@@ -110,12 +117,15 @@ async function runWithTrajectory() {
   
   const useV2Naming = process.argv.includes('--v2');
   const useV3Naming = process.argv.includes('--v3');
-  const prefix = useV3Naming
-    ? 'trajectory_v3_'
-    : useV2Naming
-      ? 'trajectory_v2_'
-      : 'trajectory_run_';
-  const appName = useV3Naming ? 'BioLink V3' : useV2Naming ? 'BioLink V2' : 'BioLink';
+  const useV4Naming = process.argv.includes('--v4');
+  const prefix = useV4Naming
+    ? 'trajectory_v4_'
+    : useV3Naming
+      ? 'trajectory_v3_'
+      : useV2Naming
+        ? 'trajectory_v2_'
+        : 'trajectory_run_';
+  const appName = useV4Naming ? 'BioLink V4' : useV3Naming ? 'BioLink V3' : useV2Naming ? 'BioLink V2' : 'BioLink';
   
   console.log('\n' + '='.repeat(60));
   console.log(`${appName} Verification - Run #${runNumber}`);

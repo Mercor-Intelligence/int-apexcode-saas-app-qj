@@ -1,0 +1,29 @@
+{
+  "suite": "Generic Signup Verification",
+  "total": 3,
+  "passed": 1,
+  "failed": 2,
+  "duration": 10.55,
+  "results": [
+    {
+      "test": "BrowserBase session created",
+      "passed": true,
+      "details": "Session: 1b3f521f-cf08-40b9-bda3-878c1cfd4f57",
+      "timestamp": "2026-01-14T07:43:49.203Z"
+    },
+    {
+      "test": "Signup form found",
+      "passed": false,
+      "details": "Could not find signup form on any expected page",
+      "timestamp": "2026-01-14T07:43:57.895Z"
+    },
+    {
+      "test": "Signup verification",
+      "passed": false,
+      "details": "Signup form not found",
+      "timestamp": "2026-01-14T07:43:57.895Z"
+    }
+  ],
+  "overallPassed": false,
+  "sessionUrl": "https://browserbase.com/sessions/1b3f521f-cf08-40b9-bda3-878c1cfd4f57"
+}

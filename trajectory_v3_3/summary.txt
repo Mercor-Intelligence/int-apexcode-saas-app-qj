@@ -1,0 +1,31 @@
+BioLink V3 Generic Verification - Run #3
+==================================================
+
+Started:  2026-01-14T07:37:13.553Z
+Finished: 2026-01-14T07:38:10.503Z
+Duration: 56.95s
+Test URL: https://biolink-v3-gpt.vercel.app
+
+RESULTS
+──────────────────────────────────────────────────
+[FAIL] Generic Homepage Verification: 10/12 passed
+[FAIL] Generic Signup Verification: 6/8 passed
+[FAIL] Generic Login Verification: 7/8 passed
+[FAIL] Generic Dashboard Verification: 2/8 passed
+[FAIL] Generic Profile Verification: 4/5 passed
+
+OVERALL SUMMARY
+──────────────────────────────────────────────────
+Total Tests:      41
+Passed:           29
+Failed:           12
+Pass Rate:        70.73%
+Overall:          FAILED
+
+SESSION RECORDINGS
+──────────────────────────────────────────────────
+Generic Homepage Verification: https://browserbase.com/sessions/c32bcd50-05cb-4a8e-8568-af95b5f76ffb
+Generic Signup Verification: https://browserbase.com/sessions/4cb945ab-ba62-461f-8c67-a526a8271cb3
+Generic Login Verification: https://browserbase.com/sessions/bae7cb5a-ddef-489c-9277-a3a86ac807af
+Generic Dashboard Verification: https://browserbase.com/sessions/a636c300-796a-4bc4-b388-ddf92e15c0c2
+Generic Profile Verification: https://browserbase.com/sessions/4b74f2e2-5f26-4e0d-b061-a591f595d9a1

@@ -1,74 +1,17 @@
 {
-  "suite": "Analytics API",
-  "tests": [
+  "suite": "Profile Management Verification",
+  "total": 1,
+  "passed": 0,
+  "failed": 1,
+  "duration": 0.04,
+  "results": [
     {
-      "name": "Analytics summary requires auth",
-      "passed": true
-    },
-    {
-      "name": "Setup: Create test user",
-      "passed": true
-    },
-    {
-      "name": "Setup: Create test link",
-      "passed": true
-    },
-    {
-      "name": "Track page view works",
-      "passed": true
-    },
-    {
-      "name": "Track page view works",
-      "passed": true
-    },
-    {
-      "name": "Track link click works",
-      "passed": true
-    },
-    {
-      "name": "Track link click works",
-      "passed": true
-    },
-    {
-      "name": "Get analytics summary works",
-      "passed": true
-    },
-    {
-      "name": "Get per-link analytics works",
-      "passed": true
-    },
-    {
-      "name": "Get daily stats works",
-      "passed": true
-    },
-    {
-      "name": "Analytics period filter works",
-      "passed": true
-    },
-    {
-      "name": "Analytics includes referrer categorization",
-      "passed": true
-    },
-    {
-      "name": "Analytics includes device tracking",
-      "passed": true
-    },
-    {
-      "name": "Analytics calculates CTR",
-      "passed": true
-    },
-    {
-      "name": "Track view invalid handle returns 404",
-      "passed": true
-    },
-    {
-      "name": "Track click invalid link returns 404",
-      "passed": true
+      "test": "Test user created",
+      "passed": false,
+      "details": "",
+      "timestamp": "2026-01-14T07:20:29.059Z"
     }
   ],
-  "passed": 16,
-  "failed": 0,
-  "total": 16,
-  "overallPassed": true,
-  "type": "backend"
+  "overallPassed": false,
+  "type": "frontend"
 }

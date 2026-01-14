@@ -1,0 +1,71 @@
+{
+  "suite": "Login Verification",
+  "total": 10,
+  "passed": 5,
+  "failed": 5,
+  "duration": 18.23,
+  "results": [
+    {
+      "test": "Test user created via API",
+      "passed": false,
+      "details": "\"Bad request.\"",
+      "timestamp": "2026-01-14T07:26:23.938Z"
+    },
+    {
+      "test": "BrowserBase session created",
+      "passed": true,
+      "details": "Session: 434d6c0f-ca9a-4a92-9483-7e033f3cd1da",
+      "timestamp": "2026-01-14T07:26:25.944Z"
+    },
+    {
+      "test": "Login page loads",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-14T07:26:28.799Z"
+    },
+    {
+      "test": "Fill email field",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-14T07:26:29.380Z"
+    },
+    {
+      "test": "Fill password field",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-14T07:26:29.902Z"
+    },
+    {
+      "test": "Submit login form",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-14T07:26:30.774Z"
+    },
+    {
+      "test": "Redirected to dashboard",
+      "passed": false,
+      "details": "Current URL: https://biolink-v4-gemini.vercel.app/login",
+      "timestamp": "2026-01-14T07:26:40.778Z"
+    },
+    {
+      "test": "JWT token stored in localStorage",
+      "passed": false,
+      "details": "",
+      "timestamp": "2026-01-14T07:26:41.832Z"
+    },
+    {
+      "test": "Dashboard content loads",
+      "passed": false,
+      "details": "Found 0 dashboard elements",
+      "timestamp": "2026-01-14T07:26:41.931Z"
+    },
+    {
+      "test": "Protected API accessible with token",
+      "passed": false,
+      "details": "No token available",
+      "timestamp": "2026-01-14T07:26:41.932Z"
+    }
+  ],
+  "overallPassed": false,
+  "type": "frontend"
+}

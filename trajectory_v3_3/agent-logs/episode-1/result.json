@@ -1,0 +1,59 @@
+{
+  "suite": "Generic Signup Verification",
+  "total": 8,
+  "passed": 6,
+  "failed": 2,
+  "duration": 7.92,
+  "results": [
+    {
+      "test": "BrowserBase session created",
+      "passed": true,
+      "details": "Session: 4cb945ab-ba62-461f-8c67-a526a8271cb3",
+      "timestamp": "2026-01-14T07:37:23.212Z"
+    },
+    {
+      "test": "Signup form found at /",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-14T07:37:25.556Z"
+    },
+    {
+      "test": "Handle/username field filled",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-14T07:37:25.610Z"
+    },
+    {
+      "test": "Email field filled",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-14T07:37:25.657Z"
+    },
+    {
+      "test": "Password field filled",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-14T07:37:25.707Z"
+    },
+    {
+      "test": "Signup form submitted",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-14T07:37:26.259Z"
+    },
+    {
+      "test": "Signup completed successfully",
+      "passed": false,
+      "details": "Stayed on: https://biolink-v3-gpt.vercel.app/",
+      "timestamp": "2026-01-14T07:37:29.309Z"
+    },
+    {
+      "test": "User is authenticated",
+      "passed": false,
+      "details": "",
+      "timestamp": "2026-01-14T07:37:29.355Z"
+    }
+  ],
+  "overallPassed": false,
+  "sessionUrl": "https://browserbase.com/sessions/4cb945ab-ba62-461f-8c67-a526a8271cb3"
+}

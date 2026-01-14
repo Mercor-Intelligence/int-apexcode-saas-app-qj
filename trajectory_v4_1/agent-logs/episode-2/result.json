@@ -1,0 +1,17 @@
+{
+  "suite": "Link Management Verification",
+  "total": 1,
+  "passed": 0,
+  "failed": 1,
+  "duration": 0.35,
+  "results": [
+    {
+      "test": "Test user created",
+      "passed": false,
+      "details": "",
+      "timestamp": "2026-01-14T07:26:43.343Z"
+    }
+  ],
+  "overallPassed": false,
+  "type": "frontend"
+}

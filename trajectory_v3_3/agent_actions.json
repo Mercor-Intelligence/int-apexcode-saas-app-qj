@@ -1,0 +1,69 @@
+{
+  "run_number": 3,
+  "started_at": "2026-01-14T07:37:13.553Z",
+  "completed_at": "2026-01-14T07:38:10.502Z",
+  "duration_seconds": 56.95,
+  "total_episodes": 5,
+  "actions": [
+    {
+      "episode": 0,
+      "type": "browser_verification",
+      "suite": "Homepage",
+      "url": "https://biolink-v3-gpt.vercel.app",
+      "timestamp": "2026-01-14T07:37:13.553Z",
+      "result": {
+        "passed": false,
+        "tests_passed": 10,
+        "tests_failed": 2
+      }
+    },
+    {
+      "episode": 1,
+      "type": "browser_verification",
+      "suite": "Signup",
+      "url": "https://biolink-v3-gpt.vercel.app",
+      "timestamp": "2026-01-14T07:37:21.478Z",
+      "result": {
+        "passed": false,
+        "tests_passed": 6,
+        "tests_failed": 2
+      }
+    },
+    {
+      "episode": 2,
+      "type": "browser_verification",
+      "suite": "Login",
+      "url": "https://biolink-v3-gpt.vercel.app",
+      "timestamp": "2026-01-14T07:37:30.406Z",
+      "result": {
+        "passed": false,
+        "tests_passed": 7,
+        "tests_failed": 1
+      }
+    },
+    {
+      "episode": 3,
+      "type": "browser_verification",
+      "suite": "Dashboard",
+      "url": "https://biolink-v3-gpt.vercel.app",
+      "timestamp": "2026-01-14T07:37:45.885Z",
+      "result": {
+        "passed": false,
+        "tests_passed": 2,
+        "tests_failed": 6
+      }
+    },
+    {
+      "episode": 4,
+      "type": "browser_verification",
+      "suite": "Public Profile",
+      "url": "https://biolink-v3-gpt.vercel.app",
+      "timestamp": "2026-01-14T07:38:01.828Z",
+      "result": {
+        "passed": false,
+        "tests_passed": 4,
+        "tests_failed": 1
+      }
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "suite": "Signup Verification",
+  "total": 9,
+  "passed": 1,
+  "failed": 8,
+  "duration": 23.23,
+  "results": [
+    {
+      "test": "BrowserBase session created",
+      "passed": true,
+      "details": "Session: a1f02e69-9071-438a-8bf2-d58fbbd0572a",
+      "timestamp": "2026-01-14T07:24:24.009Z"
+    },
+    {
+      "test": "Signup page loads",
+      "passed": false,
+      "details": "",
+      "timestamp": "2026-01-14T07:24:27.469Z"
+    },
+    {
+      "test": "Fill handle field",
+      "passed": false,
+      "details": "Handle input not found",
+      "timestamp": "2026-01-14T07:24:27.519Z"
+    },
+    {
+      "test": "Fill email field",
+      "passed": false,
+      "details": "Email input not found",
+      "timestamp": "2026-01-14T07:24:28.071Z"
+    },
+    {
+      "test": "Fill password field",
+      "passed": false,
+      "details": "Password input not found",
+      "timestamp": "2026-01-14T07:24:28.122Z"
+    },
+    {
+      "test": "Select category",
+      "passed": false,
+      "details": "Category buttons not found",
+      "timestamp": "2026-01-14T07:24:29.018Z"
+    },
+    {
+      "test": "Submit signup form",
+      "passed": false,
+      "details": "Submit button not found or disabled",
+      "timestamp": "2026-01-14T07:24:29.067Z"
+    },
+    {
+      "test": "Redirected to dashboard",
+      "passed": false,
+      "details": "Current URL: https://biolink-v3-gpt.vercel.app/signup",
+      "timestamp": "2026-01-14T07:24:44.072Z"
+    },
+    {
+      "test": "User record exists in database",
+      "passed": false,
+      "details": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON",
+      "timestamp": "2026-01-14T07:24:45.487Z"
+    }
+  ],
+  "overallPassed": false,
+  "type": "frontend"
+}

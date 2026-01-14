@@ -1,0 +1,31 @@
+BioLink V4 Generic Verification - Run #2
+==================================================
+
+Started:  2026-01-14T07:38:17.119Z
+Finished: 2026-01-14T07:39:16.522Z
+Duration: 59.40s
+Test URL: https://biolink-v4-gemini.vercel.app
+
+RESULTS
+──────────────────────────────────────────────────
+[FAIL] Generic Homepage Verification: 10/12 passed
+[FAIL] Generic Signup Verification: 6/8 passed
+[FAIL] Generic Login Verification: 7/8 passed
+[FAIL] Generic Dashboard Verification: 5/8 passed
+[FAIL] Generic Profile Verification: 2/5 passed
+
+OVERALL SUMMARY
+──────────────────────────────────────────────────
+Total Tests:      41
+Passed:           30
+Failed:           11
+Pass Rate:        73.17%
+Overall:          FAILED
+
+SESSION RECORDINGS
+──────────────────────────────────────────────────
+Generic Homepage Verification: https://browserbase.com/sessions/1cb4a2fb-29a2-49f5-8271-de4999a77b05
+Generic Signup Verification: https://browserbase.com/sessions/f5e3c1c7-03f6-44e8-82d9-3af56049cd9d
+Generic Login Verification: https://browserbase.com/sessions/c28bce3f-c158-49b2-acf3-48b0d9a2750c
+Generic Dashboard Verification: https://browserbase.com/sessions/b29baf0a-553b-4cfd-ad73-5c499a072365
+Generic Profile Verification: https://browserbase.com/sessions/644191ab-2196-42cd-a8bf-fe4100a09543

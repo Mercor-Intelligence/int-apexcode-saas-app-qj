@@ -1,56 +1,65 @@
 {
-  "suite": "Auth API",
-  "tests": [
+  "suite": "Signup Verification",
+  "total": 9,
+  "passed": 3,
+  "failed": 6,
+  "duration": 25.34,
+  "results": [
     {
-      "name": "Signup returns token",
-      "passed": true
-    },
-    {
-      "name": "Duplicate email rejected",
+      "test": "BrowserBase session created",
       "passed": true,
-      "error": null
+      "details": "Session: 58fe74e4-00c2-4344-9412-79a4830b2c47",
+      "timestamp": "2026-01-14T07:19:44.132Z"
     },
     {
-      "name": "Duplicate handle rejected",
+      "test": "Signup page loads",
       "passed": true,
-      "error": null
+      "details": "",
+      "timestamp": "2026-01-14T07:19:48.964Z"
     },
     {
-      "name": "Login returns token",
-      "passed": true
+      "test": "Fill handle field",
+      "passed": false,
+      "details": "Handle input not found",
+      "timestamp": "2026-01-14T07:19:49.085Z"
     },
     {
-      "name": "Wrong password rejected",
-      "passed": true
+      "test": "Fill email field",
+      "passed": true,
+      "details": "",
+      "timestamp": "2026-01-14T07:19:50.132Z"
     },
     {
-      "name": "Token validation works",
-      "passed": "api-test-1768350544368@example.com"
+      "test": "Fill password field",
+      "passed": false,
+      "details": "Password input not found",
+      "timestamp": "2026-01-14T07:19:50.204Z"
     },
     {
-      "name": "Weak password rejected",
-      "passed": true
+      "test": "Select category",
+      "passed": false,
+      "details": "Category buttons not found",
+      "timestamp": "2026-01-14T07:19:51.107Z"
     },
     {
-      "name": "Invalid email rejected",
-      "passed": true
+      "test": "Submit signup form",
+      "passed": false,
+      "details": "Submit button not found or disabled",
+      "timestamp": "2026-01-14T07:19:51.160Z"
     },
     {
-      "name": "Nonexistent user rejected",
-      "passed": true
+      "test": "Redirected to dashboard",
+      "passed": false,
+      "details": "Current URL: https://vercel.com/login?next=%2Fsso-api%3Furl%3Dhttps%253A%252F%252Fbiolink-nides8boe-qi-jins-projects.vercel.app%252Fsignup%26nonce%3Dec0387f59279edfdbd3bd8bb73006ca71f49d60b79a01c01f6a15925f06f9048",
+      "timestamp": "2026-01-14T07:20:06.164Z"
     },
     {
-      "name": "Invalid token rejected",
-      "passed": true
-    },
-    {
-      "name": "No token rejected",
-      "passed": true
+      "test": "User record exists in database",
+      "passed": false,
+      "details": "Unexpected token '<', \"<!doctype \"... is not valid JSON",
+      "timestamp": "2026-01-14T07:20:07.488Z"
     }
   ],
-  "passed": 11,
-  "failed": 0,
-  "total": 11,
-  "overallPassed": true,
-  "type": "backend"
+  "overallPassed": false,
+  "type": "frontend"
 }

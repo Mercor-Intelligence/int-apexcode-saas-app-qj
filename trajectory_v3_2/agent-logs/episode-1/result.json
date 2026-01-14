@@ -1,0 +1,71 @@
+{
+  "suite": "Login Verification",
+  "total": 10,
+  "passed": 2,
+  "failed": 8,
+  "duration": 15.92,
+  "results": [
+    {
+      "test": "Test user created via API",
+      "passed": false,
+      "details": "",
+      "timestamp": "2026-01-14T07:24:47.176Z"
+    },
+    {
+      "test": "BrowserBase session created",
+      "passed": true,
+      "details": "Session: 3c8ceba3-73f1-42cc-a171-6b322dd33f03",
+      "timestamp": "2026-01-14T07:24:49.165Z"
+    },
+    {
+      "test": "Login page loads",
+      "passed": false,
+      "details": "",
+      "timestamp": "2026-01-14T07:24:50.957Z"
+    },
+    {
+      "test": "Fill email field",
+      "passed": false,
+      "details": "Email input not found",
+      "timestamp": "2026-01-14T07:24:51.004Z"
+    },
+    {
+      "test": "Fill password field",
+      "passed": false,
+      "details": "Password input not found",
+      "timestamp": "2026-01-14T07:24:51.053Z"
+    },
+    {
+      "test": "Submit login form",
+      "passed": true,
+      "details": "Used Enter key",
+      "timestamp": "2026-01-14T07:24:51.200Z"
+    },
+    {
+      "test": "Redirected to dashboard",
+      "passed": false,
+      "details": "Current URL: https://biolink-v3-gpt.vercel.app/login",
+      "timestamp": "2026-01-14T07:25:01.202Z"
+    },
+    {
+      "test": "JWT token stored in localStorage",
+      "passed": false,
+      "details": "",
+      "timestamp": "2026-01-14T07:25:02.308Z"
+    },
+    {
+      "test": "Dashboard content loads",
+      "passed": false,
+      "details": "Found 0 dashboard elements",
+      "timestamp": "2026-01-14T07:25:02.403Z"
+    },
+    {
+      "test": "Protected API accessible with token",
+      "passed": false,
+      "details": "No token available",
+      "timestamp": "2026-01-14T07:25:02.403Z"
+    }
+  ],
+  "overallPassed": false,
+  "type": "frontend"
+}

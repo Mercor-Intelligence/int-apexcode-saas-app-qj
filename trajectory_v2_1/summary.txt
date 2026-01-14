@@ -1,0 +1,31 @@
+BioLink V2 Generic Verification - Run #1
+==================================================
+
+Started:  2026-01-14T07:43:38.359Z
+Finished: 2026-01-14T07:44:30.028Z
+Duration: 51.67s
+Test URL: https://biolink-v2-frontend.vercel.app
+
+RESULTS
+──────────────────────────────────────────────────
+[PASS] Generic Homepage Verification: 12/12 passed
+[FAIL] Generic Signup Verification: 1/3 passed
+[FAIL] Generic Login Verification: 7/8 passed
+[FAIL] Generic Dashboard Verification: 4/8 passed
+[FAIL] Generic Profile Verification: 4/5 passed
+
+OVERALL SUMMARY
+──────────────────────────────────────────────────
+Total Tests:      36
+Passed:           28
+Failed:           8
+Pass Rate:        77.78%
+Overall:          FAILED
+
+SESSION RECORDINGS
+──────────────────────────────────────────────────
+Generic Homepage Verification: https://browserbase.com/sessions/dfb15aec-f58d-46f4-80a6-8de8a83d29ab
+Generic Signup Verification: https://browserbase.com/sessions/1b3f521f-cf08-40b9-bda3-878c1cfd4f57
+Generic Login Verification: https://browserbase.com/sessions/e12ccc40-b4a4-4fc5-b18a-d05b6c71f809
+Generic Dashboard Verification: https://browserbase.com/sessions/9560ba9a-3d7f-4878-a1bb-95858c16a3e4
+Generic Profile Verification: https://browserbase.com/sessions/e5b70299-a36d-4497-abcf-ed1e0ab8bbf7

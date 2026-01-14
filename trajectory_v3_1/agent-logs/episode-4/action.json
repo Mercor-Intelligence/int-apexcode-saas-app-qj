@@ -1,10 +1,10 @@
 {
-  "timestamp": "2026-01-14T00:29:24.253Z",
-  "action": "public-api",
+  "timestamp": "2026-01-14T07:20:30.061Z",
+  "action": "public-profile",
   "details": {
-    "type": "api_verification",
-    "suite": "Public API",
-    "url": "http://localhost:3011",
-    "timestamp": "2026-01-14T00:29:24.253Z"
+    "type": "browser_verification",
+    "suite": "Public Profile",
+    "url": "https://biolink-nides8boe-qi-jins-projects.vercel.app",
+    "timestamp": "2026-01-14T07:20:30.060Z"
   }
 }

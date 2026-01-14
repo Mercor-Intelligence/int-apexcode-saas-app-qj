@@ -1,0 +1,65 @@
+{
+  "suite": "Signup Verification",
+  "total": 9,
+  "passed": 1,
+  "failed": 8,
+  "duration": 22.73,
+  "results": [
+    {
+      "test": "BrowserBase session created",
+      "passed": true,
+      "details": "Session: 1edaa1a8-9112-40e4-bdef-7511889c4154",
+      "timestamp": "2026-01-14T07:26:01.826Z"
+    },
+    {
+      "test": "Signup page loads",
+      "passed": false,
+      "details": "",
+      "timestamp": "2026-01-14T07:26:04.397Z"
+    },
+    {
+      "test": "Fill handle field",
+      "passed": false,
+      "details": "Handle input not found",
+      "timestamp": "2026-01-14T07:26:04.447Z"
+    },
+    {
+      "test": "Fill email field",
+      "passed": false,
+      "details": "Email input not found",
+      "timestamp": "2026-01-14T07:26:04.999Z"
+    },
+    {
+      "test": "Fill password field",
+      "passed": false,
+      "details": "Password input not found",
+      "timestamp": "2026-01-14T07:26:05.047Z"
+    },
+    {
+      "test": "Select category",
+      "passed": false,
+      "details": "Category buttons not found",
+      "timestamp": "2026-01-14T07:26:05.941Z"
+    },
+    {
+      "test": "Submit signup form",
+      "passed": false,
+      "details": "Submit button not found or disabled",
+      "timestamp": "2026-01-14T07:26:05.991Z"
+    },
+    {
+      "test": "Redirected to dashboard",
+      "passed": false,
+      "details": "Current URL: https://biolink-v4-gemini.vercel.app/signup",
+      "timestamp": "2026-01-14T07:26:20.995Z"
+    },
+    {
+      "test": "User record exists in database",
+      "passed": false,
+      "details": "\"Bad request.\"",
+      "timestamp": "2026-01-14T07:26:22.704Z"
+    }
+  ],
+  "overallPassed": false,
+  "type": "frontend"
+}

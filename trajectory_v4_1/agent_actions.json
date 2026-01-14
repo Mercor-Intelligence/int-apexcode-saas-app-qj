@@ -1,0 +1,81 @@
+{
+  "run_number": 1,
+  "started_at": "2026-01-14T07:26:00.023Z",
+  "completed_at": "2026-01-14T07:26:47.792Z",
+  "duration_seconds": 47.77,
+  "total_episodes": 7,
+  "actions": [
+    {
+      "episode": 0,
+      "type": "browser_verification",
+      "suite": "Signup",
+      "url": "https://biolink-v4-gemini.vercel.app",
+      "timestamp": "2026-01-14T07:26:00.023Z",
+      "result": {
+        "passed": false,
+        "tests_passed": 1,
+        "tests_failed": 8
+      }
+    },
+    {
+      "episode": 1,
+      "type": "browser_verification",
+      "suite": "Login",
+      "url": "https://biolink-v4-gemini.vercel.app",
+      "timestamp": "2026-01-14T07:26:23.754Z",
+      "result": {
+        "passed": false,
+        "tests_passed": 5,
+        "tests_failed": 5
+      }
+    },
+    {
+      "episode": 2,
+      "type": "browser_verification",
+      "suite": "Links",
+      "url": "https://biolink-v4-gemini.vercel.app",
+      "timestamp": "2026-01-14T07:26:42.985Z",
+      "result": {
+        "passed": false,
+        "tests_passed": 0,
+        "tests_failed": 1
+      }
+    },
+    {
+      "episode": 3,
+      "type": "browser_verification",
+      "suite": "Profile",
+      "url": "https://biolink-v4-gemini.vercel.app",
+      "timestamp": "2026-01-14T07:26:44.345Z",
+      "result": {
+        "passed": false,
+        "tests_passed": 0,
+        "tests_failed": 1
+      }
+    },
+    {
+      "episode": 4,
+      "type": "browser_verification",
+      "suite": "Public Profile",
+      "url": "https://biolink-v4-gemini.vercel.app",
+      "timestamp": "2026-01-14T07:26:45.537Z",
+      "result": {
+        "passed": false,
+        "tests_passed": 0,
+        "tests_failed": 1
+      }
+    },
+    {
+      "episode": 5,
+      "type": "browser_verification",
+      "suite": "Analytics",
+      "url": "https://biolink-v4-gemini.vercel.app",
+      "timestamp": "2026-01-14T07:26:46.660Z",
+      "result": {
+        "passed": false,
+        "tests_passed": 0,
+        "tests_failed": 1
+      }
+    }
+  ]
+}
