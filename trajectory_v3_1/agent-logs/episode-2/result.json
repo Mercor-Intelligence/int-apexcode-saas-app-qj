@@ -1,0 +1,62 @@
+{
+  "suite": "Profile API",
+  "tests": [
+    {
+      "name": "Get profile requires auth",
+      "passed": true
+    },
+    {
+      "name": "Update profile requires auth",
+      "passed": true
+    },
+    {
+      "name": "Setup: Create test user",
+      "passed": true
+    },
+    {
+      "name": "Get profile returns user data",
+      "passed": "profiletest1768350552306"
+    },
+    {
+      "name": "Update bio works",
+      "passed": true
+    },
+    {
+      "name": "Bio respects max length (150 chars)",
+      "passed": true
+    },
+    {
+      "name": "Update title works",
+      "passed": true
+    },
+    {
+      "name": "Update theme works",
+      "passed": true
+    },
+    {
+      "name": "Update button style works",
+      "passed": true
+    },
+    {
+      "name": "Update font works",
+      "passed": true
+    },
+    {
+      "name": "Update social links works",
+      "passed": true
+    },
+    {
+      "name": "Handle update endpoint exists",
+      "passed": true
+    },
+    {
+      "name": "Duplicate handle check exists",
+      "passed": true
+    }
+  ],
+  "passed": 13,
+  "failed": 0,
+  "total": 13,
+  "overallPassed": true,
+  "type": "backend"
+}

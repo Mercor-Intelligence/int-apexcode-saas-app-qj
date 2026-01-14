@@ -1,0 +1,64 @@
+{
+  "suite": "Public API",
+  "tests": [
+    {
+      "name": "Setup: Create test user",
+      "passed": true
+    },
+    {
+      "name": "Setup: Create test links",
+      "passed": true
+    },
+    {
+      "name": "Get public profile works",
+      "passed": "publictest1768350564255"
+    },
+    {
+      "name": "Handle lookup is case-insensitive",
+      "passed": true
+    },
+    {
+      "name": "Handle lookup works with mixed case",
+      "passed": true
+    },
+    {
+      "name": "Nonexistent profile returns 404",
+      "passed": true
+    },
+    {
+      "name": "Public profile includes links",
+      "passed": true
+    },
+    {
+      "name": "Public profile includes customization data",
+      "passed": true
+    },
+    {
+      "name": "Public profile excludes sensitive data",
+      "passed": true
+    },
+    {
+      "name": "Hidden links are excluded from public profile",
+      "passed": true,
+      "note": "No links to test"
+    },
+    {
+      "name": "Track public profile view works",
+      "passed": true
+    },
+    {
+      "name": "Track public link click works",
+      "passed": true,
+      "note": "No links to test"
+    },
+    {
+      "name": "Check handle availability works",
+      "passed": false
+    }
+  ],
+  "passed": 12,
+  "failed": 1,
+  "total": 13,
+  "overallPassed": false,
+  "type": "backend"
+}

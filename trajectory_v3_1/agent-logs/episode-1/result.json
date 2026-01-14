@@ -1,0 +1,48 @@
+{
+  "suite": "Links API",
+  "tests": [
+    {
+      "name": "Setup: Create test user",
+      "passed": true
+    },
+    {
+      "name": "Create link requires auth",
+      "passed": true
+    },
+    {
+      "name": "Create link works",
+      "passed": false,
+      "error": "Server error"
+    },
+    {
+      "name": "Create link works",
+      "passed": false,
+      "error": "Server error"
+    },
+    {
+      "name": "Get links returns array",
+      "passed": true
+    },
+    {
+      "name": "Create header link works",
+      "passed": false
+    },
+    {
+      "name": "Create link with thumbnail works",
+      "passed": "990efbd9-b9aa-4c42-87d0-87151a981fb6"
+    },
+    {
+      "name": "Update nonexistent link returns 404",
+      "passed": true
+    },
+    {
+      "name": "Delete nonexistent link returns 404",
+      "passed": true
+    }
+  ],
+  "passed": 6,
+  "failed": 3,
+  "total": 9,
+  "overallPassed": false,
+  "type": "backend"
+}

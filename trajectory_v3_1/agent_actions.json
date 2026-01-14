@@ -1,0 +1,81 @@
+{
+  "run_number": 1,
+  "started_at": "2026-01-14T00:29:04.367Z",
+  "completed_at": "2026-01-14T00:29:33.759Z",
+  "duration_seconds": 29.39,
+  "total_episodes": 7,
+  "actions": [
+    {
+      "episode": 0,
+      "type": "api_verification",
+      "suite": "Auth API",
+      "url": "http://localhost:3011",
+      "timestamp": "2026-01-14T00:29:04.367Z",
+      "result": {
+        "passed": true,
+        "tests_passed": 11,
+        "tests_failed": 0
+      }
+    },
+    {
+      "episode": 1,
+      "type": "api_verification",
+      "suite": "Links API",
+      "url": "http://localhost:3011",
+      "timestamp": "2026-01-14T00:29:08.625Z",
+      "result": {
+        "passed": false,
+        "tests_passed": 6,
+        "tests_failed": 3
+      }
+    },
+    {
+      "episode": 2,
+      "type": "api_verification",
+      "suite": "Profile API",
+      "url": "http://localhost:3011",
+      "timestamp": "2026-01-14T00:29:12.303Z",
+      "result": {
+        "passed": true,
+        "tests_passed": 13,
+        "tests_failed": 0
+      }
+    },
+    {
+      "episode": 3,
+      "type": "api_verification",
+      "suite": "Analytics API",
+      "url": "http://localhost:3011",
+      "timestamp": "2026-01-14T00:29:16.540Z",
+      "result": {
+        "passed": true,
+        "tests_passed": 16,
+        "tests_failed": 0
+      }
+    },
+    {
+      "episode": 4,
+      "type": "api_verification",
+      "suite": "Public API",
+      "url": "http://localhost:3011",
+      "timestamp": "2026-01-14T00:29:24.253Z",
+      "result": {
+        "passed": false,
+        "tests_passed": 12,
+        "tests_failed": 1
+      }
+    },
+    {
+      "episode": 5,
+      "type": "api_verification",
+      "suite": "Validation API",
+      "url": "http://localhost:3011",
+      "timestamp": "2026-01-14T00:29:29.642Z",
+      "result": {
+        "passed": true,
+        "tests_passed": 17,
+        "tests_failed": 0
+      }
+    }
+  ]
+}

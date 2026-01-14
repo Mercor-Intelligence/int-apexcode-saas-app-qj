@@ -1,0 +1,425 @@
+{
+  "run_number": 1,
+  "timestamp": "2026-01-14T00:29:33.759Z",
+  "duration_seconds": 29.39,
+  "config": {
+    "frontend_url": "http://localhost:5173",
+    "backend_url": "http://localhost:3011",
+    "browserbase_project": "configured"
+  },
+  "summary": {
+    "total_tests": 79,
+    "passed": 75,
+    "failed": 4,
+    "pass_rate": "94.94%",
+    "overall_passed": false,
+    "frontend": {
+      "tests": 0,
+      "passed": 0,
+      "pass_rate": "N/A"
+    },
+    "backend": {
+      "tests": 79,
+      "passed": 75,
+      "pass_rate": "94.94%"
+    }
+  },
+  "suites": [
+    {
+      "name": "Auth API",
+      "type": "backend",
+      "total": 11,
+      "passed": 11,
+      "failed": 0,
+      "suite_passed": true,
+      "session_url": null,
+      "tests": [
+        {
+          "name": "Signup returns token",
+          "passed": true
+        },
+        {
+          "name": "Duplicate email rejected",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Duplicate handle rejected",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Login returns token",
+          "passed": true
+        },
+        {
+          "name": "Wrong password rejected",
+          "passed": true
+        },
+        {
+          "name": "Token validation works",
+          "passed": "api-test-1768350544368@example.com"
+        },
+        {
+          "name": "Weak password rejected",
+          "passed": true
+        },
+        {
+          "name": "Invalid email rejected",
+          "passed": true
+        },
+        {
+          "name": "Nonexistent user rejected",
+          "passed": true
+        },
+        {
+          "name": "Invalid token rejected",
+          "passed": true
+        },
+        {
+          "name": "No token rejected",
+          "passed": true
+        }
+      ],
+      "error": null
+    },
+    {
+      "name": "Links API",
+      "type": "backend",
+      "total": 9,
+      "passed": 6,
+      "failed": 3,
+      "suite_passed": false,
+      "session_url": null,
+      "tests": [
+        {
+          "name": "Setup: Create test user",
+          "passed": true
+        },
+        {
+          "name": "Create link requires auth",
+          "passed": true
+        },
+        {
+          "name": "Create link works",
+          "passed": false,
+          "error": "Server error"
+        },
+        {
+          "name": "Create link works",
+          "passed": false,
+          "error": "Server error"
+        },
+        {
+          "name": "Get links returns array",
+          "passed": true
+        },
+        {
+          "name": "Create header link works",
+          "passed": false
+        },
+        {
+          "name": "Create link with thumbnail works",
+          "passed": "990efbd9-b9aa-4c42-87d0-87151a981fb6"
+        },
+        {
+          "name": "Update nonexistent link returns 404",
+          "passed": true
+        },
+        {
+          "name": "Delete nonexistent link returns 404",
+          "passed": true
+        }
+      ],
+      "error": null
+    },
+    {
+      "name": "Profile API",
+      "type": "backend",
+      "total": 13,
+      "passed": 13,
+      "failed": 0,
+      "suite_passed": true,
+      "session_url": null,
+      "tests": [
+        {
+          "name": "Get profile requires auth",
+          "passed": true
+        },
+        {
+          "name": "Update profile requires auth",
+          "passed": true
+        },
+        {
+          "name": "Setup: Create test user",
+          "passed": true
+        },
+        {
+          "name": "Get profile returns user data",
+          "passed": "profiletest1768350552306"
+        },
+        {
+          "name": "Update bio works",
+          "passed": true
+        },
+        {
+          "name": "Bio respects max length (150 chars)",
+          "passed": true
+        },
+        {
+          "name": "Update title works",
+          "passed": true
+        },
+        {
+          "name": "Update theme works",
+          "passed": true
+        },
+        {
+          "name": "Update button style works",
+          "passed": true
+        },
+        {
+          "name": "Update font works",
+          "passed": true
+        },
+        {
+          "name": "Update social links works",
+          "passed": true
+        },
+        {
+          "name": "Handle update endpoint exists",
+          "passed": true
+        },
+        {
+          "name": "Duplicate handle check exists",
+          "passed": true
+        }
+      ],
+      "error": null
+    },
+    {
+      "name": "Analytics API",
+      "type": "backend",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "suite_passed": true,
+      "session_url": null,
+      "tests": [
+        {
+          "name": "Analytics summary requires auth",
+          "passed": true
+        },
+        {
+          "name": "Setup: Create test user",
+          "passed": true
+        },
+        {
+          "name": "Setup: Create test link",
+          "passed": true
+        },
+        {
+          "name": "Track page view works",
+          "passed": true
+        },
+        {
+          "name": "Track page view works",
+          "passed": true
+        },
+        {
+          "name": "Track link click works",
+          "passed": true
+        },
+        {
+          "name": "Track link click works",
+          "passed": true
+        },
+        {
+          "name": "Get analytics summary works",
+          "passed": true
+        },
+        {
+          "name": "Get per-link analytics works",
+          "passed": true
+        },
+        {
+          "name": "Get daily stats works",
+          "passed": true
+        },
+        {
+          "name": "Analytics period filter works",
+          "passed": true
+        },
+        {
+          "name": "Analytics includes referrer categorization",
+          "passed": true
+        },
+        {
+          "name": "Analytics includes device tracking",
+          "passed": true
+        },
+        {
+          "name": "Analytics calculates CTR",
+          "passed": true
+        },
+        {
+          "name": "Track view invalid handle returns 404",
+          "passed": true
+        },
+        {
+          "name": "Track click invalid link returns 404",
+          "passed": true
+        }
+      ],
+      "error": null
+    },
+    {
+      "name": "Public API",
+      "type": "backend",
+      "total": 13,
+      "passed": 12,
+      "failed": 1,
+      "suite_passed": false,
+      "session_url": null,
+      "tests": [
+        {
+          "name": "Setup: Create test user",
+          "passed": true
+        },
+        {
+          "name": "Setup: Create test links",
+          "passed": true
+        },
+        {
+          "name": "Get public profile works",
+          "passed": "publictest1768350564255"
+        },
+        {
+          "name": "Handle lookup is case-insensitive",
+          "passed": true
+        },
+        {
+          "name": "Handle lookup works with mixed case",
+          "passed": true
+        },
+        {
+          "name": "Nonexistent profile returns 404",
+          "passed": true
+        },
+        {
+          "name": "Public profile includes links",
+          "passed": true
+        },
+        {
+          "name": "Public profile includes customization data",
+          "passed": true
+        },
+        {
+          "name": "Public profile excludes sensitive data",
+          "passed": true
+        },
+        {
+          "name": "Hidden links are excluded from public profile",
+          "passed": true,
+          "note": "No links to test"
+        },
+        {
+          "name": "Track public profile view works",
+          "passed": true
+        },
+        {
+          "name": "Track public link click works",
+          "passed": true,
+          "note": "No links to test"
+        },
+        {
+          "name": "Check handle availability works",
+          "passed": false
+        }
+      ],
+      "error": null
+    },
+    {
+      "name": "Validation API",
+      "type": "backend",
+      "total": 17,
+      "passed": 17,
+      "failed": 0,
+      "suite_passed": true,
+      "session_url": null,
+      "tests": [
+        {
+          "name": "Password min 8 chars enforced",
+          "passed": true
+        },
+        {
+          "name": "Password requires uppercase",
+          "passed": true
+        },
+        {
+          "name": "Password requires lowercase",
+          "passed": true
+        },
+        {
+          "name": "Password requires number",
+          "passed": true
+        },
+        {
+          "name": "Valid password accepted",
+          "passed": true
+        },
+        {
+          "name": "Handle min 3 chars enforced",
+          "passed": true
+        },
+        {
+          "name": "Handle max 30 chars enforced",
+          "passed": true
+        },
+        {
+          "name": "Handle must start with letter",
+          "passed": true
+        },
+        {
+          "name": "Handle allows underscores",
+          "passed": true
+        },
+        {
+          "name": "Handle allows periods",
+          "passed": true
+        },
+        {
+          "name": "Handle rejects invalid special chars",
+          "passed": true
+        },
+        {
+          "name": "Handle rejects spaces",
+          "passed": true
+        },
+        {
+          "name": "Invalid email format rejected",
+          "passed": true
+        },
+        {
+          "name": "Email without domain rejected",
+          "passed": true
+        },
+        {
+          "name": "Valid URL accepted for links",
+          "passed": true
+        },
+        {
+          "name": "URL handling for missing protocol",
+          "passed": true,
+          "note": "Auto-prepends protocol"
+        },
+        {
+          "name": "Bio max length enforced",
+          "passed": true,
+          "note": "Truncates to 150"
+        }
+      ],
+      "error": null
+    }
+  ]
+}

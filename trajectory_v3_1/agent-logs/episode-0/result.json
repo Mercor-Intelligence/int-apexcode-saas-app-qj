@@ -1,0 +1,56 @@
+{
+  "suite": "Auth API",
+  "tests": [
+    {
+      "name": "Signup returns token",
+      "passed": true
+    },
+    {
+      "name": "Duplicate email rejected",
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "Duplicate handle rejected",
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "Login returns token",
+      "passed": true
+    },
+    {
+      "name": "Wrong password rejected",
+      "passed": true
+    },
+    {
+      "name": "Token validation works",
+      "passed": "api-test-1768350544368@example.com"
+    },
+    {
+      "name": "Weak password rejected",
+      "passed": true
+    },
+    {
+      "name": "Invalid email rejected",
+      "passed": true
+    },
+    {
+      "name": "Nonexistent user rejected",
+      "passed": true
+    },
+    {
+      "name": "Invalid token rejected",
+      "passed": true
+    },
+    {
+      "name": "No token rejected",
+      "passed": true
+    }
+  ],
+  "passed": 11,
+  "failed": 0,
+  "total": 11,
+  "overallPassed": true,
+  "type": "backend"
+}

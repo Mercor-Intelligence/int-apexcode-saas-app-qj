@@ -1,0 +1,10 @@
+{
+  "timestamp": "2026-01-14T00:29:08.626Z",
+  "action": "links-api",
+  "details": {
+    "type": "api_verification",
+    "suite": "Links API",
+    "url": "http://localhost:3011",
+    "timestamp": "2026-01-14T00:29:08.625Z"
+  }
+}
