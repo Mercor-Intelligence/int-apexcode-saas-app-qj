@@ -11,7 +11,7 @@
 
 import Browserbase from '@browserbasehq/sdk';
 import { chromium } from 'playwright-core';
-import { config } from '../config.js';
+import { config } from '../../config.js';
 
 const bb = new Browserbase({ apiKey: config.browserbase.apiKey });
 

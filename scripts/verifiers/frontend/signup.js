@@ -12,9 +12,9 @@
  * - User record exists in database (via API check)
  */
 
-import { launchBrowser, closeBrowser, screenshotOnFailure, apiRequest } from '../utils/browser.js';
-import { config } from '../config.js';
-import Reporter from '../utils/reporter.js';
+import { launchBrowser, closeBrowser, screenshotOnFailure, apiRequest } from '../../utils/browser.js';
+import { config } from '../../config.js';
+import Reporter from '../../utils/reporter.js';
 
 async function verifySignup() {
   const reporter = new Reporter('Signup Verification');

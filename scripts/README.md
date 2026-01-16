@@ -177,6 +177,152 @@ npm run verify:analytics   # Test analytics tracking
 - Per-link stats available
 - Dashboard displays metrics
 
+## Evaluation Harness Demo
+
+### Overview
+
+The **Evaluation Harness** is a prototype implementation of the APEX Code V2 evaluation architecture. It demonstrates how to build composable, declarative evaluation systems using reusable primitives and dependency-aware orchestration.
+
+This implementation is based on the **APEX SaaS Evaluation Architecture - Primitives & Harness** design document.
+
+### Architecture
+
+The harness follows a separation of concerns:
+
+- **Evaluation Primitives** (`harness/primitives.js`) - Reusable verifier functions
+- **Node Specifications** (`harness/node-specs.json`) - Declarative evaluation graph
+- **Scoring Configuration** (`harness/scoring-config.json`) - Weighted categories
+- **Orchestration Engine** (`harness/run-harness.js`) - Execution controller
+
+### Running the Harness
+
+```bash
+npm run verify:harness
+```
+
+This executes a small evaluation graph with 2 nodes:
+1. **UI_LANDING_VISUAL_QUALITY** - Tests landing page visual quality
+2. **DASHBOARD_PROFILE_OBSERVE** - Tests dashboard under normal conditions (depends on node 1)
+
+### Output
+
+The harness generates:
+- **Console output** with execution flow and pass/fail status
+- **JSON report** (`harness/harness-report-<timestamp>.json`) with:
+  - Normalized score (0-100)
+  - Per-node results with evidence
+  - Dependency gating information
+- **Screenshots** in `./screenshots/` directory
+
+### Example Report Structure
+
+```json
+{
+  "timestamp": "2026-01-15T...",
+  "score": 100,
+  "totalScore": 10,
+  "maxScore": 10,
+  "results": [
+    {
+      "id": "UI_LANDING_VISUAL_QUALITY",
+      "status": "PASSED",
+      "score": 5,
+      "maxScore": 5,
+      "evidence": [...]
+    },
+    {
+      "id": "DASHBOARD_PROFILE_OBSERVE",
+      "status": "PASSED",
+      "score": 5,
+      "maxScore": 5,
+      "evidence": [...]
+    }
+  ]
+}
+```
+
+### Evaluation Primitives
+
+The harness includes 2 primitives from the APEX architecture:
+
+#### 1. Screenshot + Schema Primitive (Section 4.1)
+
+Tests UI/UX quality via visual inspection:
+
+```bash
+npm run verify:screenshot-eval
+```
+
+- Captures full-page screenshots
+- Evaluates visual correctness (placeholder logic)
+- Returns structured scores (layout, clarity, polish)
+
+#### 2. Network Manipulation Primitive (Section 4.3)
+
+Tests robustness under failure conditions:
+
+```bash
+# Normal conditions
+npm run verify:network-intercept
+
+# With failure injection
+NETWORK_INTERCEPT_MODE=fail npm run verify:network-intercept
+```
+
+- Simulates network failures (e.g., API returning 500)
+- Verifies fallback UI behavior
+- Tests error handling
+
+### Adding Nodes to the Graph
+
+Edit `harness/node-specs.json` to add new evaluation nodes:
+
+```json
+{
+  "id": "NEW_NODE_ID",
+  "description": "What this node verifies",
+  "prereqs": ["DEPENDENCY_NODE_ID"],
+  "primitive_chain": [
+    {
+      "type": "screenshotEval",
+      "inputs": { "url": "/page", "schema": "pageSchema" }
+    }
+  ],
+  "scoring": {
+    "category": "CategoryName",
+    "subcategory": "SubcategoryName",
+    "maxScore": 5,
+    "thresholds": [0.7, 0.8, 0.9]
+  },
+  "evidence": {
+    "screenshots": true,
+    "logs": true
+  }
+}
+```
+
+### Dependency Gating
+
+The harness implements topological sorting with dependency gating:
+- If a node's prerequisite fails, the node is marked `SKIPPED_DEPENDENCY`
+- This ensures efficient evaluation and clear failure attribution
+- Execution follows dependency order automatically
+
+### Design Principles
+
+1. **Reusable Primitives** - Write once, compose many ways
+2. **Declarative Configuration** - Node specs are JSON, not code
+3. **Automatic Orchestration** - Harness handles execution order
+4. **Evidence Collection** - Screenshots, logs, traces captured automatically
+5. **Structured Scoring** - Weighted categories with normalization
+
+### Future Enhancements
+
+Additional primitives from the design document:
+- **Browser Interaction Primitive** (Section 4.2) - Natural language actions
+- **Backend Assert Primitive** (Section 4.4) - Database/API validation
+- **Multimodal LLM Integration** - Replace placeholder visual evaluation
+
 ## Output
 
 ### Console Output

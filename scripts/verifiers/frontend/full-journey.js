@@ -13,9 +13,9 @@
  * 7. LOGOUT & LOGIN - Test authentication persistence
  */
 
-import { launchBrowser, closeBrowser, screenshotOnFailure, apiRequest } from '../utils/browser.js';
-import { config } from '../config.js';
-import Reporter from '../utils/reporter.js';
+import { launchBrowser, closeBrowser, screenshotOnFailure, apiRequest } from '../../utils/browser.js';
+import { config } from '../../config.js';
+import Reporter from '../../utils/reporter.js';
 
 async function verifyFullJourney() {
   const reporter = new Reporter('Full User Journey Verification');

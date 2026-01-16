@@ -1,0 +1,58 @@
+{
+  "timestamp": "2026-01-15T23:50:59.748Z",
+  "score": 0,
+  "totalScore": 0,
+  "maxScore": 5,
+  "results": [
+    {
+      "id": "UI_LANDING_VISUAL_QUALITY",
+      "status": "FAILED",
+      "score": 0,
+      "maxScore": 5,
+      "evidence": [
+        {
+          "type": "screenshotEval",
+          "result": {
+            "pass": false,
+            "subScores": {
+              "layout": 0,
+              "clarity": 0,
+              "polish": 0
+            },
+            "reasoning": "Evaluation failed: 404 The model `gpt-4-vision-preview` has been deprecated, learn more here: https://platform.openai.com/docs/deprecations",
+            "screenshotPath": "screenshots/harness-landingPageUISchema-1768521057313.png",
+            "sessionId": "02a3637c-d470-4f11-8b54-d52927114536"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DASHBOARD_PROFILE_OBSERVE",
+      "status": "SKIPPED_DEPENDENCY",
+      "reason": "Unmet prerequisites: UI_LANDING_VISUAL_QUALITY",
+      "score": 0,
+      "evidence": []
+    }
+  ],
+  "scoringConfig": {
+    "categories": {
+      "UIQuality": {
+        "maxScore": 50,
+        "subcategories": {
+          "Landing": {
+            "maxScore": 5
+          }
+        }
+      },
+      "Robustness": {
+        "maxScore": 50,
+        "subcategories": {
+          "ProfileLoad": {
+            "maxScore": 5
+          }
+        }
+      }
+    },
+    "normalization": "0-100"
+  }
+}

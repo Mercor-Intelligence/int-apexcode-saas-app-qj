@@ -17,9 +17,9 @@
  * - 404 page shows for invalid handle
  */
 
-import { launchBrowser, closeBrowser, screenshotOnFailure, apiRequest } from '../utils/browser.js';
-import { config } from '../config.js';
-import Reporter from '../utils/reporter.js';
+import { launchBrowser, closeBrowser, screenshotOnFailure, apiRequest } from '../../utils/browser.js';
+import { config } from '../../config.js';
+import Reporter from '../../utils/reporter.js';
 
 async function verifyPublicProfile() {
   const reporter = new Reporter('Public Profile Verification');

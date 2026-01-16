@@ -1,0 +1,18 @@
+{
+  "categories": {
+    "UIQuality": {
+      "maxScore": 50,
+      "subcategories": {
+        "Landing": { "maxScore": 5 }
+      }
+    },
+    "Robustness": {
+      "maxScore": 50,
+      "subcategories": {
+        "ProfileLoad": { "maxScore": 5 }
+      }
+    }
+  },
+  "normalization": "0-100"
+}
+
