@@ -1,0 +1,54 @@
+[
+  {
+    "id": "UI_LANDING_VISUAL_QUALITY",
+    "description": "Landing page renders with coherent layout and primary CTA visible",
+    "prereqs": [],
+    "primitive_chain": [
+      {
+        "type": "screenshotEval",
+        "inputs": {
+          "url": "/",
+          "schema": "landingPageUISchema"
+        }
+      }
+    ],
+    "scoring": {
+      "category": "UIQuality",
+      "subcategory": "Landing",
+      "maxScore": 5,
+      "thresholds": [0.7, 0.8, 0.9]
+    },
+    "evidence": {
+      "screenshots": true,
+      "logs": true
+    }
+  },
+  {
+    "id": "DASHBOARD_PROFILE_OBSERVE",
+    "description": "Dashboard loads and profile preview renders under normal network conditions",
+    "prereqs": ["UI_LANDING_VISUAL_QUALITY"],
+    "primitive_chain": [
+      {
+        "type": "networkIntercept",
+        "inputs": {
+          "url": "/dashboard",
+          "mode": "observe",
+          "expectation": {
+            "selector": ".profile-preview"
+          }
+        }
+      }
+    ],
+    "scoring": {
+      "category": "Robustness",
+      "subcategory": "ProfileLoad",
+      "maxScore": 5,
+      "thresholds": [0.7, 0.8, 0.9]
+    },
+    "evidence": {
+      "screenshots": true,
+      "logs": true
+    }
+  }
+]
+

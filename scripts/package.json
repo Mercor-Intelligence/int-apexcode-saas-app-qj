@@ -4,23 +4,27 @@
   "description": "Automated BrowserBase verification scripts for BioLink application",
   "type": "module",
   "scripts": {
-    "verify:signup": "node verifiers/signup.js",
-    "verify:login": "node verifiers/login.js",
-    "verify:links": "node verifiers/links.js",
-    "verify:profile": "node verifiers/profile.js",
-    "verify:public": "node verifiers/public-profile.js",
-    "verify:analytics": "node verifiers/analytics.js",
-    "verify:full": "node verifiers/full-journey.js",
+    "verify:signup": "node verifiers/frontend/signup.js",
+    "verify:login": "node verifiers/frontend/login.js",
+    "verify:links": "node verifiers/frontend/links.js",
+    "verify:profile": "node verifiers/frontend/profile.js",
+    "verify:public": "node verifiers/frontend/public-profile.js",
+    "verify:analytics": "node verifiers/frontend/analytics.js",
+    "verify:full": "node verifiers/frontend/full-journey.js",
+    "verify:network-intercept": "node verifiers/frontend/network-intercept.js",
+    "verify:screenshot-eval": "node verifiers/frontend/screenshot-eval.js",
     "verify:all": "node run-all-verifiers.js",
+    "verify:harness": "node harness/run-harness.js",
     "test": "node run-all-verifiers.js",
-    "test:full": "node verifiers/full-journey.js",
+    "test:full": "node verifiers/frontend/full-journey.js",
     "trajectory": "node run-with-trajectory.js",
     "trajectory:full": "node run-with-trajectory.js --full"
   },
   "dependencies": {
     "@browserbasehq/sdk": "^2.0.0",
     "playwright-core": "^1.40.0",
-    "dotenv": "^16.3.1"
+    "dotenv": "^16.3.1",
+    "openai": "^4.20.0"
   },
   "devDependencies": {}
 }

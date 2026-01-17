@@ -15,9 +15,9 @@
  * - Public profile reflects changes
  */
 
-import { launchBrowser, closeBrowser, screenshotOnFailure, apiRequest } from '../utils/browser.js';
-import { config } from '../config.js';
-import Reporter from '../utils/reporter.js';
+import { launchBrowser, closeBrowser, screenshotOnFailure, apiRequest } from '../../utils/browser.js';
+import { config } from '../../config.js';
+import Reporter from '../../utils/reporter.js';
 
 async function verifyProfile() {
   const reporter = new Reporter('Profile Management Verification');

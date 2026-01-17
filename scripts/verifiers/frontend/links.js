@@ -15,9 +15,9 @@
  * - Changes persist in database
  */
 
-import { launchBrowser, closeBrowser, screenshotOnFailure, apiRequest } from '../utils/browser.js';
-import { config } from '../config.js';
-import Reporter from '../utils/reporter.js';
+import { launchBrowser, closeBrowser, screenshotOnFailure, apiRequest } from '../../utils/browser.js';
+import { config } from '../../config.js';
+import Reporter from '../../utils/reporter.js';
 
 async function verifyLinks() {
   const reporter = new Reporter('Link Management Verification');

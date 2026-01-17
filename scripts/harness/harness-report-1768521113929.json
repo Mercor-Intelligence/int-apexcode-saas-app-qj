@@ -1,0 +1,69 @@
+{
+  "timestamp": "2026-01-15T23:51:53.929Z",
+  "score": 100,
+  "totalScore": 10,
+  "maxScore": 10,
+  "results": [
+    {
+      "id": "UI_LANDING_VISUAL_QUALITY",
+      "status": "PASSED",
+      "score": 5,
+      "maxScore": 5,
+      "evidence": [
+        {
+          "type": "screenshotEval",
+          "result": {
+            "pass": true,
+            "subScores": {
+              "layout": 0.95,
+              "clarity": 0.95,
+              "polish": 0.95
+            },
+            "reasoning": "The layout is well-organized with clear sections and excellent grid alignment, providing a professional and visually balanced appearance. The CTAs are prominent and clearly labeled, with strong visual hierarchy making primary actions immediately obvious. The design is polished and modern, with consistent styling and attention to detail, reflecting an enterprise-ready appearance.",
+            "screenshotPath": "screenshots/harness-landingPageUISchema-1768521098109.png",
+            "sessionId": "a973b344-3d79-4730-a20b-b367fdf42dce"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DASHBOARD_PROFILE_OBSERVE",
+      "status": "PASSED",
+      "score": 5,
+      "maxScore": 5,
+      "evidence": [
+        {
+          "type": "networkIntercept",
+          "result": {
+            "pass": true,
+            "mode": "observe",
+            "selector": ".profile-preview",
+            "screenshotPath": "screenshots/harness-network-intercept-1768521113415.png",
+            "sessionId": "4a4de3df-22cb-4341-979b-510db6e0067e"
+          }
+        }
+      ]
+    }
+  ],
+  "scoringConfig": {
+    "categories": {
+      "UIQuality": {
+        "maxScore": 50,
+        "subcategories": {
+          "Landing": {
+            "maxScore": 5
+          }
+        }
+      },
+      "Robustness": {
+        "maxScore": 50,
+        "subcategories": {
+          "ProfileLoad": {
+            "maxScore": 5
+          }
+        }
+      }
+    },
+    "normalization": "0-100"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "timestamp": "2026-01-15T21:58:29.900Z",
+  "score": 100,
+  "totalScore": 10,
+  "maxScore": 10,
+  "results": [
+    {
+      "id": "UI_LANDING_VISUAL_QUALITY",
+      "status": "PASSED",
+      "score": 5,
+      "maxScore": 5,
+      "evidence": [
+        {
+          "type": "screenshotEval",
+          "result": {
+            "pass": true,
+            "subScores": {
+              "layout": 0.82,
+              "clarity": 0.88,
+              "polish": 0.84
+            },
+            "reasoning": "Placeholder evaluator: layout and CTA placement look consistent.",
+            "screenshotPath": "screenshots/harness-landingPageUISchema-1768514301043.png",
+            "sessionId": "a471aa59-606c-491a-a972-ff74a58032b8"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DASHBOARD_PROFILE_OBSERVE",
+      "status": "PASSED",
+      "score": 5,
+      "maxScore": 5,
+      "evidence": [
+        {
+          "type": "networkIntercept",
+          "result": {
+            "pass": true,
+            "mode": "observe",
+            "selector": ".profile-preview",
+            "screenshotPath": "screenshots/harness-network-intercept-1768514309322.png",
+            "sessionId": "ee3807b2-024c-463d-aa8d-5a9ede540b9e"
+          }
+        }
+      ]
+    }
+  ],
+  "scoringConfig": {
+    "categories": {
+      "UIQuality": {
+        "maxScore": 50,
+        "subcategories": {
+          "Landing": {
+            "maxScore": 5
+          }
+        }
+      },
+      "Robustness": {
+        "maxScore": 50,
+        "subcategories": {
+          "ProfileLoad": {
+            "maxScore": 5
+          }
+        }
+      }
+    },
+    "normalization": "0-100"
+  }
+}

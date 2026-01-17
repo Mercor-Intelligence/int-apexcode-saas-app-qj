@@ -21,6 +21,10 @@ export { default as verifyThemeAnd404 } from './theme-and-404.js';
 export { default as verifyAnalyticsAdvanced } from './analytics-advanced.js';
 export { default as verifyResponsiveA11y } from './responsive-a11y.js';
 
+// Primitive-based verifiers (for harness demo)
+export { default as verifyNetworkIntercept } from './network-intercept.js';
+export { default as verifyScreenshotEval } from './screenshot-eval.js';
+
 // Grouped exports for easy iteration
 export const basicVerifiers = [
   { name: 'Signup', module: './signup.js' },
@@ -41,6 +45,11 @@ export const advancedVerifiers = [
   { name: 'Responsive & A11y', module: './responsive-a11y.js' }
 ];
 
-export default [...basicVerifiers, ...advancedVerifiers];
+export const primitiveVerifiers = [
+  { name: 'Network Intercept', module: './network-intercept.js' },
+  { name: 'Screenshot Eval', module: './screenshot-eval.js' }
+];
+
+export default [...basicVerifiers, ...advancedVerifiers, ...primitiveVerifiers];
 
 
